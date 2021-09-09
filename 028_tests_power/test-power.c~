@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+unsigned power(unsigned x, unsigned y);  // prototype for function to test
+
+void run_check(unsigned x, unsigned y, unsigned expected_ans) {
+  unsigned int ans = power(x, y);
+  if (ans != expected_ans) {
+    printf("Answer (%d) not equal to expected answer (%d)", ans, expected_ans);
+    exit(EXIT_FAILURE);
+  }
+
+  else {
+    printf("Power computed as expected!");
+    exit(EXIT_SUCCESS);
+  }
+}
+
+int main() {
+  // this is where we put our test cases
+  run_check(2, 2, 4);  // test a normal case
+  run_check(1, 1, 1);  // an edge case
+  run_check(0, 1, 0);
+  run_check(1, 0, 1);
+  //run_check(0);
+  //run_check(0);
+  //run_check(0);
+  //run_check(0);
+  //run_check(0);
+  return 0;
+}
