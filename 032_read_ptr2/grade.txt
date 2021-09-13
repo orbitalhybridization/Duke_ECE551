@@ -1,18 +1,10 @@
-Grading at 09/13/2021:18:54:58.512572
-For commit ID 08b7da59c84a058d206994c27a5c01148fa174f8
-Grading at Mon Sep 13 14:54:58 EDT 2021
+Grading at 09/13/2021:19:00:09.034423
+For commit ID 102cd20ead6fe3801c665ffc73f2d60cb3d40e33
+Grading at Mon Sep 13 15:00:08 EDT 2021
 Attempting to compile test.c
 gcc -Wall -Wextra --pedantic --std=gnu99 test.c -o test
 compiled
-I expected to find a file called 'answer.txt' but it did not exist
-(or was not a regular file)
-Here are the files that I can find:
-answers.txt
-Makefile
-#Makefile#
-README
-test
-test.c
-Your output did not match what we expected.
+Your file matched the expected output
+Your output matched what we expected
 
-Overall Grade: FAILED
+Overall Grade: PASSED
