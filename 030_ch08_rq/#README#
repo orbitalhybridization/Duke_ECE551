@@ -1,7 +1,7 @@
 As always, read and understand Chapter 8, then answer these questions
 in "answers.txt". 
 
-1. Why does the naive_swap function fail?
+1. Why does thOCe naive_swap function fail?
 
 A. The function is recursive without a base case.
 B. The function uses variables x and y but the caller users variables
