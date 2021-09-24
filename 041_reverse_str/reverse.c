@@ -6,6 +6,9 @@ void reverse(char * str) {
   int length = 0;
   char * left = str;
 
+  if (str == NULL) {  // handle null
+    return;
+  }
   while (*str != '\0') {  // get length of string
     str++;                // iterate through
     length++;
