@@ -16,6 +16,9 @@ void reverse(char * str) {
   }  // we're done if we have length 1 or 2
 
   char * right = str - 1;
+  if (length % 2 == 1) {
+    length -= 1;
+  }
   for (int i = 0; i < length / 2; i++) {
     char temp1 = *left;
     char temp2 = *right;
