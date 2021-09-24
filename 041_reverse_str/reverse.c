@@ -26,6 +26,9 @@ void reverse(char * str) {
     *left = temp2;
     left++;
     right--;
+    if (left == right) {
+      break;
+    }
   }
 }
 
