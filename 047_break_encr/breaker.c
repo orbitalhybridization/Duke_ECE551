@@ -41,9 +41,12 @@ int main(int argc, char ** argv) {
   }
   int e_guess = array_max(char_count, 26);
   // translate e_guess
+  printf(
+      "I think e is encrypted as letter %d. Or in ASCII, %d.\n", e_guess, e_guess + 97);
   int encryption_key = e_guess - 4;
-  while (encryption_key < 0) {  // make positive
-    encryption_key += (26);
+
+  if (encryption_key < 0) {
+    encryption_key += 26;
   }
 
   fprintf(stdout, "%d\n", encryption_key);  // print guess and return
