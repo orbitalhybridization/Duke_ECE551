@@ -12,6 +12,16 @@ int array_max(int * array, int size) {  // take an array and return index of lar
   return max;
 }
 
+int abs_val(int left, int right) {  // calculate absolute value of two ints subtracted
+  if ((left - right) < 0) {
+    return (left - right) * (-1);
+  }
+
+  else {
+    return (left - right);
+  }
+}
+
 int main(int argc, char ** argv) {
   if (argc != 2) {  // need 2 arguments
     fprintf(stderr, "Usage: ./breaker [filename]\n");
@@ -23,14 +33,16 @@ int main(int argc, char ** argv) {
   int char_count[26] = {0};  // set up character count, init to 0
 
   int c;
-  while ((c = fgetc(f)) != EOF) {  // loop through
+  while ((c = fgetc(f)) != EOF) {  // loop through and add to chars
     if (isalpha(c)) {
-      c = tolower(c);      // make lowercase to make our lives easier
-      c -= 97;             // move out of ascii
-      char_count[c] += 1;  // update frequency count
+      c = tolower(c);           // make lowercase to make our lives easier
+      char_count[c - 97] += 1;  // update frequency count
     }
   }
   int e_guess = array_max(char_count, 26);
+  // translate e_guess
+  int encryption_key = (abs_val(e_guess, 26) - 4);
 
-  fprintf(stdout, "%d\n", e_guess - 101);  // print guess and return
+  fprintf(stdout, "%d\n", encryption_key);  // print guess and return
+  return EXIT_SUCCESS;
 }
