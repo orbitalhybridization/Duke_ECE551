@@ -1,12 +1,12 @@
-Grading at 09/26/2021:20:30:00.525307
-For commit ID 58fdc74d0e4d6d482a47fdbf032ccb53917735de
-Grading at Sun Sep 26 16:29:55 EDT 2021
+Grading at 09/26/2021:21:12:01.609358
+For commit ID 570ffd0ebf2cbb6bcdacd7dd80d4c1e359d2c4e8
+Grading at Sun Sep 26 17:11:56 EDT 2021
 Attempting to compile breaker.c 
-make: 'breaker' is up to date.
+gcc -o breaker breaker.c -Wall -Wextra --pedantic --std=gnu99 -ggdb3
 testcase1 passed
 #################################################
 testcase2:
-testcase2 passed
+testcase2 failed
 #################################################
 testcase3:
 testcase3 failed
