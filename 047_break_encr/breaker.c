@@ -41,7 +41,10 @@ int main(int argc, char ** argv) {
   }
   int e_guess = array_max(char_count, 26);
   // translate e_guess
-  int encryption_key = (abs_val(e_guess, 26) - 4);
+  int encryption_key = e_guess - 4;
+  while (encryption_key < 0) {  // make positive
+    encryption_key += (26);
+  }
 
   fprintf(stdout, "%d\n", encryption_key);  // print guess and return
   return EXIT_SUCCESS;
