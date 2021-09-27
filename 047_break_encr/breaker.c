@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int array_max(int * array, int size) {  // take an array and return index of largest value
+int array_max(int * array,
+              int size) {  // take an array and return index of largest value
   int max = 0;
   for (int i = 0; i < size; i++) {
     if (array[i] > max) {
@@ -41,11 +42,12 @@ int main(int argc, char ** argv) {
   }
   int e_guess = array_max(char_count, 26);
   // translate e_guess
-  printf(
-      "I think e is encrypted as letter %d. Or in ASCII, %d.\n", e_guess, e_guess + 97);
+  printf("I think e is encrypted as the letter %c. Or in ASCII, %d.\n",
+         e_guess + 97,
+         e_guess + 97);
   int encryption_key = e_guess - 4;
 
-  if (encryption_key < 0) {
+  while (encryption_key < 0) {
     encryption_key += 26;
   }
 
