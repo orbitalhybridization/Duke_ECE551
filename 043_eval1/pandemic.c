@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 country_t parseLine(char * line) {
-  uint64_t population;
   country_t ans;
   country_t failure;
   failure.name[0] = '\0';
@@ -13,6 +12,7 @@ country_t parseLine(char * line) {
   // FILL NAME
   for (int i = 0; i < 64; i++) {
     if ((*line) == ',') {
+      ans.name[i] = '\0';  // end as string
       break;
     }  // stop if we've reached population
 
@@ -33,15 +33,16 @@ country_t parseLine(char * line) {
   }
 
   // FILL POPULATION
-  line++;                                     // skip the comma
-  const char * population_str = line;         // create container for population
-  int population_int = atoi(population_str);  // convert to int
+  line++;                                          // skip the comma
+  const char * population_str = line;              // create container for population
+  uint64_t population_int = atoi(population_str);  // convert to int
+  /*
   if (population_int < 0) {                   // check for non-zero
     fprintf(stderr, "Population must be non-zero.");
     return failure;
   }
-
-  else if (population_int > (pow(2, 64) - 1)) {  // check for size
+3
+  else if (population_int > (power(2, 64) - 1)) {  // check for size
     fprintf(stderr, "Population too large.");
     return failure;
   }
@@ -50,11 +51,30 @@ country_t parseLine(char * line) {
     population = (uint64_t)population_int;  // cast to proper type
     ans.population = population;
   }
+  */
+
+  ans.population = population_int;
   return ans;
 }
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
-  //WRITE ME
+  /*
+  if ((n_days % 7) != 0) {
+    fprintf(stderr,"Must be over seven days!");
+    *avg = 0.0;
+    return;
+  }
+  */
+
+  int left = 0;  // set up indices for averaging
+  int right = 7;
+  size_t len_avg = n_days - 6;            // set up length of average array
+  for (size_t i = 0; i < len_avg; i++) {  // do this number of times to fill avg
+    for (int j = left; j < right; j++) {
+      avg[i] += data[j];  // add to average
+    }
+    avg[i] = avg[i] / 7;  // average over 7 day streak3
+  }
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
