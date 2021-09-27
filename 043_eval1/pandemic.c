@@ -74,6 +74,8 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
       avg[i] += data[j];  // add to average
     }
     avg[i] = avg[i] / 7;  // average over 7 day streak3
+    left++;
+    right++;
   }
 }
 
