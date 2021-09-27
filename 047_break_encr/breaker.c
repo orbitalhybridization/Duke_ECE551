@@ -40,15 +40,17 @@ int main(int argc, char ** argv) {
       char_count[c - 97] += 1;  // update frequency count
     }
   }
-  int e_guess = array_max(char_count, 26);
-  // translate e_guess
-  printf("I think e is encrypted as the letter %c. Or in ASCII, %d.\n",
-         e_guess + 97,
-         e_guess + 97);
-  int encryption_key = e_guess - 4;
 
-  while (encryption_key < 0) {
-    encryption_key += 26;
+  int encryption_key;
+  int e_guess = array_max(char_count, 26);
+  char e_guess_char = e_guess + 'a';  // translate to char
+  // translate e_guess
+  if (e_guess_char < 'e') {
+    encryption_key = e_guess_char + 26 - 4;
+  }
+
+  else {
+    encryption_key = e_guess_char + 26;
   }
 
   fprintf(stdout, "%d\n", encryption_key);  // print guess and return
