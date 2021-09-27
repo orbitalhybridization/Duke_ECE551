@@ -1,0 +1,13 @@
+blank.txt
+0;95;0ceof.txt
+escape_chars.txt
+nonexistent.txt
+non-typable.txt
+numbers.txt
+
+regular_file.txt quotes.txt
+regular_file.txt
+matrix.txt
+number_matrix.txt
+new.txt
+0xff.txt
