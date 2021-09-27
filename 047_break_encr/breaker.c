@@ -6,7 +6,7 @@ int array_max(int * array,
               int size) {  // take an array and return index of largest value
   int max = 0;
   for (int i = 0; i < size; i++) {
-    if (array[i] > max) {
+    if (array[i] > array[max]) {
       max = i;
     }
   }
