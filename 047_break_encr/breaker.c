@@ -36,11 +36,11 @@ int main(int argc, char ** argv) {
   char e_guess_char = e_guess + 'a';  // translate to char
   // translate e_guess
   if (e_guess_char < 'e') {
-    encryption_key = e_guess_char - 4;
+    encryption_key = e_guess_char - 'e';
   }
 
   else {
-    encryption_key = e_guess_char - 4 + 26;
+    encryption_key = e_guess_char - 'e' + 26;
   }
 
   fprintf(stdout, "%d\n", encryption_key);  // print guess and return
