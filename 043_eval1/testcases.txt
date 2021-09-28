@@ -1,5 +1,8 @@
 #error
 printCountries invalid.csv
+printCountries corrupted_population.csv
+printCumulative invalid.csv
+printCumulative corrupted.csv
 
 #success
 printCountries population.csv
