@@ -68,12 +68,13 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 
   int left = 0;  // set up indices for averaging
   int right = 7;
-  size_t len_avg = n_days - 6;            // set up length of average array
-  for (size_t i = 0; i < len_avg; i++) {  // do this number of times to fill avg
+  int len_avg = n_days - 6;            // set up length of average array
+  for (int i = 0; i < len_avg; i++) {  // do this number of times to fill avg
+    avg[i] = 0;
     for (int j = left; j < right; j++) {
       avg[i] += data[j];  // add to average
     }
-    avg[i] = avg[i] / 7;  // average over 7 day streak3
+    avg[i] = avg[i] / 7;  // average over 7 day streak
     left++;
     right++;
   }
