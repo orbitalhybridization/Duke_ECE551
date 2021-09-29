@@ -21,6 +21,15 @@ printCumulative population.csv population.csv
 printCumulative untypable_population.csv daily_small.csv
 printCumulative population.csv corrupted_daily_small.csv
 
+printDailyMax non_csv.txt
+printDailyMax non_csv.txt non_csv.txt
+printDailyMax missing.csv missing.csv
+printDailyMax population.csv missing.csv
+printDailyMax missing.csv population.csv
+printDailyMax population.csv population.csv
+printDailyMax untypable_population.csv daily_small.csv
+printDailyMax population.csv corrupted_daily_small.csv
+
 #success
 printCountries population.csv
 printRunningAvg population.csv daily_small.csv
