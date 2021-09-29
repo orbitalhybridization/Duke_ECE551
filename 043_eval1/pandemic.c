@@ -16,7 +16,7 @@ country_t parseLine(char * line) {
       break;
     }  // stop if we've reached population
 
-    else if (line == NULL) {  // check we haven't reached end of line
+    else if (*line == '\0') {  // check we haven't reached end of line
       fprintf(stderr, "Not a valid line.");
       return failure;
     }
