@@ -70,7 +70,7 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
   int right = 7;
   int len_avg = n_days - 6;            // set up length of average array
   for (int i = 0; i < len_avg; i++) {  // do this number of times to fill avg
-    avg[i] = 0;
+    avg[i] = 0.0;
     for (int j = left; j < right; j++) {
       avg[i] += (double)data[j];  // add to average
     }
