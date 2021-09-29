@@ -12,7 +12,6 @@ printRunningAvg missing.csv population.csv
 printRunningAvg population.csv population.csv
 printRunningAvg untypable_population.csv daily_small.csv
 printRunningAvg population.csv corrupted_daily_small.csv
-printRunningAvg population.csv empty.txt
 
 printCumulative non_csv.txt
 printCumulative non_csv.txt non_csv.txt
