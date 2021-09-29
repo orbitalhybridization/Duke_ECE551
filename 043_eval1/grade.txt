@@ -1,6 +1,6 @@
-Grading at 09/29/2021:12:21:27.442980
-For commit ID ff740c3b21ab5a950f66f41a722764282df031a8
-Grading at Wed Sep 29 08:21:20 EDT 2021
+Grading at 09/29/2021:17:13:39.576127
+For commit ID 6cdbf296f8e46dec4854acdefcfb347acc44a32e
+Grading at Wed Sep 29 13:13:31 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -20,6 +20,18 @@ Test case printCountries no_commas_population.csv
 : 0
 : 0
 : 0
+Your program did not indicate a failure case
++-----------------------------------------------------------------------+
+Test case printCountries untypable_population.csv
+Brzil: 212559409
+: 0
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
 Your program did not indicate a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
