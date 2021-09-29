@@ -47,8 +47,6 @@ country_t parseLine(char * line) {
 }
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
-  // check that
-
   int left = 0;  // set up indices for averaging
   int right = 7;
   int len_avg = n_days - 6;            // set up length of average array
@@ -64,10 +62,6 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 }
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
-  // check that data is the same length as n_days
-
-  // check that cum is long enough
-
   double pop_ratio = (double)pop / 100000.00;  // calculate how much we need to divide by
 
   for (size_t i = 0; i < n_days; i++) {  // loop through data and add to double cum
