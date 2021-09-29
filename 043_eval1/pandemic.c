@@ -63,7 +63,13 @@ void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
 
 void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) {
   double pop_ratio = (double)pop / 100000.00;  // calculate how much we need to divide by
-  for (size_t i = 0; i < n_days; i++) {        // loop through data and add to double cum
+  if (pop_ratio <= 0.0) {                      // check for divide by zero or negative
+    fprintf(stderr,
+            "Population entered is less than or equal to zero which is just not how we "
+            "wanna do this, my dude.");
+    exit(EXIT_FAILURE);
+  }
+  for (size_t i = 0; i < n_days; i++) {  // loop through data and add to double cum
     cum[i] = ((double)data[i]) / pop_ratio;
   }
 
