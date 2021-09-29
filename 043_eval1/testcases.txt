@@ -9,8 +9,17 @@ printRunningAvg missing.csv missing.csv
 printRunningAvg population.csv missing.csv
 printRunningAvg missing.csv population.csv
 printRunningAvg population.csv population.csv
-printRunningAvg untypable_population daily_small_cases.csv
-printRunningAvg population.csv corrupted_daily_small_cases.csv
+printRunningAvg untypable_population.csv daily_small.csv
+printRunningAvg population.csv corrupted_daily_small.csv
+
+printCumulative non_csv.txt
+printCumulative non_csv.txt non_csv.txt
+printCumulative missing.csv missing.csv
+printCumulative population.csv missing.csv
+printCumulative missing.csv population.csv
+printCumulative population.csv population.csv
+printCumulative untypable_population.csv daily_small.csv
+printCumulative population.csv corrupted_daily_small.csv
 
 #success
 printCountries population.csv
