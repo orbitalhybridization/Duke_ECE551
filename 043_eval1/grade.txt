@@ -1,6 +1,6 @@
-Grading at 09/29/2021:18:03:09.700408
-For commit ID 05e5e171cbec53962130c733ca3a95923ac65924
-Grading at Wed Sep 29 14:02:56 EDT 2021
+Grading at 09/29/2021:18:11:07.158310
+For commit ID 3b9fc813ffb37e3257beab29a237ab8e7ab8346f
+Grading at Wed Sep 29 14:10:48 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -38,10 +38,38 @@ Your program successfully indicated a failure case
 Test case printRunningAvg population.csv population.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case printRunningAvg untypable_population daily_small_cases.csv
+Test case printRunningAvg untypable_population.csv daily_small.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv corrupted_daily_small_cases.csv
+Test case printRunningAvg population.csv corrupted_daily_small.csv
+Your program successfully indicated a failure case
+
+Compiling printCumulative
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCumulative.o -o printCumulative
++-----------------------------------------------------------------------+
+Test case printCumulative non_csv.txt
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCumulative non_csv.txt non_csv.txt
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCumulative missing.csv missing.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv missing.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCumulative missing.csv population.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv population.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCumulative untypable_population.csv daily_small.csv
+Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCumulative population.csv corrupted_daily_small.csv
 Your program successfully indicated a failure case
 
 Compiling printCountries
