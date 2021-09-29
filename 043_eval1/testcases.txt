@@ -1,4 +1,7 @@
 #error
+printCountries non_csv.txt
+printCountries missing.csv
+
 
 #success
 printCountries population.csv
