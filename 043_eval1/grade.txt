@@ -1,17 +1,38 @@
-Grading at 09/29/2021:02:45:21.289981
-For commit ID 3ab4d7163b148be5f5472ccbfb361fea0a28fd2c
-Grading at Tue Sep 28 22:45:15 EDT 2021
+Grading at 09/29/2021:11:50:50.488304
+For commit ID 3409e2d72138a08e6675e2a7b0167eee8f70c2e3
+Grading at Wed Sep 29 07:50:43 EDT 2021
 Running your test cases
 
 Compiling printCountries
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o printCountries
 +-----------------------------------------------------------------------+
-Test case printCountries non_csv.txt
-Our printCountries does not consider this an error case
-+-----------------------------------------------------------------------+
 Test case printCountries missing.csv
 Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries no_commas_population.csv
+: 0
+: 0
+: 0
+: 0
+: 0
+: 0
+: 0
+: 0
+: 0
+Your program did not indicate a failure case
++-----------------------------------------------------------------------+
+Test case printCountries untypable_population.csv
+Brzil: 212559409
+: 0
+Germany: 83783945
+India: 1380004385
+Nigeria: 206139587
+Norway: 5421242
+South Korea: 51269183
+United Kingdom: 67886004
+United States: 331002647
+Your program did not indicate a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
 Your file matched the expected output
