@@ -6,9 +6,6 @@
 
 country_t parseLine(char * line) {
   country_t ans;
-  country_t failure;
-  failure.name[0] = '\0';
-  failure.population = 0;
 
   // FILL NAME
   for (int i = 0; i < 64; i++) {
