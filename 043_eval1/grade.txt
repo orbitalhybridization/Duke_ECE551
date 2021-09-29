@@ -1,6 +1,6 @@
-Grading at 09/29/2021:18:19:18.565153
-For commit ID d47da5d4f9f3def4d747f86678c51c1887c4fc09
-Grading at Wed Sep 29 14:18:57 EDT 2021
+Grading at 09/29/2021:18:26:29.263765
+For commit ID f5b48ab98b1785b821579ca125f8af96e0e840cf
+Grading at Wed Sep 29 14:26:08 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -15,6 +15,9 @@ Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries untypable_population.csv
 Your program successfully indicated a failure case
++-----------------------------------------------------------------------+
+Test case printCountries nametoolong.csv
+Our printCountries does not consider this an error case
 
 Compiling printRunningAvg
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -120,7 +123,7 @@ Your file matched the expected output
 Grading has taken more than 20 seconds
 Skipping remaining test cases
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
