@@ -32,12 +32,12 @@ country_t parseLine(char * line) {
   if ((*line) !=
       ',') {  // if we've gone through 64 chars but no ',' then name is too long
     fprintf(stderr, "Name too long!");
-    return failure;
+    exit(EXIT_FAILURE);
   }
 
   if ((*line) == '\0') {  // check if we've reached the end
     fprintf(stderr, "No comma!");
-    return failure;
+    exit(EXIT_FAILURE);
   }
 
   // FILL POPULATION

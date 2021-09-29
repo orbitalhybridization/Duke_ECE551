@@ -3,6 +3,15 @@ printCountries missing.csv
 printCountries no_commas_population.csv
 printCountries untypable_population.csv
 
+printRunningAvg non_csv.txt
+printRunningAvg non_csv.txt non_csv.txt
+printRunningAvg missing.csv missing.csv
+printRunningAvg population.csv missing.csv
+printRunningAvg missing.csv population.csv
+printRunningAvg population.csv population.csv
+printRunningAvg untypable_population daily_small_cases.csv
+printRunningAvg population.csv corrupted_daily_small_cases.csv
+
 #success
 printCountries population.csv
 printRunningAvg population.csv daily_small.csv
