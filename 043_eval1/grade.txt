@@ -1,6 +1,6 @@
-Grading at 09/29/2021:17:25:48.722137
-For commit ID a6051aa1a07a157a03b8021ce64e60b1a0a06c9f
-Grading at Wed Sep 29 13:25:41 EDT 2021
+Grading at 09/29/2021:17:29:04.635696
+For commit ID ddb1d8cfc5cae252838924653a805ca364a1c85e
+Grading at Wed Sep 29 13:28:57 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -11,28 +11,10 @@ Test case printCountries missing.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries no_commas_population.csv
-: 0
-: 0
-: 0
-: 0
-: 0
-: 0
-: 0
-: 0
-: 0
-Valgrind reported memory errors
+Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries untypable_population.csv
-Brzil: 212559409
-Bhina: 1439323774
-Germany: 83783945
-India: 1380004385
-Nigeria: 206139587
-Norway: 5421242
-South Korea: 51269183
-United Kingdom: 67886004
-United States: 331002647
-Valgrind reported memory errors
+Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
 Your file matched the expected output
@@ -67,7 +49,7 @@ Your file matched the expected output
 Test case printDailyMax population.csv daily_cases.csv
 Your file matched the expected output
 
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
