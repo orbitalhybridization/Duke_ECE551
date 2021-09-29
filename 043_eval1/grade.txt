@@ -1,6 +1,6 @@
-Grading at 09/29/2021:19:26:41.593664
-For commit ID 950e5165e6f5b6dc94e498e5d926889e13275330
-Grading at Wed Sep 29 15:26:20 EDT 2021
+Grading at 09/29/2021:20:59:27.471766
+For commit ID ffb3e15a19eb6eab6dce46dd2a0a52c88db330d8
+Grading at Wed Sep 29 16:59:06 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -115,9 +115,6 @@ rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
 +-----------------------------------------------------------------------+
 Test case printRunningAvg population.csv daily_small.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv daily_cases.csv
 Your file matched the expected output
 
 Grading has taken more than 20 seconds
