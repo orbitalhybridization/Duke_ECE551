@@ -98,7 +98,7 @@ void printCountryWithMax(country_t * countries,
                          unsigned ** data,
                          size_t n_days) {
   char * max_country_name;  // container for country with most cases
-  unsigned max_number_cases;
+  unsigned max_number_cases = 0;
   int tie = 0;                                // boolean for whether there is a tie or not
   for (size_t i = 0; i < n_countries; i++) {  // loop through countries
     for (size_t j = 0; j < n_days; j++) {     // loop through days
