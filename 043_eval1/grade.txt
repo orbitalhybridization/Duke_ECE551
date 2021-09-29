@@ -1,6 +1,6 @@
-Grading at 09/29/2021:19:12:05.645602
-For commit ID a9a389ee21306eb4ff024aa986823dbccc96851e
-Grading at Wed Sep 29 15:11:44 EDT 2021
+Grading at 09/29/2021:19:26:41.593664
+For commit ID 950e5165e6f5b6dc94e498e5d926889e13275330
+Grading at Wed Sep 29 15:26:20 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -46,9 +46,6 @@ Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printRunningAvg population.csv corrupted_daily_small.csv
 Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printRunningAvg population.csv empty.txt
-Valgrind reported memory errors
 
 Compiling printCumulative
 rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
@@ -113,10 +110,20 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o pri
 Test case printCountries population.csv
 Your file matched the expected output
 
+Compiling printRunningAvg
+rm -f *~ printCountries printRunningAvg printCumulative printDailyMax
+gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printRunningAvg.o -o printRunningAvg
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printRunningAvg population.csv daily_cases.csv
+Your file matched the expected output
+
 Grading has taken more than 20 seconds
 Skipping remaining test cases
 
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
