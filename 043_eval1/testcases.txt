@@ -1,6 +1,6 @@
 #error
 printCountries missing.csv
-printCountries long_name.csv
+printCountries no_commas_population.csv
 
 #success
 printCountries population.csv
