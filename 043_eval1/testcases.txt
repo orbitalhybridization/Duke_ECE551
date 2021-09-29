@@ -2,6 +2,7 @@
 printCountries missing.csv
 printCountries no_commas_population.csv
 printCountries untypable_population.csv
+printCountries nametoolong.csv
 
 printRunningAvg non_csv.txt
 printRunningAvg non_csv.txt non_csv.txt
