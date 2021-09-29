@@ -18,7 +18,7 @@ country_t parseLine(char * line) {
 
     else if ((*line) == '\0') {  // check we haven't reached end of line
       fprintf(stderr, "Not a valid line.");
-      return failure;
+      EXIT_FAILURE;
     }
 
     else {  // otherwise fill up name box
