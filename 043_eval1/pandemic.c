@@ -86,13 +86,11 @@ void calcCumulative(unsigned * data, size_t n_days, uint64_t pop, double * cum) 
     cum[i] = ((double)data[i]) / pop_ratio;
   }
 
-  /*
-  int cumulative = 0;
-  for (size_t i = 0; i < n_days; i++) { // loop back through and calculate cumulative
+  double cumulative = 0.0;
+  for (size_t i = 0; i < n_days; i++) {  // loop back through and calculate cumulative
     cumulative += cum[i];
     cum[i] = cumulative;
   }
-  */
 }
 
 void printCountryWithMax(country_t * countries,
