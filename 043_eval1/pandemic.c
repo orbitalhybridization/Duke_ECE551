@@ -1,5 +1,6 @@
 #include "pandemic.h"
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -18,7 +19,7 @@ country_t parseLine(char * line) {
 
     else if ((*line) == '\0') {  // check we haven't reached end of line
       fprintf(stderr, "Not a valid line.");
-      EXIT_FAILURE;
+      exit(EXIT_FAILURE);
     }
 
     else {  // otherwise fill up name box
