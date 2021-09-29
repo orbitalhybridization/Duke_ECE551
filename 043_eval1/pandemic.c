@@ -16,7 +16,7 @@ country_t parseLine(char * line) {
       break;
     }  // stop if we've reached population
 
-    else if (*line == '\0') {  // check we haven't reached end of line
+    else if ((*line) == '\0') {  // check we haven't reached end of line
       fprintf(stderr, "Not a valid line.");
       return failure;
     }
@@ -24,15 +24,17 @@ country_t parseLine(char * line) {
     else {  // otherwise fill up name box
       ans.name[i] = *line;
     }
+
     line++;  // point to next character
   }
 
-  if (*line != ',') {  // if we've gone through 64 chars but no ',' then name is too long
+  if ((*line) !=
+      ',') {  // if we've gone through 64 chars but no ',' then name is too long
     fprintf(stderr, "Name too long!");
     return failure;
   }
 
-  if (*line == '\0') {  // check if we've reached the end
+  if ((*line) == '\0') {  // check if we've reached the end
     fprintf(stderr, "No comma!");
     return failure;
   }
@@ -41,37 +43,12 @@ country_t parseLine(char * line) {
   line++;                                          // skip the comma
   const char * population_str = line;              // create container for population
   uint64_t population_int = atoi(population_str);  // convert to int
-  /*
-  if (population_int < 0) {                   // check for non-zero
-    fprintf(stderr, "Population must be non-zero.");
-    return failure;
-  }
-3
-  else if (population_int > (power(2, 64) - 1)) {  // check for size
-    fprintf(stderr, "Population too large.");
-    return failure;
-  }
-
-  else {
-    population = (uint64_t)population_int;  // cast to proper type
-    ans.population = population;
-  }
-  */
-
   ans.population = population_int;
 
   return ans;
 }
 
 void calcRunningAvg(unsigned * data, size_t n_days, double * avg) {
-  /*
-  if ((n_days % 7) != 0) {
-    fprintf(stderr,"Must be over seven days!");
-    *avg = 0.0;
-    return;
-  }
-  */
-
   int left = 0;  // set up indices for averaging
   int right = 7;
   int len_avg = n_days - 6;            // set up length of average array

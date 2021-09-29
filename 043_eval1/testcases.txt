@@ -1,6 +1,7 @@
 #error
 printCountries missing.csv
 printCountries no_commas_population.csv
+printCountries untypable_population.csv
 
 #success
 printCountries population.csv
