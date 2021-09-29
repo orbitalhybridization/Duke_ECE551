@@ -1,6 +1,6 @@
-Grading at 09/29/2021:12:13:28.116623
-For commit ID 407996515842beb74a7e13f152da83e79fe95da7
-Grading at Wed Sep 29 08:13:22 EDT 2021
+Grading at 09/29/2021:12:21:27.442980
+For commit ID ff740c3b21ab5a950f66f41a722764282df031a8
+Grading at Wed Sep 29 08:21:20 EDT 2021
 Running your test cases
 
 Compiling printCountries
@@ -10,8 +10,17 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 pandemic.c printCountries.o -o pri
 Test case printCountries missing.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
-Test case printCountries long_name.csv
-Our printCountries does not consider this an error case
+Test case printCountries no_commas_population.csv
+: 0
+: 0
+: 0
+: 0
+: 0
+: 0
+: 0
+: 0
+: 0
+Your program did not indicate a failure case
 +-----------------------------------------------------------------------+
 Test case printCountries population.csv
 Your file matched the expected output
