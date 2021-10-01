@@ -40,7 +40,13 @@ int main(int argc, char ** argv) {
   //WRITE YOUR CODE HERE!
 
   if (argc == 1) {  // if we have no args, read from stdin
-    readLines(stdin);
+    if (stdin == NULL) {
+      fprintf(stderr, "Nothing in stdin!");
+      exit(EXIT_FAILURE);
+    }
+    else {
+      readLines(stdin);
+    }
   }
 
   else if (argc == 2) {  // otherwise treat as file
@@ -49,9 +55,13 @@ int main(int argc, char ** argv) {
       fprintf(stderr, "File could not be read!");
       exit(EXIT_FAILURE);
     }
-
     else {
       readLines(f);
+    }
+    int result = fclose(f);  // try to close
+    if (result != 0) {       // check if we can close
+      fprintf(stderr, "File could not be closed!");
+      exit(EXIT_FAILURE);
     }
   }
 
