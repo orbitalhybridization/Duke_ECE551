@@ -65,5 +65,10 @@ int main(int argc, char ** argv) {
     }
   }
 
+  else {
+    fprintf(stderr, "Incorrect number of arguments!");
+    exit(EXIT_FAILURE);
+  }
+
   return EXIT_SUCCESS;
 }
