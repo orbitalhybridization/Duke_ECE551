@@ -20,6 +20,11 @@ void readLines(FILE * input) {
   size_t sz;
   char * current_line = NULL;
 
+  if (input == NULL) {
+    fprintf(stderr, "Input invalid.");
+    exit(EXIT_FAILURE);
+  }
+
   while (getline(&current_line, &sz, input) >= 0) {  // read from command line input
     lines = realloc(lines, (size_array + 1) * sizeof(*lines));  // resize array of strings
     lines[size_array] = current_line;
@@ -29,6 +34,7 @@ void readLines(FILE * input) {
   }
   free(current_line);           // we don't need current line anymore
   sortData(lines, size_array);  // sort lines of input
+
   for (size_t index = 0; index < size_array; index++) {
     printf("%s", lines[index]);  // print results
     free(lines[index]);          // free memory
