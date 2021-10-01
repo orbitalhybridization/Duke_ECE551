@@ -55,25 +55,22 @@ int main(int argc, char ** argv) {
     }
   }
 
-  else if (argc == 2) {  // otherwise treat as file
-    FILE * f = fopen(argv[1], "r");
-    if (f == NULL) {  // case: we couldn't read the file!
-      fprintf(stderr, "File could not be read!");
-      exit(EXIT_FAILURE);
+  else {                              // otherwise treat as file
+    for (int i = 1; i < argc; i++) {  // loop through all args
+      FILE * f = fopen(argv[i], "r");
+      if (f == NULL) {  // case: we couldn't read the file!
+        fprintf(stderr, "File could not be read!");
+        exit(EXIT_FAILURE);
+      }
+      else {
+        readLines(f);
+      }
+      int result = fclose(f);  // try to close
+      if (result != 0) {       // check if we can close
+        fprintf(stderr, "File could not be closed!");
+        exit(EXIT_FAILURE);
+      }
     }
-    else {
-      readLines(f);
-    }
-    int result = fclose(f);  // try to close
-    if (result != 0) {       // check if we can close
-      fprintf(stderr, "File could not be closed!");
-      exit(EXIT_FAILURE);
-    }
-  }
-
-  else {
-    fprintf(stderr, "Incorrect number of arguments!");
-    exit(EXIT_FAILURE);
   }
 
   return EXIT_SUCCESS;
