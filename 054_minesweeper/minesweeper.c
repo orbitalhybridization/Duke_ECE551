@@ -128,7 +128,7 @@ int countMines(board_t * b, int x, int y) {
     left = -1;
   }
 
-  if (x == b->width - 1) {  // far right case
+  if (x == (b->width - 1)) {  // far right case
     left += right;
     right = -1;
   }
@@ -138,7 +138,7 @@ int countMines(board_t * b, int x, int y) {
     down = -1;
   }
 
-  if (y == b->height - 1) {  // far upper case
+  if (y == (b->height - 1)) {  // far upper case
     down += up;
     up = -1;
   }
