@@ -114,9 +114,21 @@ void printBoard(board_t * b) {
   }
   printf("\nFound %d of %d mines\n", found, b->totalMines);
 }
+
+int onBoardAndContainsMine(board_t * b,
+                           int y,
+                           int x) {  // check that a square is on the board and has a mine
+  if (((x < b->width) && (y < b->height)) && ((x > 0) && (y > 0))) {
+    if (IS_MINE(b->board[y][x])) {
+      return 1;
+    }
+  }
+  return 0;
+}
+
 int countMines(board_t * b, int x, int y) {
   int mineCount = 0;
-  int ** board = b->board;
+  // int ** board = b->board;
   // We'll set up like a "movement token system"
   int up = 1;
   int down = 1;
@@ -145,35 +157,25 @@ int countMines(board_t * b, int x, int y) {
 
   // check surrounding squares
   // check upper left
-  mineCount += board[y + up][x - left];
+  mineCount += onBoardAndContainsMine(b, y + up, x - left);
   // up
-  mineCount += board[y + up][x];
+  mineCount += onBoardAndContainsMine(b, y + up, x);
   // right up
-  mineCount += board[y + up][x + right];
+  mineCount += onBoardAndContainsMine(b, y + up, x + right);
   // left
-  mineCount += board[y][x - left];
+  mineCount += onBoardAndContainsMine(b, y, x - left);
   // right
-  mineCount += board[y][x + right];
+  mineCount += onBoardAndContainsMine(b, y, x + right);
   // left down
-  mineCount += board[y - down][x - left];
+  mineCount += onBoardAndContainsMine(b, y - down, x - left);
   // down
-  mineCount += board[y - down][x];
+  mineCount += onBoardAndContainsMine(b, y - down, x);
   // right down
-  mineCount += board[y - down][x + right];
+  mineCount += onBoardAndContainsMine(b, y - down, x + right);
 
   return mineCount;
 }
 
-int onBoardAndContainsMine(board_t * b,
-                           int x,
-                           int y) {  // check that a square is on the board and has a mine
-  if (((x < b->width) && (y < b->height)) && ((x > 0) && (y > 0))) {
-    if (IS_MINE(b->board[y][x])) {
-      return 1;
-    }
-  }
-  return 0;
-}
 int click(board_t * b, int x, int y) {
   if (x < 0 || x >= b->width || y < 0 || y >= b->height) {
     return CLICK_INVALID;
