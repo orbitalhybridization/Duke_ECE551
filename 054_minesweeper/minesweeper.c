@@ -64,6 +64,7 @@ board_t * makeBoard(int w, int h, int numMines) {
 
   return board;
 }
+
 void printBoard(board_t * b) {
   int found = 0;
   printf("    ");
@@ -136,22 +137,22 @@ int countMines(board_t * b, int x, int y) {
   int right = 1;
 
   if (x == 0) {  // far left case, we can't move more left so give a token to right
-    right += left;
+    right = 2;
     left = -1;
   }
 
   if (x == (b->width - 1)) {  // far right case
-    left += right;
+    left = 2;
     right = -1;
   }
 
   if (y == 0) {  // far bottom case
-    up += down;
+    up = 2;
     down = -1;
   }
 
   if (y == (b->height - 1)) {  // far upper case
-    down += up;
+    down = 2;
     up = -1;
   }
 
