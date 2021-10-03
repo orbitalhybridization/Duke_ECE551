@@ -118,7 +118,7 @@ void printBoard(board_t * b) {
 int onBoardAndContainsMine(board_t * b,
                            int y,
                            int x) {  // check that a square is on the board and has a mine
-  if (((x < b->width) && (y < b->height)) && ((x > 0) && (y > 0))) {
+  if (((x < b->width) && (y < b->height)) && ((x >= 0) && (y >= 0))) {
     if (IS_MINE(b->board[y][x])) {
       return 1;
     }
