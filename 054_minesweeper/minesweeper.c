@@ -119,7 +119,7 @@ void printBoard(board_t * b) {
 int onBoardAndContainsMine(board_t * b,
                            int y,
                            int x) {  // check that a square is on the board and has a mine
-  if (((y < b->width) && (x < b->height)) && ((x >= 0) && (y >= 0))) {
+  if (((y < b->height) && (x < b->width)) && ((x >= 0) && (y >= 0))) {
     if (IS_MINE(b->board[y][x])) {
       return 1;
     }
@@ -158,29 +158,29 @@ int countMines(board_t * b, int x, int y) {
 
   // check surrounding squares
   // check upper left
-  //mineCount += onBoardAndContainsMine(b, y + up, x - left);
-  mineCount += onBoardAndContainsMine(b, x - left, y + up);
+  mineCount += onBoardAndContainsMine(b, y + up, x - left);
+  //mineCount += onBoardAndContainsMine(b, x - left, y + up);
   // up
-  //mineCount += onBoardAndContainsMine(b, y + up, x);
-  mineCount += onBoardAndContainsMine(b, x, y + up);
+  mineCount += onBoardAndContainsMine(b, y + up, x);
+  //mineCount += onBoardAndContainsMine(b, x, y + up);
   // right up
-  //mineCount += onBoardAndContainsMine(b, y + up, x + right);
-  mineCount += onBoardAndContainsMine(b, x + right, y + up);
+  mineCount += onBoardAndContainsMine(b, y + up, x + right);
+  //mineCount += onBoardAndContainsMine(b, x + right, y + up);
   // left
-  //mineCount += onBoardAndContainsMine(b, y, x - left);
-  mineCount += onBoardAndContainsMine(b, x - left, y);
+  mineCount += onBoardAndContainsMine(b, y, x - left);
+  //mineCount += onBoardAndContainsMine(b, x - left, y);
   // right
-  //mineCount += onBoardAndContainsMine(b, y, x + right);
-  mineCount += onBoardAndContainsMine(b, x + right, y);
+  mineCount += onBoardAndContainsMine(b, y, x + right);
+  //mineCount += onBoardAndContainsMine(b, x + right, y);
   // left down
-  //mineCount += onBoardAndContainsMine(b, y - down, x - left);
-  mineCount += onBoardAndContainsMine(b, x - left, y - down);
+  mineCount += onBoardAndContainsMine(b, y - down, x - left);
+  //mineCount += onBoardAndContainsMine(b, x - left, y - down);
   // down
-  //mineCount += onBoardAndContainsMine(b, y - down, x);
-  mineCount += onBoardAndContainsMine(b, x, y - down);
+  mineCount += onBoardAndContainsMine(b, y - down, x);
+  //mineCount += onBoardAndContainsMine(b, x, y - down);
   // right down
-  //mineCount += onBoardAndContainsMine(b, y - down, x + right);
-  mineCount += onBoardAndContainsMine(b, x + right, y - down);
+  mineCount += onBoardAndContainsMine(b, y - down, x + right);
+  //mineCount += onBoardAndContainsMine(b, x + right, y - down);
 
   return mineCount;
 }
