@@ -52,15 +52,15 @@ board_t * makeBoard(int w, int h, int numMines) {
 
   board_t * board = malloc(sizeof(*board));  // init pointer
 
-  for (int i = 0; i < numMines; i++) {
-    addRandomMine(board);  // create random mines on empty board
-  }
-
   // Init the members of the struct
   board->board = board_array;
   board->height = h;
   board->width = w;
   board->totalMines = numMines;
+
+  for (int i = 0; i < numMines; i++) {
+    addRandomMine(board);  // create random mines on empty board
+  }
 
   return board;
 }
