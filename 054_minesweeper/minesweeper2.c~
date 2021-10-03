@@ -123,7 +123,8 @@ int countMines(board_t * b, int x, int y) {
   int left = 1;
   int right = 1;
 
-  if (x == 0) {  // far left case, we can't move more left so give a token to right
+  if (x ==
+      0) {  // in the case of the far left, we can't move more left so give a token to right
     right += left;
     left = -1;
   }
@@ -143,36 +144,37 @@ int countMines(board_t * b, int x, int y) {
     up = -1;
   }
 
-  // check surrounding squares
-  // check upper left
-  mineCount += board[y + up][x - left];
-  // up
-  mineCount += board[y + up][x];
-  // right up
-  mineCount += board[y + up][x + right];
-  // left
-  mineCount += board[y][x - left];
-  // right
-  mineCount += board[y][x + right];
-  // left down
-  mineCount += board[y - down][x - left];
-  // down
-  mineCount += board[y - down][x];
-  // right down
-  mineCount += board[y - down][x + right];
+  // now we use the tokens to search in either direction
+  int * surrounding_sq[8] = {};
 
-  return mineCount;
+  // left up
+  int upper_left_sq = board[y+up][x-left]
+      
+  // up
+  int upper_sq = board[y+up][x];
+  // right up
+  int upper_right_sq = board[y+up][x+right];
+  // left
+  int left_sq = board[y][x-left];
+  // right
+  board[y][x+right];
+  // left down
+  board[y-down][x-left]
+
+  // down
+  board[y-down][x]
+  // right down
+  board[y-down][x+right]
+  return 0;
 }
 
-int onBoardAndContainsMine(board_t * b,
-                           int x,
-                           int y) {  // check that a square is on the board and has a mine
+int onBoard(board_t * b, int x, int y) {  // check that a square is on the board
   if (((x < b->width) && (y < b->height)) && ((x > 0) && (y > 0))) {
-    if (IS_MINE(b->board[y][x])) {
-      return 1;
-    }
+    return 1;
   }
-  return 0;
+  else {
+    return 0;
+  }
 }
 int click(board_t * b, int x, int y) {
   if (x < 0 || x >= b->width || y < 0 || y >= b->height) {
@@ -193,27 +195,12 @@ int click(board_t * b, int x, int y) {
 }
 
 int checkWin(board_t * b) {
-  int ** board = b->board;
-
-  for (int i = 0; i < b->height; i++) {
-    for (int j = 0; j < b->width; j++) {
-      if (board[i][j] == UNKNOWN) {
-        return 0;
-      }
-    }
-  }
-  return 1;
+  //WRITE ME!
+  return 0;
 }
 
 void freeBoard(board_t * b) {
-  int ** board = b->board;
-  for (int i = 0; i < b->height; i++) {  // free rows
-    free(board[i]);
-  }
-
-  free(board);  // free columns
-
-  free(b);  // finally, free struct
+  //WRITE ME!
 }
 
 int readInt(char ** linep, size_t * lineszp) {
