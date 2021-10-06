@@ -137,23 +137,23 @@ int countMines(board_t * b, int x, int y) {
   int right = 1;
 
   if (x == 0) {  // far left case, we can't move more left so give a token to right
-    right = 2;
-    left = -1;
-  }
-
-  if (x == (b->width - 1)) {  // far right case
     left = 2;
     right = -1;
   }
 
+  if (x == (b->width - 1)) {  // far right case
+    right = 2;
+    left = -1;
+  }
+
   if (y == 0) {  // far bottom case
-    down = 2;
-    up = -1;
+    up = 2;
+    down = -1;
   }
 
   if (y == (b->height - 1)) {  // far upper case
-    up = 2;
-    down = -1;
+    down = 2;
+    up = -1;
   }
 
   // check surrounding squares
