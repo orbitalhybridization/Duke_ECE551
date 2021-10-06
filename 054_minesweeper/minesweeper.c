@@ -147,40 +147,32 @@ int countMines(board_t * b, int x, int y) {
   }
 
   if (y == 0) {  // far bottom case
-    up = 2;
-    down = -1;
+    down = 2;
+    up = -1;
   }
 
   if (y == (b->height - 1)) {  // far upper case
-    down = 2;
-    up = -1;
+    up = 2;
+    down = -1;
   }
 
   // check surrounding squares
   // check upper left
   mineCount += onBoardAndContainsMine(b, y + up, x - left);
-  //mineCount += onBoardAndContainsMine(b, x - left, y + up);
   // up
   mineCount += onBoardAndContainsMine(b, y + up, x);
-  //mineCount += onBoardAndContainsMine(b, x, y + up);
   // right up
   mineCount += onBoardAndContainsMine(b, y + up, x + right);
-  //mineCount += onBoardAndContainsMine(b, x + right, y + up);
   // left
   mineCount += onBoardAndContainsMine(b, y, x - left);
-  //mineCount += onBoardAndContainsMine(b, x - left, y);
   // right
   mineCount += onBoardAndContainsMine(b, y, x + right);
-  //mineCount += onBoardAndContainsMine(b, x + right, y);
   // left down
   mineCount += onBoardAndContainsMine(b, y - down, x - left);
-  //mineCount += onBoardAndContainsMine(b, x - left, y - down);
   // down
   mineCount += onBoardAndContainsMine(b, y - down, x);
-  //mineCount += onBoardAndContainsMine(b, x, y - down);
   // right down
   mineCount += onBoardAndContainsMine(b, y - down, x + right);
-  //mineCount += onBoardAndContainsMine(b, x + right, y - down);
 
   return mineCount;
 }
