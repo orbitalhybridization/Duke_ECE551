@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+struct kv_pair_ {
+  char * key;
+  int value;
+};
+typedef struct kv_pair_t kv_pair;
+
+int checkSeen(char * key, kv_pair * array, size_t size) {
+  for (size_t i = 0; i < size; i++) {
+    if (strcmp
+  }
+}
+
+int main(int argc, char ** argv) {
+  if
+}
