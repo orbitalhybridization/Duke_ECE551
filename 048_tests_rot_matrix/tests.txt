@@ -1,5 +1,5 @@
 blank.txt
-0;95;0ceof.txt
+eof.txt
 escape_chars.txt
 nonexistent.txt
 non-typable.txt
