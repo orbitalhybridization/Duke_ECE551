@@ -18,11 +18,17 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
     fprintf(stderr, "Unable to open file!");
     exit(EXIT_FAILURE);
   }
-  while (getline(&line, &size, f) >= 0) {          // get each string
-    addCount(counts, lookupValue(kvPairs, line));  // add value to count if able
+  char * readValue =
+      malloc(sizeof(*readValue));          // variable for copying string without \n
+  while (getline(&line, &size, f) >= 0) {  // get each string
+    readValue = realloc(readValue, strlen(line));            // allocate space
+    readValue = strncpy(readValue, line, strlen(line) - 1);  // cut off \n
+    readValue[strlen(line) - 1] = '\0';  // put in null terminator for good measure
+    addCount(counts, lookupValue(kvPairs, readValue));  // add value to count if able
   }
   fclose(f);
   free(line);
+  free(readValue);
   return counts;
 }
 
