@@ -39,13 +39,12 @@ int main(int argc, char ** argv) {
   //count from 2 to argc (call the number you count i)
   for (int i = 2; i < argc; i++) {
     //count the values that appear in the file named by argv[i], using kv as the key/value pair
-    //   (call this result c)
+    //(call this result c)
     counts_t * c = countFile(argv[i], kv);
     //compute the output file name from argv[i] (call this outName)
     char * outName = computeOutputFileName(argv[i]);
     //open the file named by outName (call that f)
     FILE * f = fopen(outName, "w");
-
     // check we're able to open file
     if (f == NULL) {
       fprintf(stderr, "Unable to open dat file!");
@@ -58,8 +57,7 @@ int main(int argc, char ** argv) {
     //free the memory for outName and c
     free(outName);
     free(c);
-    //free the memory for kv
-    free(kv);
   }
+  free(kv);
   return EXIT_SUCCESS;
 }
