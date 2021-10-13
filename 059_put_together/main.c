@@ -54,6 +54,8 @@ int main(int argc, char ** argv) {
     // check we're able to open file
     if (f == NULL) {
       fprintf(stderr, "Unable to open dat file!");
+      free(c);
+      free(outName);
       exit(EXIT_FAILURE);
     }
     //print the counts from c into the FILE f
@@ -62,8 +64,8 @@ int main(int argc, char ** argv) {
     fclose(f);
     //free the memory for outName and c
     free(outName);
-    free(c);
+    freeCounts(c);
   }
-  free(kv);
+  freeKVs(kv);
   return EXIT_SUCCESS;
 }
