@@ -1,6 +1,6 @@
-Grading at 10/12/2021:23:48:31.797147
-For commit ID 2d6832f8eb624be04b17ec7b7c75979ed8fb96fe
-Grading at Tue Oct 12 19:48:25 EDT 2021
+Grading at 10/13/2021:00:07:17.014206
+For commit ID 0ac3ce8ddc7f4deb3dcf44ef0bd505f007b6e3a6
+Grading at Tue Oct 12 20:07:11 EDT 2021
 Attempting to compile:
 rm -f  outname.o  counts.o  main.o  kv.o count_values *~
 gcc -c -Wall -Werror -std=gnu99 -pedantic -ggdb3 outname.c
@@ -15,74 +15,33 @@ testcase1 passed, your program successfully indicated a failure
 valgrind was clean
 #################################################
 testcase2:
-Line_3_did_not_match
-Your file did not match the expected output
+Your file matched the expected output
 Comparing file list1a.txt.counts with answer
 Your output is correct
 Comparing file list1b.txt.counts with answer
-Line_4_did_not_match
-Your file did not match the expected output
-Your output is incorrect
+Your file matched the expected output
+Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase3:
 Your file matched the expected output
 Comparing file list2a.txt.counts with answer
 Your output is correct
 Comparing file list2b.txt.counts with answer
-Line_2_did_not_match
-Your file did not match the expected output
-Your output is incorrect
+Your file matched the expected output
+Your output is correct
 Comparing file list2c.txt.counts with answer
 Your file matched the expected output
 Your output is correct
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 #################################################
 testcase4:
 Your file matched the expected output
 Comparing file list3a.txt.counts with answer
 Your output is correct
-  - Valgrind reported errors
-valgrind was not clean
-==54534== Memcheck, a memory error detector
-==54534== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==54534== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==54534== 
-==54534== Parent PID: 54533
-==54534== 
-==54534== 
-==54534== HEAP SUMMARY:
-==54534==     in use at exit: 21,423 bytes in 46 blocks
-==54534==   total heap usage: 20,731 allocs, 20,685 frees, 100,155,611 bytes allocated
-==54534== 
-==54534== 8 bytes in 1 blocks are definitely lost in loss record 1 of 11
-==54534==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==54534==    by 0x109469: readKVs (kv.c:58)
-==54534==    by 0x109148: main (main.c:44)
-==54534== 
-==54534== 8 bytes in 1 blocks are definitely lost in loss record 2 of 11
-==54534==    at 0x4C2FB0F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==54534==    by 0x108BA1: createCounts (counts.c:8)
-==54534==    by 0x108FA9: countFile (main.c:13)
-==54534==    by 0x10917E: main (main.c:49)
-==54534== 
-==54534== 575 (48 direct, 527 indirect) bytes in 1 blocks are definitely lost in loss record 8 of 11
-==54534==    at 0x4C31D2F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==54534==    by 0x108CED: addCount (counts.c:34)
-==54534==    by 0x109098: countFile (main.c:27)
-==54534==    by 0x10917E: main (main.c:49)
-==54534== 
-==54534== 20,832 (64 direct, 20,768 indirect) bytes in 1 blocks are definitely lost in loss record 11 of 11
-==54534==    at 0x4C31D2F: realloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==54534==    by 0x109414: readKVs (kv.c:53)
-==54534==    by 0x109148: main (main.c:44)
-==54534== 
-==54534== LEAK SUMMARY:
-==54534==    definitely lost: 128 bytes in 4 blocks
-==54534==    indirectly lost: 21,295 bytes in 42 blocks
-==54534==      possibly lost: 0 bytes in 0 blocks
-==54534==    still reachable: 0 bytes in 0 blocks
-==54534==         suppressed: 0 bytes in 0 blocks
-==54534== 
-==54534== For counts of detected and suppressed errors, rerun with: -v
-==54534== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
+  - Valgrind was clean (no errors, no memory leaks)
+valgrind was clean
 
-Overall Grade: C
+Overall Grade: A
