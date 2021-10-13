@@ -13,6 +13,7 @@ typedef struct _one_count_t one_count_t;
 struct _counts_t {
   size_t * size;
   one_count_t ** counts_array;
+  unsigned num_unknowns;
 };
 typedef struct _counts_t counts_t;
 
