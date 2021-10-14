@@ -27,5 +27,5 @@ double Vector2D::dot(const Vector2D & rhs) const {
 }
 
 void Vector2D::print() const {
-  printf("<%.2f,%.2f", this->x, this->y);
+  printf("<%.2f,%.2f>", this->x, this->y);
 }
