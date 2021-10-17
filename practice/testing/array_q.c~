@@ -1,0 +1,5 @@
+int dataA[] = {1, 2, 3};
+int dataB[] = {4, 5, 6};
+int * dataC[] = {dataA, dataB};
+
+int data[][] = {{
