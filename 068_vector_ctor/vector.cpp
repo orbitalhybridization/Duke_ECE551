@@ -11,8 +11,7 @@ double Vector2D::getMagnitude() const {
 }
 
 Vector2D Vector2D::operator+(const Vector2D & rhs) const {
-  Vector2D newVector;
-  newVector.initVector(this->x + rhs.x, this->y + rhs.y);
+  Vector2D newVector(this->x + rhs.x, this->y + rhs.y);
   return newVector;
 }
 
