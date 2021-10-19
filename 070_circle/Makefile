@@ -1,6 +1,6 @@
 CPPFLAGS=-Wall -Werror -std=gnu++98 -pedantic -ggdb3
 
-circle: main.cpp points
+circles: main.cpp points
 	g++ -c main.cpp $(CPPFLAGS) -o circle
 
 points:
