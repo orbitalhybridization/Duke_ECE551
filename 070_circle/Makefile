@@ -7,4 +7,4 @@ points:
 	g++ -c point.cpp $(CPPFLAGS)
 
 clean:
-	rm -f circle points \#* *~ *.o
+	rm -f circles points \#* *~ *.o
