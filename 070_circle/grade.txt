@@ -1,10 +1,10 @@
-Grading at 10/19/2021:02:53:56.275143
-For commit ID ffdc6a4048c9366c022f00b691e1df59a7e296f8
-Grading at Mon Oct 18 22:53:55 EDT 2021
+Grading at 10/19/2021:02:54:46.341203
+For commit ID 5b95329d08bc97e4aa6a65c2122277c0a788145e
+Grading at Mon Oct 18 22:54:46 EDT 2021
 Attempting to compile:
 rm -f circle points \#* *~ *.o
 g++ -c point.cpp -Wall -Werror -std=gnu++98 -pedantic -ggdb3
-g++ -c main.cpp -Wall -Werror -std=gnu++98 -pedantic -ggdb3 -o circle
+g++ -c main.cpp -Wall -Werror -std=gnu++98 -pedantic -ggdb3 -o circles
 Running 'make' did not produce a file called 'circles'
 
 Overall Grade: FAILED
