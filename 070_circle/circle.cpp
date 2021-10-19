@@ -22,4 +22,4 @@ double Circle::intersectionArea(const Circle & otherCircle) {
       R_sq * std::acos((d_sq - r_sq + R_sq) / 2 * d * R) -
       0.5 * std::pow((d + r - R) * (d - r + R) * (-d + r + R) * (d + r + R), 0.5);
   return area;
-};
+}

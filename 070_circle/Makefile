@@ -1,10 +1,13 @@
 CPPFLAGS=-Wall -Werror -std=gnu++98 -pedantic -ggdb3
+SRCS=$(wildcard *.cpp)
+OBJS=$(patsubst %.cpp, %.o, $(SRCS))
+PROGRAM=circles
 
-circles: main.cpp points
-	g++ -c main.cpp $(CPPFLAGS) -o circles
+$(PROGRAM): $(OBJS)
+	g++ $(CPPFLAGS) -o $@ $(OBJS)
 
-points:
-	g++ -c point.cpp $(CPPFLAGS)
+%.o: %.cpp point.hpp circle.hpp
+	g++ -c $(CPPFLAGS) $<
 
 clean:
-	rm -f circles points \#* *~ *.o
+	rm -f $(OBJS) $(PROGRAM) *~
