@@ -1,10 +1,12 @@
-Grading at 10/19/2021:02:55:50.859851
-For commit ID c12a05a636a0e4546489677533e9a563e894a126
-Grading at Mon Oct 18 22:55:50 EDT 2021
+Grading at 10/19/2021:17:35:34.809574
+For commit ID 8ed9b9b44ab4dd4e0f757b73a4e69fede8a8f3c6
+Grading at Tue Oct 19 13:35:33 EDT 2021
 Attempting to compile:
-rm -f circles points \#* *~ *.o
-g++ -c point.cpp -Wall -Werror -std=gnu++98 -pedantic -ggdb3
-g++ -c main.cpp -Wall -Werror -std=gnu++98 -pedantic -ggdb3 -o circles
-Running 'make' did not produce a file called 'circles'
+rm -f  circle.o  point.o circles *~
+g++ -c -Wall -Werror -std=gnu++98 -pedantic -ggdb3 circle.cpp
+g++ -c -Wall -Werror -std=gnu++98 -pedantic -ggdb3 point.cpp
+g++ -Wall -Werror -std=gnu++98 -pedantic -ggdb3 -o circles  circle.o  point.o
+Found binary 'circles'
+Your output did not match what we expected.
 
 Overall Grade: FAILED
