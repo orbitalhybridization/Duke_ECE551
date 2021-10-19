@@ -1,0 +1,10 @@
+Grading at 10/19/2021:02:53:05.262982
+For commit ID 8e453ff6d3b8fa85728aacdc0997c7a86625cf11
+Grading at Mon Oct 18 22:53:04 EDT 2021
+Attempting to compile:
+rm -f circle points \#* *~ *.o
+g++ -c point.cpp -Wall -Werror -std=gnu++98 -pedantic -ggdb3
+g++ -c main.cpp -Wall -Werror -std=gnu++98 -pedantic -ggdb3 -o circle
+Running 'make' did not produce a file called 'circles'
+
+Overall Grade: FAILED
