@@ -23,10 +23,11 @@ int validateBlanks(char * line) {
 
 char ** deconstructLine(char * line) {
   // asynchronous example from man -S 3 getaddrinfo_a
+  // deconstruct line into an array of words
   char ** deconstructed_line = malloc(sizeof(*deconstructed_line));
   char * token;
   int i = 0;
-  while ((token = strtok(line, " ")) != NULL) {
+  while ((token = strtok(line, "_")) != NULL) {
     char * current_word;
     if (token[strlen(token)] == '\n') {                  // check if we're at the new line
       current_word = strndup(token, strlen(token) - 1);  // cut off '\n' from this
@@ -63,11 +64,11 @@ char * parseCategory(char * blank) {
   return category;
 }
 
-char ** getCategoriesFromLineArray(char ** line_array) {
+catarray_t * getCategoriesFromLineArray(char ** line_array) {
   // parse array of words and extract categories from each blank
-  char ** categories = malloc(sizeof(*categories));
-  int i = 0;  // counter for line_array
-  int j = 0;  // counter for categories
+  category_t * categories = malloc(sizeof(*categories));
+  int i = 0;     // counter for line_array
+  size_t j = 0;  // counter for categories
   while (strcmp(line_array[i], "\n") != 0) {
     // keep going until we've reached the last part of the array // NOTE: we might need null-terminator to us strcmp
     if (isCategory(line_array[i])) {
