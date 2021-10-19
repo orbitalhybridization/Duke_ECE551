@@ -1,0 +1,7 @@
+#include "circle.hpp"
+
+#include <stdlib.h>
+
+double Circle::intersectionArea(const Circle & otherCircle) {
+  // calculate the intersection area between this circle and other
+}
