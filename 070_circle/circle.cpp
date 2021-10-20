@@ -24,22 +24,25 @@ double Circle::intersectionArea(const Circle & otherCircle) {
   double R = radius;
   double d = center.distanceFrom(otherCircle.center);
   double d_sq = std::pow(d, 2);
+
+  if (d < std::abs(R - r)) {  // test case:one inside the other
+    if (r < R) {
+      return M_PI * r_sq;
+    }
+    else {
+      return M_PI * R_sq;
+    }
+  }
   if (r == R) {  // test case the are the same
     double area =
         2 * R_sq * std::acos(d / (2 * R)) - 0.5 * d * std::pow((4 * R_sq - d_sq), 0.5);
     return area;
   }
 
-  if (d == R + r) {  // test case: no intersection
-    return 0;
-  }
-  if (d < r) {
-    return M_PI * R_sq;
+  if (d >= (R + r)) {  // test case: no intersection
+    return 0.0;
   }
 
-  if (d < R) {
-    return M_PI * r_sq;
-  }
   double area =
       r_sq * std::acos((d_sq + r_sq - R_sq) / (2 * d * r)) +
       R_sq * std::acos((d_sq - r_sq + R_sq) / (2 * d * R)) -
