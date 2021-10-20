@@ -31,11 +31,11 @@ double Circle::intersectionArea(const Circle & otherCircle) {
     return 0;
   }
   if (d < r) {
-    return M_PI * r_sq;
+    return M_PI * R_sq;
   }
 
   if (d < R) {
-    return M_PI * R_sq;
+    return M_PI * r_sq;
   }
   double d_sq = std::pow(d, 2);
   double area =
