@@ -6,9 +6,7 @@
 
 IntArray::IntArray() : data(NULL), numElements(0) {
 }
-IntArray::IntArray(int n) {
-  numElements = n;
-  data = new int[numElements];
+IntArray::IntArray(int n) : data(new int[n]), numElements(n) {
 }
 
 IntArray::IntArray(const IntArray & rhs) :
@@ -84,6 +82,6 @@ std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
   for (int i = 0; i < rhs.size() - 1; i++) {
     s << rhs[i] << ", ";
   }
-  s << rhs.size() - 1 << "}";
+  s << rhs[rhs.size() - 1] << "}";
   return s;
 }
