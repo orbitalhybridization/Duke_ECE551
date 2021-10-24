@@ -25,16 +25,22 @@ int main(int argc, char ** argv) {
       std::string line;
       std::ifstream file(argv[i]);
       // open file for reading
+
+      if (!file.good()) {
+        std::cerr << "File not opening properly" << std::endl;
+        exit(EXIT_FAILURE);
+      }
+
       while (std::getline(file, line, '\n')) {
         lines.push_back(line);
       }
     }
+  }
 
-    std::sort(lines.begin(), lines.end());  // sort lines when done and print
+  std::sort(lines.begin(), lines.end());  // sort lines when done and print
 
-    for (size_t i = 0; i < lines.size(); i++) {
-      std::cout << lines[i] << std::endl;
-    }
+  for (size_t i = 0; i < lines.size(); i++) {
+    std::cout << lines[i] << std::endl;
   }
 
   return EXIT_SUCCESS;
