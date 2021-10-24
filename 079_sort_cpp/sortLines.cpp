@@ -12,8 +12,12 @@ int main(int argc, char ** argv) {
   if (argc == 1) {  // read from standard input
 
     std::string line;
-    while (std::getline(std::cin, line, '\n')) {
-      if (!std::cin.good()) {  // error check
+    if (!std::cin) {
+      std::cerr << "something went wrong!" << std::endl;
+      exit(EXIT_FAILURE);
+    }
+    while (std::getline(std::cin, line, '\n')) {  // get line
+      if (!std::cin.good()) {                     // error check
         std::cin.clear();
         std::string badinput;
         std::cin >> badinput;
@@ -34,15 +38,18 @@ int main(int argc, char ** argv) {
     }
   }
 
-  else {  // otherwise fill lines differently
-    for (int i = 1; i < argc; i++) {
-      lines.clear();  // clear for a new day!
+  else {                              // otherwise fill lines differently
+    for (int i = 1; i < argc; i++) {  // go through all files
+      lines.clear();                  // clear for a new day!
       std::string line;
       std::ifstream file(argv[i]);
+      if (!file) {  // check we opened correctly.
+        std::cerr << "something went wrong!" << std::endl;
+        exit(EXIT_FAILURE);
+      }
       // open file for reading
-
-      while (std::getline(file, line, '\n')) {
-        if (!file.good()) {  // error checking
+      while (std::getline(file, line, '\n')) {  // get line
+        if (!file.good()) {                     // error checking
           file.clear();
           std::string badinput;
           file >> badinput;
@@ -52,8 +59,10 @@ int main(int argc, char ** argv) {
           }
           else {
             std::cerr << "oops!" << std::endl;
+            exit(EXIT_FAILURE);
           }
         }
+
         lines.push_back(line);  // otherwise add to container as normal
       }
       std::sort(lines.begin(), lines.end());  // sort lines when done and print
