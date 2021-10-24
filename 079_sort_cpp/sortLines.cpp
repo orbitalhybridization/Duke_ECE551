@@ -22,9 +22,8 @@ int main(int argc, char ** argv) {
 
   else {  // otherwise fill lines differently
     for (int i = 1; i < argc; i++) {
-      std::string filename = argv[i];
       std::string line;
-      std::ifstream file(filename);
+      std::ifstream file(argv[i]);
       // open file for reading
       while (std::getline(file, line, '\n')) {
         lines.push_back(line);

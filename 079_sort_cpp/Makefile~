@@ -1,0 +1,6 @@
+CFLAGS=-ggdb3 -Wall -Werror -std=gnu99 -pedantic
+sortLines: sortLines.cpp
+	gcc $(CFLAGS) -o sortLines sortLines.cpp
+
+clean:
+	rm -f sortLines *~
