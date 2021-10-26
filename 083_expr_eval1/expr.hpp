@@ -42,4 +42,8 @@ class PlusExpression : public Expression {
     out << ")";
     return out.str();  // cast to string and return
   }
+  virtual ~PlusExpression() {
+    delete left_op;  // free memory
+    delete right_op;
+  }
 };
