@@ -63,8 +63,8 @@ catarray_t * getCategoriesFromLine(char * line) {
   return categories;
 }
 
-char * replaceBlanksWithWords(char * line) {
-  // go through an array of words and replace each category blank with a word
+char * replaceBlanksWithCats(char * line) {
+  // go through an line of words and replace each category blank with a word
   char * new_line = malloc(sizeof(*new_line));
   size_t i = 0;
   while (*line != '\0') {
@@ -103,24 +103,12 @@ char * parseLine(char * line) {
   }
 
   // replace blanks with words in their category
-  parsedLine = replaceBlanksWithWords(&line[0]);
+  parsedLine = replaceBlanksWithCats(&line[0]);
 
   return parsedLine;
 }
 
-int main(int argc, char ** argv) {
-  // error check num command line args
-  if (argc != 2) {
-    fprintf(stderr, "Correct usage: ./story-step1 [filename]");
-    exit(EXIT_FAILURE);
-  }
-  // open file for read
-  FILE * f = fopen(argv[1], "r");
-  // error check file opened correctly
-  if (f == NULL) {
-    fprintf(stderr, "Could not open file!");
-    exit(EXIT_FAILURE);
-  }
+void readLines(FILE * f) {
   // read line by line
   size_t sz;
   char * line = NULL;
@@ -131,7 +119,24 @@ int main(int argc, char ** argv) {
     free(parsedLine);
   }
   free(line);
+}
 
+int main(int argc, char ** argv) {
+  // error check num command line args
+  if (argc != 2) {
+    fprintf(stderr, "Correct usage: ./story-step1 [filename]");
+    exit(EXIT_FAILURE);
+  }
+
+  // open file for read
+  FILE * f = fopen(argv[1], "r");
+  // error check file opened correctly
+  if (f == NULL) {
+    fprintf(stderr, "Could not open file!");
+    exit(EXIT_FAILURE);
+  }
+
+  readLines(f);  // read file line by line
   // close file
   fclose(f);
 }
