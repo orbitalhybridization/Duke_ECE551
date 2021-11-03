@@ -49,7 +49,7 @@ int categoryIndex(char * name, category_t * arr, size_t n_categories) {
   return -1;
 }
 
-void addWord(char * word, category_t * arr, size_t index) {
+void addWordToCategory(char * word, category_t * arr, size_t index) {
   // add a word to a category
   arr[index].words =
       realloc(arr[index].words, sizeof(*arr[index].words) * (arr[index].n_words + 1));
@@ -57,15 +57,16 @@ void addWord(char * word, category_t * arr, size_t index) {
   arr[index].n_words++;
 }
 
-void addNewCategory(category_t category, category_t * arr, size_t n_categories) {
+category_t * addNewCategory(category_t category, category_t * arr, size_t n_categories) {
   // add new category to an array
   arr = realloc(arr, sizeof(*arr) * (n_categories + 1));
   arr[n_categories].name = category.name;
   arr[n_categories].words = category.words;
   arr[n_categories].n_words = 1;
+  return arr;
 }
 
-void freeCatarray(catarray_t * categories) {
+void freeCatArray(catarray_t * categories) {
   // free fields of a catarray struct
   for (size_t i = 0; i < categories->n; i++) {
     category_t * curr_cat = &categories->arr[i];
@@ -74,7 +75,7 @@ void freeCatarray(catarray_t * categories) {
     }
     free(curr_cat->words);
     free(curr_cat->name);
-    free(curr_cat);
+    //free(curr_cat);
   }
   free(categories->arr);
   free(categories);
@@ -90,11 +91,11 @@ catarray_t * readLines(FILE * f) {
   while (getline(&line, &sz, f) >= 0) {
     category_t category = parseWordsLine(&line[0]);
     int index = categoryIndex(category.name, arr, n_categories);
-    if (index >= 0) {                          // check if we've seen this category before
-      addWord(category.words[0], arr, index);  // if so, just add its word
+    if (index >= 0) {  // check if we've seen this category before
+      addWordToCategory(category.words[0], arr, index);  // if so, just add its word
     }
     else {  // otherwise add as new
-      addNewCategory(category, arr, n_categories);
+      arr = addNewCategory(category, arr, n_categories);
       n_categories++;
     }
   }
@@ -126,7 +127,7 @@ int main(int argc, char ** argv) {
   printWords(categories);
 
   // free associated memory
-  freeCatarray(categories);
+  freeCatArray(categories);
 
   // close file
   fclose(f);
