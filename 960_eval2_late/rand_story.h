@@ -10,7 +10,7 @@ int validateBlanks(
 category_t * parseCategoryFromBlank(
     char * blank_index);  // parse category from blank (_cat_ -> cat)
 
-catarray_t * getCategoriesFromLink(
+catarray_t * getCategoriesFromLine(
     char * line);  // parse line and extract categories from each blank
 
 char * replaceBlanksWithCategory(

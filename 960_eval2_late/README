@@ -127,7 +127,7 @@ adjective:
   peculiar
   scary
   peaceful
-  
+
 Each line of the input file must have a colon (':'). The category name may
 be any characters (except a colon), and the replacement word is everything
 following the colon until (and not including) the newline. We place no

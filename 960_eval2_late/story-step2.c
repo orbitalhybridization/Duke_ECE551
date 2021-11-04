@@ -10,26 +10,31 @@ category_t parseWordsLine(char * line) {
   category_t category;
   char * name = malloc(sizeof(*name));
   int i = 0;
-  if (*line == ':') {  // check if we have ':' as a cat name which is illegal
-    fprintf(stderr, "Can't have ':' as a category name");
-    exit(EXIT_FAILURE);
-  }
   while (*line != ':') {  // fill name field with category name
-    name = realloc(name, sizeof(*name) * (i + 1));
+    name = realloc(name, sizeof(*name) * (i + 2));
     name[i] = *line;
     line++;
     i++;
+    if (*line ==
+        '\0') {  // if we've reached the end without hitting a colon, then we have invalid formate
+      fprintf(
+          stderr,
+          "Invalid category format (no colon found).  Correct format: category:word.");
+      exit(EXIT_FAILURE);
+    }
   }
+  name[i] = '\0';  // add null terminator
   line++;
   char ** words = malloc(sizeof(*words));
   char * curr_word = malloc(sizeof(*curr_word));
   i = 0;
   while (*line != '\n') {  // fill word array with current replacement word
-    curr_word = realloc(curr_word, sizeof(*curr_word) * (i + 1));
+    curr_word = realloc(curr_word, sizeof(*curr_word) * (i + 2));
     curr_word[i] = *line;
     line++;
     i++;
   }
+  curr_word[i] = '\0';   // add null terminator
   words[0] = curr_word;  // set array to point to copied word
   category.words = words;
   category.name = name;
@@ -66,6 +71,14 @@ category_t * addNewCategory(category_t category, category_t * arr, size_t n_cate
   return arr;
 }
 
+void freeCategory(category_t * category) {
+  // free individual category
+  for (size_t j = 0; j < category->n_words; j++) {
+    free(category->words[j]);
+  }
+  free(category->name);
+  free(category->words);
+}
 void freeCatArray(catarray_t * categories) {
   // free fields of a catarray struct
   for (size_t i = 0; i < categories->n; i++) {
@@ -93,11 +106,13 @@ catarray_t * readLines(FILE * f) {
     int index = categoryIndex(category.name, arr, n_categories);
     if (index >= 0) {  // check if we've seen this category before
       addWordToCategory(category.words[0], arr, index);  // if so, just add its word
+      freeCategory(&category);  // we're not gonna use the category we made so free it
     }
     else {  // otherwise add as new
       arr = addNewCategory(category, arr, n_categories);
       n_categories++;
     }
+    //freeCategory(&category);  // free the memory
   }
   free(line);
 

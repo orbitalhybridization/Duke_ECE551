@@ -1,3 +1,4 @@
+/*
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -48,4 +49,8 @@ int main(int argc, char ** argv) {
     fprintf(stderr, "Correct usage: ./story-step3 [words file] [story template file]");
     exit(EXIT_FAILURE);
   }
+}
+*/
+int main() {
+  return 1;
 }
