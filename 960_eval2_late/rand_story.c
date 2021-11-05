@@ -4,6 +4,35 @@
 #include <stdlib.h>
 #include <string.h>
 
+void processStoryTemplate(char * filename, catarray_t * categories) {
+  // open story template and read line by line
+  // then close
+  FILE * f = fopen(filename, "r");
+  // error check file opened correctly
+  if (f == NULL) {
+    fprintf(stderr, "Could not open file!");
+    exit(EXIT_FAILURE);
+  }
+
+  size_t sz;
+  char * line = NULL;
+  // set up container for previous categories to pass with each read
+  category_t * previous_categories = malloc(sizeof(*previous_categories));
+  previous_categories->n_words = 0;
+  char ** words = malloc(sizeof(*words));
+  previous_categories->words = words;
+
+  // now read line by line
+  while (getline(&line, &sz, f) >= 0) {
+    char * parsedLine = parseStoryLine(line, categories, previous_categories);
+    printf("%s",
+           parsedLine);  // go through each line and parse the underscores, and print!
+    free(parsedLine);
+  }
+  free(line);
+  fclose(f);
+}
+
 int validateBlanks(char * line) {
   // validate blanks for a line. i.e. make sure that every "_" has a buddy
   int currently_validated = 1;
@@ -36,7 +65,7 @@ category_t * parseCategoryFromBlank(char * blank_index) {
   category->words = NULL;
   return category;
 }
-
+/*
 catarray_t * getCategoriesFromLine(char * line) {
   // parse line and extract categories from each blank
   catarray_t * categories = malloc(sizeof(*categories));
@@ -61,15 +90,27 @@ catarray_t * getCategoriesFromLine(char * line) {
   categories->n = j;
   return categories;
 }
-
-char * replaceBlanksWithCategory(char * line, catarray_t * cats) {
+*/
+char * replaceBlanksWithCategory(char * line,
+                                 catarray_t * cats,
+                                 category_t * previous_cats) {
   // go through an line of words and replace each category blank with a word
   char * new_line = malloc(sizeof(*new_line));
   size_t i = 0;
   while (*line != '\0') {
     if (*line == '_') {  // if we're at a category, then parse it
       category_t * category = parseCategoryFromBlank(&line[0]);
-      const char * replacement_word = chooseWord(category->name, cats);
+      const char * replacement_word;
+      if (category->name) {  // if category is an int then choose previously used
+        replacement_word = chooseFromPrevious(category->name, previous_cats);
+      }
+      else {  // otherwise process as usual
+        replacement_word = chooseWord(category->name, cats);
+      }
+      previous_cats->words =
+          realloc(previous_cats->words,
+                  sizeof(previous_cats->words) * previous_cats->n_words +
+                      1);  // add replacement word to previously used now
       for (size_t j = 0; j < strlen(replacement_word); j++) {
         new_line = realloc(new_line, sizeof(*new_line) * (i + 1));
         new_line[i] = replacement_word[j];  // copy new word into new line
@@ -92,7 +133,9 @@ char * replaceBlanksWithCategory(char * line, catarray_t * cats) {
   return new_line;
 }
 
-char * parseLine(char * line) {
+char * parseStoryLine(char * line,
+                      catarray_t * categories,
+                      category_t * previous_categories) {
   // Parse the underscores of a line and return a new line with replaced words
   char * parsedLine = NULL;
   // validate blanks
@@ -102,7 +145,133 @@ char * parseLine(char * line) {
   }
 
   // replace blanks with words in their category
-  parsedLine = replaceBlanksWithCategory(&line[0], NULL);
+  parsedLine = replaceBlanksWithCategory(&line[0], categories, previous_categories);
 
   return parsedLine;
+}
+
+// story step 2
+
+catarray_t * parseCategoryFile(char * filename) {
+  // open and read a file of categories line by line
+
+  FILE * f = fopen(filename, "r");
+  // error check file opened correctly
+  if (f == NULL) {
+    fprintf(stderr, "Could not open file!");
+    exit(EXIT_FAILURE);
+  }
+
+  // set up containers
+  size_t sz;
+  char * line = NULL;
+  catarray_t * categories = malloc(sizeof(*categories));
+  category_t * arr = malloc(sizeof(*arr));
+  size_t n_categories = 0;
+
+  // read line by line
+  while (getline(&line, &sz, f) >= 0) {
+    category_t category = parseCategoryLine(&line[0]);
+    int index = categoryIndex(category.name, arr, n_categories);
+    if (index >= 0) {  // check if we've seen this category before
+      addWordToCategory(category.words[0], arr, index);  // if so, just add its word
+      freeCategory(&category);  // we're not gonna use the category we made so free it
+    }
+    else {  // otherwise add as new
+      arr = addNewCategory(category, arr, n_categories);
+      n_categories++;
+    }
+  }
+  free(line);
+
+  // set fields
+  categories->arr = arr;
+  categories->n = n_categories;
+
+  fclose(f);
+  return categories;
+}
+
+category_t parseCategoryLine(char * line) {
+  // parse line of words into a category_t (format = "category:word")
+  category_t category;
+  char * name = malloc(sizeof(*name));
+  int i = 0;
+  while (*line != ':') {  // fill name field with category name
+    name = realloc(name, sizeof(*name) * (i + 2));
+    name[i] = *line;
+    line++;
+    i++;
+    if (*line ==
+        '\0') {  // if we've reached the end without hitting a colon, then we have invalid formate
+      fprintf(
+          stderr,
+          "Invalid category format (no colon found).  Correct format: category:word.");
+      exit(EXIT_FAILURE);
+    }
+  }
+  name[i] = '\0';  // add null terminator
+  line++;
+  char ** words = malloc(sizeof(*words));
+  char * curr_word = malloc(sizeof(*curr_word));
+  i = 0;
+  while (*line != '\n') {  // fill word array with current replacement word
+    curr_word = realloc(curr_word, sizeof(*curr_word) * (i + 2));
+    curr_word[i] = *line;
+    line++;
+    i++;
+  }
+  curr_word[i] = '\0';   // add null terminator
+  words[0] = curr_word;  // set array to point to copied word
+  category.words = words;
+  category.name = name;
+  category.n_words = 1;
+  return category;
+}
+
+int categoryIndex(char * name, category_t * arr, size_t n_categories) {
+  // check if a category is in categories
+  // if so, return its index
+  // if not, return -1
+  for (size_t i = 0; i < n_categories; i++) {
+    if ((strcmp(name, arr[i].name) == 0)) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+void addWordToCategory(char * word, category_t * arr, size_t index) {
+  // add a word to a category
+  arr[index].words =
+      realloc(arr[index].words, sizeof(*arr[index].words) * (arr[index].n_words + 1));
+  arr[index].words[arr[index].n_words] = strdup(word);
+  arr[index].n_words++;
+}
+
+category_t * addNewCategory(category_t category, category_t * arr, size_t n_categories) {
+  // add new category to an array
+  arr = realloc(arr, sizeof(*arr) * (n_categories + 1));
+  arr[n_categories].name = category.name;
+  arr[n_categories].words = category.words;
+  arr[n_categories].n_words = 1;
+  return arr;
+}
+
+void freeCategory(category_t * category) {
+  // free individual category
+  for (size_t j = 0; j < category->n_words; j++) {
+    free(category->words[j]);
+  }
+  free(category->name);
+  free(category->words);
+}
+void freeCatArray(catarray_t * categories) {
+  // free fields of a catarray struct
+  for (size_t i = 0; i < categories->n; i++) {
+    category_t * curr_cat = &categories->arr[i];
+    freeCategory(curr_cat);
+  }
+  free(categories->arr);
+  free(categories);
 }
