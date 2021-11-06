@@ -1,5 +1,8 @@
 #include "rand_story.h"
 
+#include <errno.h>
+#include <limits.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -30,6 +33,7 @@ void processStoryTemplate(char * filename, catarray_t * categories) {
     free(parsedLine);
   }
   free(line);
+  freeCategory(previous_categories);
   fclose(f);
 }
 
@@ -91,6 +95,50 @@ catarray_t * getCategoriesFromLine(char * line) {
   return categories;
 }
 */
+
+const char * chooseFromPrevious(size_t number, category_t * previous) {
+  // choose word from previous
+  if (number >
+      previous->n_words) {  // check if we're being asked to go further than possible
+    fprintf(stderr,
+            "Cannot parse previous word specifier. Requested number larger than "
+            "available words!\n");
+    exit(EXIT_FAILURE);
+  }
+  return previous->words[previous->n_words - number];
+}
+
+int checkForIntCategory(char * name) {
+  // check if a category name is a number
+  // based off of code from (man strtol(3))
+  // return 0 if not, otherwise return number
+  char * endptr;
+  long as_long = strtol(name, &endptr, 10);
+
+  // if we don't have a number at all
+  if (endptr == name) {
+    return 0;
+  }
+
+  // error checking specifically for valid int
+  if ((as_long <= 0) || (as_long >= ((pow(2, sizeof(int)) / 2) - 1))) {
+    fprintf(stderr, "Requested nunber %ld not a valid integer.\n", as_long);
+    exit(EXIT_FAILURE);
+  }
+
+  // error checking from man strtol(3)
+  // check if outside of range of possible long or some other error
+  errno = 0;
+  if ((errno == ERANGE && (as_long == LONG_MAX || as_long == LONG_MIN)) ||
+      (errno != 0 && as_long == 0)) {
+    fprintf(stderr, "Requested number %ld not a valid integer.\n", as_long);
+    exit(EXIT_FAILURE);
+  }
+
+  // otherwise we have a valid int, so return it as an int!
+  int return_int = as_long;
+  return return_int;
+}
 char * replaceBlanksWithCategory(char * line,
                                  catarray_t * cats,
                                  category_t * previous_cats) {
@@ -100,17 +148,23 @@ char * replaceBlanksWithCategory(char * line,
   while (*line != '\0') {
     if (*line == '_') {  // if we're at a category, then parse it
       category_t * category = parseCategoryFromBlank(&line[0]);
-      const char * replacement_word;
-      if (category->name) {  // if category is an int then choose previously used
-        replacement_word = chooseFromPrevious(category->name, previous_cats);
+      const char * replacement_word;  // declare replacement word for later
+      int as_num =
+          checkForIntCategory(category->name);  // check if we need to look in previous
+      if (as_num > 0) {
+        // if category is an int then choose previously used
+        // cast to int
+        replacement_word = chooseFromPrevious(as_num, previous_cats);
       }
       else {  // otherwise process as usual
         replacement_word = chooseWord(category->name, cats);
       }
       previous_cats->words =
           realloc(previous_cats->words,
-                  sizeof(previous_cats->words) * previous_cats->n_words +
+                  sizeof(*previous_cats->words) * previous_cats->n_words +
                       1);  // add replacement word to previously used now
+      previous_cats->words[previous_cats->n_words] = strdup(replacement_word);
+      previous_cats->n_words++;
       for (size_t j = 0; j < strlen(replacement_word); j++) {
         new_line = realloc(new_line, sizeof(*new_line) * (i + 1));
         new_line[i] = replacement_word[j];  // copy new word into new line
