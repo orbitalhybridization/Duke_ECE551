@@ -42,14 +42,18 @@ int categoryIndex(
     size_t
         n_categories);  // check if a category is in categories. if so, return its index. if not, return -1
 
-void addWordToCategory(char * word,
-                       category_t * arr,
-                       size_t index);  //add word to a category
+void addWordToCategory(const char * word,
+                       category_t * category);  //add word to a category
 
 category_t * addNewCategory(category_t category,
                             category_t * arr,
                             size_t n_categories);  // add new category to an array
 
+const char * chooseFromPrevious(
+    size_t number,
+    category_t * previous);  // choose a word from list of previously used ones
+
+int checkForIntCategory(char * name);      // check if a category name is a valid integer
 void freeCategory(category_t * category);  // free individual category
 
 void freeCatArray(catarray_t * categories);  // free fields of a catarray struct

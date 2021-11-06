@@ -21,6 +21,7 @@ void processStoryTemplate(char * filename, catarray_t * categories) {
   char * line = NULL;
   // set up container for previous categories to pass with each read
   category_t * previous_categories = malloc(sizeof(*previous_categories));
+  previous_categories->name = strdup("1");  // make default name for this container
   previous_categories->n_words = 0;
   char ** words = malloc(sizeof(*words));
   previous_categories->words = words;
@@ -34,6 +35,8 @@ void processStoryTemplate(char * filename, catarray_t * categories) {
   }
   free(line);
   freeCategory(previous_categories);
+  free(previous_categories);
+  freeCatArray(categories);
   fclose(f);
 }
 
@@ -69,32 +72,6 @@ category_t * parseCategoryFromBlank(char * blank_index) {
   category->words = NULL;
   return category;
 }
-/*
-catarray_t * getCategoriesFromLine(char * line) {
-  // parse line and extract categories from each blank
-  catarray_t * categories = malloc(sizeof(*categories));
-  category_t * array = malloc(sizeof(*array));
-  size_t j = 0;  // size counter for categories
-  while (*line != '\0') {
-    if (*line == '_') {  // if we're at a category, add to categories
-      category_t * current_category =
-          parseCategoryFromBlank(&line[0]);  // _bird_ -> category_t "bird"
-      array[j] = *(current_category);
-      array = realloc(array, sizeof(*array) * (j + 1));
-      j++;
-
-      // we also want to skip ahead in line to after the next '_'
-      line = index(line + 1, '_');
-    }
-    else {  // otherwise just keep going
-      line++;
-    }
-  }
-  categories->arr = array;  // set fields
-  categories->n = j;
-  return categories;
-}
-*/
 
 const char * chooseFromPrevious(size_t number, category_t * previous) {
   // choose word from previous
@@ -159,12 +136,8 @@ char * replaceBlanksWithCategory(char * line,
       else {  // otherwise process as usual
         replacement_word = chooseWord(category->name, cats);
       }
-      previous_cats->words =
-          realloc(previous_cats->words,
-                  sizeof(*previous_cats->words) * previous_cats->n_words +
-                      1);  // add replacement word to previously used now
-      previous_cats->words[previous_cats->n_words] = strdup(replacement_word);
-      previous_cats->n_words++;
+      addWordToCategory(replacement_word, previous_cats);  // add word to previously used
+
       for (size_t j = 0; j < strlen(replacement_word); j++) {
         new_line = realloc(new_line, sizeof(*new_line) * (i + 1));
         new_line[i] = replacement_word[j];  // copy new word into new line
@@ -228,7 +201,7 @@ catarray_t * parseCategoryFile(char * filename) {
     category_t category = parseCategoryLine(&line[0]);
     int index = categoryIndex(category.name, arr, n_categories);
     if (index >= 0) {  // check if we've seen this category before
-      addWordToCategory(category.words[0], arr, index);  // if so, just add its word
+      addWordToCategory(category.words[0], &arr[index]);  // if so, just add its word
       freeCategory(&category);  // we're not gonna use the category we made so free it
     }
     else {  // otherwise add as new
@@ -275,9 +248,9 @@ category_t parseCategoryLine(char * line) {
     line++;
     i++;
   }
-  curr_word[i] = '\0';   // add null terminator
-  words[0] = curr_word;  // set array to point to copied word
+  curr_word[i] = '\0';  // add null terminator
   category.words = words;
+  category.words[0] = curr_word;  // set array to point to copied word
   category.name = name;
   category.n_words = 1;
   return category;
@@ -295,12 +268,13 @@ int categoryIndex(char * name, category_t * arr, size_t n_categories) {
   return -1;
 }
 
-void addWordToCategory(char * word, category_t * arr, size_t index) {
+void addWordToCategory(const char * word, category_t * category) {
   // add a word to a category
-  arr[index].words =
-      realloc(arr[index].words, sizeof(*arr[index].words) * (arr[index].n_words + 1));
-  arr[index].words[arr[index].n_words] = strdup(word);
-  arr[index].n_words++;
+  category->words =
+      realloc(category->words, sizeof(*category->words) * (category->n_words + 1));
+  category->words[category->n_words] = strdup(word);
+  //  strcpy(category->words[category->n_words], word);
+  category->n_words++;
 }
 
 category_t * addNewCategory(category_t category, category_t * arr, size_t n_categories) {
@@ -308,7 +282,7 @@ category_t * addNewCategory(category_t category, category_t * arr, size_t n_cate
   arr = realloc(arr, sizeof(*arr) * (n_categories + 1));
   arr[n_categories].name = category.name;
   arr[n_categories].words = category.words;
-  arr[n_categories].n_words = 1;
+  arr[n_categories].n_words = category.n_words;
   return arr;
 }
 
@@ -319,6 +293,7 @@ void freeCategory(category_t * category) {
   }
   free(category->name);
   free(category->words);
+  //free(category);
 }
 void freeCatArray(catarray_t * categories) {
   // free fields of a catarray struct
