@@ -1,6 +1,5 @@
 #ifndef __LL_HPP__
 #define __LL_HPP__
-
 #include <assert.h>
 
 #include <cstdlib>
@@ -8,13 +7,14 @@
 
 template<typename T>
 class LinkedList {
+  friend class Tester;
   class Node {
    public:
     T data;
     Node * next;
     Node * prev;
 
-    explicit Node(T in_data) : data(in_data), next(NULL), prev(NULL) {}  // constructor
+    Node(T in_data) : data(in_data), next(NULL), prev(NULL) {}  // constructor
   };
   Node * head;
   Node * tail;
@@ -27,6 +27,8 @@ class LinkedList {
     if (head == NULL) {
       head = new_node;
       tail = new_node;
+      numItems = 1;
+      return;
     }
     head->prev = new_node;
     new_node->next = head;
@@ -39,6 +41,7 @@ class LinkedList {
     if (tail == NULL) {
       tail = new_node;
       head = new_node;
+      numItems = 1;
       return;
     }
     tail->next = new_node;
@@ -71,11 +74,10 @@ class LinkedList {
     return false;
   }
 
-  LinkedList(const LinkedList & rhs) {
+  LinkedList(const LinkedList & rhs) : head(NULL), tail(NULL), numItems(0) {
     for (Node * curr_node = rhs.head; curr_node != NULL; curr_node = curr_node->next) {
       addBack(curr_node->data);  // deep copy
     }
-    numItems = rhs.numItems;
   }
 
   LinkedList & operator=(const LinkedList & rhs) {
@@ -83,12 +85,14 @@ class LinkedList {
       Node * temp_head = new Node(rhs.head->data);
       Node * copy_node = temp_head;
       Node * prev = NULL;
+      Node * temp_tail;
       for (Node * curr_node = rhs.head; curr_node != NULL; curr_node = curr_node->next) {
         if (curr_node->next != NULL) {  // add to next if we're not at tail
           copy_node->next = new Node(curr_node->next->data);  // create new string of data
         }
         else {  // set tail if we've reached it
-          tail = copy_node;
+          temp_tail = copy_node;
+          copy_node->next = NULL;
         }
         copy_node->prev = prev;
         prev = copy_node;
@@ -96,7 +100,7 @@ class LinkedList {
       }
 
       // at this point curr_node should be tail
-      Node * temp_tail = new Node(rhs.tail->data);
+      //      Node * temp_tail = new Node(rhs.tail->data);
 
       for (Node * next_node = head->next; next_node != NULL;
            next_node = next_node->next) {  // delete old data
@@ -113,7 +117,7 @@ class LinkedList {
   }
 
   T & operator[](int index) const {
-    assert((index <= (numItems - 1)) && (index > 0));
+    assert((index <= (numItems - 1)) && (index >= 0));
     int i = 0;
     Node * node_of_interest = head;
     for (Node * curr_node = head; curr_node != NULL; curr_node = curr_node->next) {
