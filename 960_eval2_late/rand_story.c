@@ -85,51 +85,6 @@ const char * chooseFromPrevious(size_t number, category_t * previous) {
   return previous->words[previous->n_words - number];
 }
 
-void removeCategoryFromArray(catarray_t * categories, size_t index) {
-  category_t * new_arr = malloc(sizeof(*new_arr));
-  int j = 0;  // counter into new list
-  for (size_t i = 0; i < categories->n; i++) {
-    if (i != index) {  // copy all but category to delete
-      new_arr = realloc(new_arr, sizeof(*new_arr) * (j + 1));
-      new_arr[j] = categories->arr[i];
-      j++;
-    }
-  }
-  freeCategory(&categories->arr[index]);  // free the category
-  free(categories->arr);
-  categories->arr = new_arr;  // set new array
-}
-void removeWordFromCategory(char * category_name,
-                            const char * word,
-                            catarray_t * categories) {
-  int index = categoryIndex(category_name, categories->arr, categories->n);  // get index
-  if (index > -1) {  // make sure its valid
-    category_t cat = categories->arr[index];
-    char ** new_word_list = malloc(sizeof(*new_word_list));
-    int j = 0;                                  // counter into new list
-    for (size_t i = 0; i < cat.n_words; i++) {  // search for word
-      if (strcmp(cat.words[i], word) != 0) {
-        new_word_list =
-            realloc(new_word_list, sizeof(*new_word_list) * (j + 1));  // resize
-        new_word_list[j] = strdup(cat.words[i]);  // copy every other word
-        free(cat.words[i]);                       // free old word
-        j++;
-      }
-    }
-    free(cat.words);
-    cat.words = new_word_list;
-    cat.n_words--;
-    if (cat.n_words < 1) {  // check that there are any words left
-      // if not, remove category entirely
-      removeCategoryFromArray(categories, index);
-    }
-    return;
-  }
-
-  fprintf(stderr, "Requested a word (%s) in not in categories!\n", word);
-  exit(EXIT_FAILURE);
-}
-
 int checkForIntCategory(char * name) {
   // check if a category name is a number
   // based off of code from (man strtol(3))
@@ -161,6 +116,53 @@ int checkForIntCategory(char * name) {
   int return_int = as_long;
   return return_int;
 }
+
+void removeCategoryFromArray(catarray_t * categories, size_t index) {
+  category_t * new_arr = malloc(sizeof(*new_arr));
+  int j = 0;  // counter into new list
+  for (size_t i = 0; i < categories->n; i++) {
+    if (i != index) {  // copy all but category to delete
+      new_arr = realloc(new_arr, sizeof(*new_arr) * (j + 1));
+      new_arr[j] = categories->arr[i];
+      j++;
+    }
+    else {  // otherwise free the category
+      //      free(categories->arr[i].name);
+      //  free(&categories->arr[i]);
+    }
+  }
+  //  free(categories->arr);
+  categories->arr = new_arr;  // set new array
+}
+
+void removeWordFromCategory(char * category_name,
+                            const char * word,
+                            catarray_t * categories) {
+  int index = categoryIndex(category_name, categories->arr, categories->n);  // get index
+  if (index > -1) {  // make sure its valid
+    category_t * cat = &categories->arr[index];
+
+    char ** new_word_list = malloc(sizeof(*new_word_list));
+    int j = 0;                                   // counter into new list
+    for (size_t i = 0; i < cat->n_words; i++) {  // search for word
+      if (strcmp(cat->words[i], word) != 0) {
+        new_word_list =
+            realloc(new_word_list, sizeof(*new_word_list) * (j + 1));  // resize
+        new_word_list[j] = strdup(cat->words[i]);  // copy every other word
+        j++;
+      }
+      free(cat->words[i]);  // free old word
+    }
+    free(cat->words);
+    cat->words = new_word_list;  // set new category
+
+    return;
+  }
+
+  fprintf(stderr, "Requested a word (%s) in not in categories!\n", word);
+  exit(EXIT_FAILURE);
+}
+
 char * replaceBlanksWithCategory(char * line,
                                  catarray_t * cats,
                                  category_t * previous_cats,

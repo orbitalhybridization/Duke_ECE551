@@ -64,4 +64,6 @@ void freeCategory(category_t * category);  // free individual category
 
 void freeCatArray(catarray_t * categories);  // free fields of a catarray struct
 
+/*
+*/
 #endif
