@@ -140,9 +140,16 @@ class LinkedList {
     return -1;
   }
 
-  ~LinkedList() {  // destructor
-    for (Node * curr_node = head; curr_node != NULL; curr_node = curr_node->next) {
-      delete curr_node;
+  ~LinkedList() {        // destructor
+    if (head != NULL) {  // we only have to do this if head exists
+      Node * curr_node = head->next;
+      while (curr_node != NULL) {
+        delete curr_node->prev;
+        curr_node = curr_node->next;
+      }
+      if (tail != NULL) {
+        delete tail;
+      }
     }
   }
 

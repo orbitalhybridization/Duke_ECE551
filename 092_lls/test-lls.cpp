@@ -144,6 +144,8 @@ class Tester {
     delete il;
     //assert(node1 == NULL);  // make sure to delete nodes when deleting object
     //assert(node2 == NULL);
+    delete node1;
+    delete node2;
   }
 
   void testRemove() {
