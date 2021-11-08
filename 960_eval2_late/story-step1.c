@@ -13,5 +13,5 @@ int main(int argc, char ** argv) {
   }
 
   // open file for read
-  processStoryTemplate(argv[1], NULL);
+  processStoryTemplate(argv[1], NULL, 0);
 }

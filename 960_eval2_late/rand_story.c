@@ -7,13 +7,13 @@
 #include <stdlib.h>
 #include <string.h>
 
-void processStoryTemplate(char * filename, catarray_t * categories) {
+void processStoryTemplate(char * filename, catarray_t * categories, int no_reuse) {
   // open story template and read line by line
   // then close
   FILE * f = fopen(filename, "r");
   // error check file opened correctly
   if (f == NULL) {
-    fprintf(stderr, "Could not open file!");
+    fprintf(stderr, "Could not open file: %s!\n", filename);
     exit(EXIT_FAILURE);
   }
 
@@ -28,7 +28,7 @@ void processStoryTemplate(char * filename, catarray_t * categories) {
 
   // now read line by line
   while (getline(&line, &sz, f) >= 0) {
-    char * parsedLine = parseStoryLine(line, categories, previous_categories);
+    char * parsedLine = parseStoryLine(line, categories, previous_categories, no_reuse);
     printf("%s",
            parsedLine);  // go through each line and parse the underscores, and print!
     free(parsedLine);
@@ -85,6 +85,51 @@ const char * chooseFromPrevious(size_t number, category_t * previous) {
   return previous->words[previous->n_words - number];
 }
 
+void removeCategoryFromArray(catarray_t * categories, size_t index) {
+  category_t * new_arr = malloc(sizeof(*new_arr));
+  int j = 0;  // counter into new list
+  for (size_t i = 0; i < categories->n; i++) {
+    if (i != index) {  // copy all but category to delete
+      new_arr = realloc(new_arr, sizeof(*new_arr) * (j + 1));
+      new_arr[j] = categories->arr[i];
+      j++;
+    }
+  }
+  freeCategory(&categories->arr[index]);  // free the category
+  free(categories->arr);
+  categories->arr = new_arr;  // set new array
+}
+void removeWordFromCategory(char * category_name,
+                            const char * word,
+                            catarray_t * categories) {
+  int index = categoryIndex(category_name, categories->arr, categories->n);  // get index
+  if (index > -1) {  // make sure its valid
+    category_t cat = categories->arr[index];
+    char ** new_word_list = malloc(sizeof(*new_word_list));
+    int j = 0;                                  // counter into new list
+    for (size_t i = 0; i < cat.n_words; i++) {  // search for word
+      if (strcmp(cat.words[i], word) != 0) {
+        new_word_list =
+            realloc(new_word_list, sizeof(*new_word_list) * (j + 1));  // resize
+        new_word_list[j] = strdup(cat.words[i]);  // copy every other word
+        free(cat.words[i]);                       // free old word
+        j++;
+      }
+    }
+    free(cat.words);
+    cat.words = new_word_list;
+    cat.n_words--;
+    if (cat.n_words < 1) {  // check that there are any words left
+      // if not, remove category entirely
+      removeCategoryFromArray(categories, index);
+    }
+    return;
+  }
+
+  fprintf(stderr, "Requested a word (%s) in not in categories!\n", word);
+  exit(EXIT_FAILURE);
+}
+
 int checkForIntCategory(char * name) {
   // check if a category name is a number
   // based off of code from (man strtol(3))
@@ -118,7 +163,8 @@ int checkForIntCategory(char * name) {
 }
 char * replaceBlanksWithCategory(char * line,
                                  catarray_t * cats,
-                                 category_t * previous_cats) {
+                                 category_t * previous_cats,
+                                 int no_reuse) {
   // go through an line of words and replace each category blank with a word
   char * new_line = malloc(sizeof(*new_line));
   size_t i = 0;
@@ -130,14 +176,16 @@ char * replaceBlanksWithCategory(char * line,
           checkForIntCategory(category->name);  // check if we need to look in previous
       if (as_num > 0) {
         // if category is an int then choose previously used
-        // cast to int
         replacement_word = chooseFromPrevious(as_num, previous_cats);
       }
       else {  // otherwise process as usual
         replacement_word = chooseWord(category->name, cats);
+        if (no_reuse) {  // if we can't reuse, remove from bank
+          removeWordFromCategory(category->name, replacement_word, cats);
+        }
       }
       addWordToCategory(replacement_word, previous_cats);  // add word to previously used
-
+      //printWords(cats);
       for (size_t j = 0; j < strlen(replacement_word); j++) {
         new_line = realloc(new_line, sizeof(*new_line) * (i + 1));
         new_line[i] = replacement_word[j];  // copy new word into new line
@@ -162,7 +210,8 @@ char * replaceBlanksWithCategory(char * line,
 
 char * parseStoryLine(char * line,
                       catarray_t * categories,
-                      category_t * previous_categories) {
+                      category_t * previous_categories,
+                      int no_reuse) {
   // Parse the underscores of a line and return a new line with replaced words
   char * parsedLine = NULL;
   // validate blanks
@@ -172,7 +221,8 @@ char * parseStoryLine(char * line,
   }
 
   // replace blanks with words in their category
-  parsedLine = replaceBlanksWithCategory(&line[0], categories, previous_categories);
+  parsedLine =
+      replaceBlanksWithCategory(&line[0], categories, previous_categories, no_reuse);
 
   return parsedLine;
 }
@@ -185,7 +235,7 @@ catarray_t * parseCategoryFile(char * filename) {
   FILE * f = fopen(filename, "r");
   // error check file opened correctly
   if (f == NULL) {
-    fprintf(stderr, "Could not open file!");
+    fprintf(stderr, "Could not open file: %s!", filename);
     exit(EXIT_FAILURE);
   }
 

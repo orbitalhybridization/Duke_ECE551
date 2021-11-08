@@ -5,9 +5,9 @@
 
 //any functions you want your main to use
 
-void processStoryTemplate(
-    char * filename,
-    catarray_t * categories);  // open story template and read line by line
+void processStoryTemplate(char * filename,
+                          catarray_t * categories,
+                          int no_reuse);  // open story template and read line by line
 
 catarray_t * parseCategoryFile(
     char * filename);  // open and read a file of categories line by line
@@ -24,14 +24,14 @@ category_t * parseCategoryFromBlank(
 char * replaceBlanksWithCategory(
     char * line,
     catarray_t * cats,
-    category_t *
-        previous_cats);  // go through a line of words and replace each category blank with a word
+    category_t * previous_cats,
+    int no_reuse);  // go through a line of words and replace each category blank with a word
 
 char * parseStoryLine(
     char * line,
     catarray_t * categories,
-    category_t *
-        previous_categories);  // parse the udnerscores of a line and return a new line with replaced words
+    category_t * previous_categories,
+    int no_reuse);  // parse the udnerscores of a line and return a new line with replaced words
 
 category_t parseCategoryLine(
     char * line);  // parse line of words into a category_t (formate = "category:word")
@@ -53,7 +53,13 @@ const char * chooseFromPrevious(
     size_t number,
     category_t * previous);  // choose a word from list of previously used ones
 
-int checkForIntCategory(char * name);      // check if a category name is a valid integer
+int checkForIntCategory(char * name);  // check if a category name is a valid integer
+
+void removeWordFromCategory(char * category_name,
+                            const char * word,
+                            catarray_t * categories);
+// remove word from category so it cannot be reused
+
 void freeCategory(category_t * category);  // free individual category
 
 void freeCatArray(catarray_t * categories);  // free fields of a catarray struct
