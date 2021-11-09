@@ -55,9 +55,9 @@ const char * chooseFromPrevious(
 
 int checkForIntCategory(char * name);  // check if a category name is a valid integer
 
-void removeWordFromCategory(char * category_name,
-                            const char * word,
-                            catarray_t * categories);
+char * removeWordFromCategory(char * category_name,
+                              const char * word,
+                              catarray_t * categories);
 // remove word from category so it cannot be reused
 
 void freeCategory(category_t * category);  // free individual category

@@ -117,13 +117,15 @@ int checkForIntCategory(char * name) {
   return return_int;
 }
 
-void removeWordFromCategory(char * category_name,
-                            const char * word,
-                            catarray_t * categories) {
+//void removeWordFromCategory
+char * removeWordFromCategory(char * category_name,
+                              const char * word,
+                              catarray_t * categories) {
   int index = categoryIndex(category_name, categories->arr, categories->n);  // get index
   if (index > -1) {  // make sure its valid
     category_t * cat = &categories->arr[index];
     char ** new_word_list = malloc(sizeof(*new_word_list));
+    char * removed_word;
     int j = 0;                                   // counter into new list
     for (size_t i = 0; i < cat->n_words; i++) {  // search for word
       if (strcmp(cat->words[i], word) != 0) {
@@ -132,13 +134,14 @@ void removeWordFromCategory(char * category_name,
         new_word_list[j] = (cat->words[i]);  // copy every other word
         j++;
       }
+      else {
+        removed_word = cat->words[j];
+      }
     }
     cat->n_words--;
-
-    //    free(cat->words[j]);
     free(cat->words);
     cat->words = new_word_list;  // set new category
-    return;
+    return removed_word;
   }
 
   fprintf(stderr, "Requested a word (%s) in not in categories!\n", word);
@@ -156,6 +159,7 @@ char * replaceBlanksWithCategory(char * line,
     if (*line == '_') {  // if we're at a category, then parse it
       category_t * category = parseCategoryFromBlank(&line[0]);
       const char * replacement_word;  // declare replacement word for later
+      char * removed_word = NULL;
       int as_num =
           checkForIntCategory(category->name);  // check if we need to look in previous
       if (as_num > 0) {
@@ -165,11 +169,10 @@ char * replaceBlanksWithCategory(char * line,
       else {  // otherwise process as usual
         replacement_word = chooseWord(category->name, cats);
         if (no_reuse) {  // if we can't reuse, remove from bank
-          removeWordFromCategory(category->name, replacement_word, cats);
+          removed_word = removeWordFromCategory(category->name, replacement_word, cats);
         }
       }
       addWordToCategory(replacement_word, previous_cats);  // add word to previously used
-      //printWords(cats);
       for (size_t j = 0; j < strlen(replacement_word); j++) {
         new_line = realloc(new_line, sizeof(*new_line) * (i + 1));
         new_line[i] = replacement_word[j];  // copy new word into new line
@@ -177,6 +180,9 @@ char * replaceBlanksWithCategory(char * line,
       }
       free(category->name);
       free(category);
+      if (no_reuse) {
+        free(removed_word);
+      }
 
       line = index(line + 1, '_');  // skip to next '_'
     }
@@ -307,7 +313,6 @@ void addWordToCategory(const char * word, category_t * category) {
   // add a word to a category
   category->words =
       realloc(category->words, sizeof(*category->words) * (category->n_words + 1));
-
   category->words[category->n_words] = strdup(word);
   //  strcpy(category->words[category->n_words], word);
   category->n_words++;
