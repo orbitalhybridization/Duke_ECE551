@@ -117,45 +117,27 @@ int checkForIntCategory(char * name) {
   return return_int;
 }
 
-void removeCategoryFromArray(catarray_t * categories, size_t index) {
-  category_t * new_arr = malloc(sizeof(*new_arr));
-  int j = 0;  // counter into new list
-  for (size_t i = 0; i < categories->n; i++) {
-    if (i != index) {  // copy all but category to delete
-      new_arr = realloc(new_arr, sizeof(*new_arr) * (j + 1));
-      new_arr[j] = categories->arr[i];
-      j++;
-    }
-    else {  // otherwise free the category
-      //      free(categories->arr[i].name);
-      //  free(&categories->arr[i]);
-    }
-  }
-  //  free(categories->arr);
-  categories->arr = new_arr;  // set new array
-}
-
 void removeWordFromCategory(char * category_name,
                             const char * word,
                             catarray_t * categories) {
   int index = categoryIndex(category_name, categories->arr, categories->n);  // get index
   if (index > -1) {  // make sure its valid
     category_t * cat = &categories->arr[index];
-
     char ** new_word_list = malloc(sizeof(*new_word_list));
     int j = 0;                                   // counter into new list
     for (size_t i = 0; i < cat->n_words; i++) {  // search for word
       if (strcmp(cat->words[i], word) != 0) {
         new_word_list =
             realloc(new_word_list, sizeof(*new_word_list) * (j + 1));  // resize
-        new_word_list[j] = strdup(cat->words[i]);  // copy every other word
+        new_word_list[j] = (cat->words[i]);  // copy every other word
         j++;
       }
-      free(cat->words[i]);  // free old word
     }
+    cat->n_words--;
+
+    //    free(cat->words[j]);
     free(cat->words);
     cat->words = new_word_list;  // set new category
-
     return;
   }
 
@@ -195,6 +177,7 @@ char * replaceBlanksWithCategory(char * line,
       }
       free(category->name);
       free(category);
+
       line = index(line + 1, '_');  // skip to next '_'
     }
     else {
@@ -324,6 +307,7 @@ void addWordToCategory(const char * word, category_t * category) {
   // add a word to a category
   category->words =
       realloc(category->words, sizeof(*category->words) * (category->n_words + 1));
+
   category->words[category->n_words] = strdup(word);
   //  strcpy(category->words[category->n_words], word);
   category->n_words++;
