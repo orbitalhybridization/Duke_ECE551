@@ -1,0 +1,7 @@
+#include <cstdlib>
+
+#include "foo.h"
+
+int main() {
+  return EXIT_SUCCESS;
+}

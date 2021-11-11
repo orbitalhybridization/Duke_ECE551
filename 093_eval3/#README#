@@ -107,7 +107,6 @@ Output format:
 Your program (both this program, and the ones in later steps) should print
 a page with choices for what to do (i.e., not a WIN or LOSE page) as
 follows: 
-
  1. First, print the text of the page, exactly as it appeared in the input
     file. 
  2. Next, print a blank line.
