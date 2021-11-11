@@ -27,8 +27,8 @@ class Choice {
     }
 
     std::string page_num_s = line.substr(0, index);  // take number
-    page_num = validatePageInteger(
-        page_num_s.c_str());  // get the c string and try to make an int
+    page_num =
+        validatePageNum(page_num_s.c_str());  // get the c string and try to make an int
 
     description = line.substr(index + 1,
                               line.size() - 1);  // set description (does this have \0)?
@@ -44,17 +44,19 @@ class Choice {
       std::ostream & s,
       const Choice & rhs);  // overload << operator for Choice
 
-  int validatePageInteger(const char * page) {
-    // check if a category name is a number
+  int validatePageNum(const char * page) {
+    // check if a page number is a valid integer
     // based off of code from (man strtol(3))
-    // return 0 if not, otherwise return number
+    // return number, or exit failure
     // (reused from eval 2)
     char * endptr;
     long as_long = strtol(page, &endptr, 10);
 
     // if we don't have a number at all
     if (endptr == page) {
-      return 0;
+      //return 0;
+      std::cerr << "Page number given not a number." << std::endl;
+      exit(EXIT_FAILURE);
     }
 
     // error checking specifically for valid int
@@ -84,9 +86,7 @@ class Page {
     // set text of Page
 
     //    ignore the stuff we don't want, everything after #
-    file.ignore(std::numeric_limits<std::streamsize>::max(),
-                '\n');  // from istream ignore in cpp reference
-                        // might have to do a get() here to pass \n
+    skipLine();
 
     // get lines of story, just read until eof
     while (file.peek() != -1) {
@@ -134,8 +134,7 @@ class Page {
     if ((first_char == 'L') or (first_char == 'W')) {
       EOS.first = true;
       EOS.second = first_char;
-      file.ignore(std::numeric_limits<std::streamsize>::max(),  // skip to # line
-                  '#');  // from istream ignore in cpp reference
+      skipLine();  // skip win/lose line
     }
     else {  // otherwise we have choices so set them
       setChoices();
@@ -170,6 +169,12 @@ class Page {
 
   friend std::ostream & operator<<(std::ostream & s,
                                    const Page & rhs);  // overload << operator for Page
+
+  void skipLine() {
+    // skip to next line
+    // from istream ignore in c plusplus ref
+    file.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  }
 };
 
 std::ostream & operator<<(std::ostream & s,
