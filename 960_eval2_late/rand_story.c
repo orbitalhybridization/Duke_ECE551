@@ -98,7 +98,7 @@ int checkForIntCategory(char * name) {
   }
 
   // error checking specifically for valid int
-  if ((as_long <= 0) || (as_long >= ((pow(2, sizeof(int)) / 2) - 1))) {
+  if ((as_long <= 0) || (as_long >= ((pow(2, 8 * sizeof(int)) / 2) - 1))) {
     fprintf(stderr, "Requested nunber %ld not a valid integer.\n", as_long);
     exit(EXIT_FAILURE);
   }
