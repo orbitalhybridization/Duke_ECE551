@@ -193,10 +193,10 @@ std::ostream & operator<<(std::ostream & s,
 
   else {  // otherwise we've won/lost
     if (rhs.EOS.second == 'W') {
-      s << "Congratulations! You have won. Hooray!" << std::endl;
+      s << "Congratulations! You have won. Hooray!";
     }
     else if (rhs.EOS.second == 'L') {
-      s << "Sorry, you have lost. Better luck next time!" << std::endl;
+      s << "Sorry, you have lost. Better luck next time!";
     }
   }
 
