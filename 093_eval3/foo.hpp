@@ -185,10 +185,10 @@ std::ostream & operator<<(std::ostream & s,
       << std::endl;
 
     for (size_t i = 0; i < rhs.choices.size() - 1; i++) {
-      s << rhs.choices[i] << std::endl;
+      s << " " << i + 1 << ". " << rhs.choices[i] << std::endl;
     }
     // the last one doesn't have a newline
-    s << rhs.choices[rhs.choices.size() - 1];
+    s << " " << rhs.choices.size() << ". " << rhs.choices[rhs.choices.size() - 1];
   }
 
   else {  // otherwise we've won/lost
@@ -205,7 +205,7 @@ std::ostream & operator<<(std::ostream & s,
 
 std::ostream & operator<<(std::ostream & s,
                           const Choice & rhs) {  // print choices as outlined in README
-  s << " " << rhs.page_num << ". " << rhs.description;
+  s << rhs.description;
 
   return s;
 }
