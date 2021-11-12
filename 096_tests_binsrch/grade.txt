@@ -1,0 +1,48 @@
+Grading at 11/12/2021:04:42:04.362641
+For commit ID f40686684627f9316783393cb404d91397cd2e66
+Grading at Thu Nov 11 23:42:00 EST 2021
+**Testing broken implementation 1 **
+-------------------------------------
+
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+Answer for a linear funciton with all negative values: -2
+Not equal to expected -3!
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+Answer for linear function: -1
+Not equal to expected 0!
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+Answer for sin function: -256
+Not equal to expected 52359!
+
+**Testing correct implementation **
+-------------------------------------
+
+
+Your tests identified the problems with all broken programs
+
+Overall Grade: PASSED
