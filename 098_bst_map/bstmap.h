@@ -114,6 +114,7 @@ class BstMap : public Map<K, V> {
       current->left = prev->left;
     }
     delete current;
+    return ret;
   }
 
   void clear(Node * node) {  // do a postorder traversal
