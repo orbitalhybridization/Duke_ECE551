@@ -58,7 +58,6 @@ class BstMap : public Map<K, V> {
     }
   }
   virtual void remove(const K & key) {
-    go();
     // go left once then all the way right
     Node * to_delete = root;
     Node * prev = NULL;
@@ -67,24 +66,19 @@ class BstMap : public Map<K, V> {
 
     while (to_delete != NULL) {
       if (to_delete->key == key) {
-        std::cout << "Found key to delete: " << key << std::endl;
         break;
       }
       else if (key < to_delete->key) {
-        std::cout << "Going left\n";
         prev = to_delete;
         to_delete = to_delete->left;
       }
       else {
-        std::cout << "Going right\n";
         prev = to_delete;
         to_delete = to_delete->right;
       }
     }
     // one right child case and no child case
-    std::cout << "Previous is: " << prev->key << std::endl;
     if (to_delete->left == NULL) {
-      std::cout << "Node to delete has one right child or no children" << std::endl;
       Node * temp = to_delete->right;
       if (to_delete == prev->right) {
         delete to_delete;
@@ -96,7 +90,6 @@ class BstMap : public Map<K, V> {
       }
     }
     else if (to_delete->right == NULL) {  // one left child case
-      std::cout << "Node to delete has one left child" << std::endl;
 
       Node * temp = to_delete->left;
       if (to_delete == prev->right) {
@@ -109,13 +102,9 @@ class BstMap : public Map<K, V> {
       }
     }
     else {  // two-child case
-      std::cout << "Node to delete has two children" << std::endl;
       std::pair<K, V> kv = helperRemove(to_delete);
       to_delete->key = kv.first;
       to_delete->value = kv.second;
-      std::cout << "New key: " << to_delete->key << ", New Value: " << to_delete->value
-                << std::endl;
-      go();
     }
   }
 
@@ -123,24 +112,20 @@ class BstMap : public Map<K, V> {
     Node * current = node->left;  // left one then right a bunch
     Node * prev_ = node;
     while (current->right != NULL) {
-      std::cout << "Has right" << std::endl;
       prev_ = current;
       current = current->right;
     }
     std::pair<K, V> ret = std::make_pair(current->key, current->value);
     if (current->left != NULL) {
-      std::cout << "Setting " << current->left->key << "right of " << prev_->key
-                << std::endl;
       prev_->right = current->left;
     }
     else {
       prev_->left = NULL;
     }
-    std::cout << "Deleting " << current->key << std::endl;
     delete current;
     return ret;
   }
-
+  /*
   void go() { traverse(root); }
   void traverse(Node * node) {
     if (node != NULL) {
@@ -149,6 +134,7 @@ class BstMap : public Map<K, V> {
       std::cout << "Encountered: " << node->key << std::endl;
     }
   }
+  */
 
   void clear(Node * node) {  // do a postorder traversal
     if (node != NULL) {

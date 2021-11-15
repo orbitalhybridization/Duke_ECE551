@@ -1,4 +1,0 @@
-int main(int argc, char ** argv) {
-  BstMap bst();
-  return 0;
-}
