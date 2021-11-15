@@ -97,8 +97,8 @@ class BstMap : public Map<K, V> {
     }
     else {  // two-child case
       std::pair<K, V> kv = helperRemove(to_delete);
-      to_delete->key = kv.first();
-      to_delete->value = kv.second();
+      to_delete->key = kv.first;
+      to_delete->value = kv.second;
     }
   }
 
