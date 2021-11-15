@@ -177,6 +177,44 @@ class Page {
   }
 };
 
+class Story {
+ private:
+  std::vector<Page> pages;
+  std::string directory_name;
+
+ public:
+  Story();
+  Story(std::string directory) try : directory_name(directory) {
+    std::string page_number_s = "1";
+    int page_number_i = 1;
+    std::string page_filename = "story" + page_number_s + ".txt";
+    // read pages
+      while (validateInt(page_number_i) { // we can read pages as long as they're valid ints
+      Page new_page = Page(page_filename);
+      if (!checkPage && page_number_i == 1) {
+        std::cerr << "Page 1 doesn't exist!" << std::endl;
+        exit(EXIT_FAILURE);
+      }
+      // increment page number
+      // pages.push_back(new_page);
+	}
+
+    validatePages();
+  }
+  // error check files opening
+  catch (const std::ifstream::failure & e) {  // from ifstream exceptions cppreference
+    std::cerr << e.what() << std::endl;
+    exit(EXIT_FAILURE);
+  }
+
+  ~Story(){};
+  friend std::ostream & operator<<(std::ostream & s, const Story & rhs);
+};
+
+std::ostream & operator<<(std::ostream & s, const Story & rhs) {
+  return s;
+}
+
 std::ostream & operator<<(std::ostream & s,
                           const Page & rhs) {  // overload << operator for proper printing
 
