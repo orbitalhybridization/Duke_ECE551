@@ -1,0 +1,1751 @@
+Grading at 11/15/2021:21:51:43.382831
+For commit ID 7b4d73d4e3233733d655f4e70fcf016ead21c921
+Grading at Mon Nov 15 16:51:42 EST 2021
+-----------------------------------------------
+testcase 1 : Testing with BstMap<int,int>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘const V& BstMap<K, V>::lookup(const K&) const [with K = int; V = int]’:
+89-tester.cpp:119:26:   required from here
+bstmap.h:43:20: error: ‘int BstMap<int, int>::Node::key’ is private within this context
+       if (current->key == key) {
+           ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:44:25: error: ‘int BstMap<int, int>::Node::value’ is private within this context
+         return current->value;
+                ~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:46:31: error: ‘int BstMap<int, int>::Node::key’ is private within this context
+       else if (key < current->key) {
+                      ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:47:28: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::left’ is private within this context
+         current = current->left;
+                   ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:50:28: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::right’ is private within this context
+         current = current->right;
+                   ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::clear(BstMap<K, V>::Node*) [with K = int; V = int]’:
+bstmap.h:128:34:   required from ‘BstMap<K, V>::~BstMap() [with K = int; V = int]’
+89-tester.cpp:164:10:   required from here
+bstmap.h:123:19: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::left’ is private within this context
+       clear(node->left);
+             ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:124:19: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::right’ is private within this context
+       clear(node->right);
+             ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = int]’:
+89-tester.cpp:197:1:   required from here
+bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
+       return root;
+              ^~~~
+bstmap.h:67:22: error: ‘int BstMap<int, int>::Node::key’ is private within this context
+       if (to_delete->key == key) {
+           ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:70:33: error: ‘int BstMap<int, int>::Node::key’ is private within this context
+       else if (key < to_delete->key) {
+                      ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:71:32: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::left’ is private within this context
+         to_delete = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:74:32: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::right’ is private within this context
+         to_delete = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:66:14: error: unused variable ‘prev’ [-Werror=unused-variable]
+       Node * prev = to_delete;
+              ^~~~
+bstmap.h:78:20: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::left’ is private within this context
+     if (to_delete->left == NULL) {
+         ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:79:32: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::right’ is private within this context
+       Node * temp = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:80:30: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:82:15: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:86:15: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:89:25: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::right’ is private within this context
+     else if (to_delete->right == NULL) {  // one left child case
+              ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:90:32: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::left’ is private within this context
+       Node * temp = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:91:30: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:93:15: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:97:15: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:102:18: error: ‘int BstMap<int, int>::Node::key’ is private within this context
+       to_delete->key = kv.first();
+       ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:102:22: error: expression cannot be used as a function
+       to_delete->key = kv.first();
+bstmap.h:103:18: error: ‘int BstMap<int, int>::Node::value’ is private within this context
+       to_delete->value = kv.second();
+       ~~~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:103:24: error: expression cannot be used as a function
+       to_delete->value = kv.second();
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::add(BstMap<K, V>::Node*, const K&, const V&) [with K = int; V = int]’:
+bstmap.h:20:64:   required from ‘void BstMap<K, V>::add(const K&, const V&) [with K = int; V = int]’
+89-tester.cpp:197:1:   required from here
+bstmap.h:28:26: error: ‘int BstMap<int, int>::Node::key’ is private within this context
+       if (key < current->key) {
+                 ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:29:39: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::left’ is private within this context
+         Node * newLeft = add(current->left, key, value);
+                              ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:30:18: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::left’ is private within this context
+         current->left = newLeft;
+         ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:33:40: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::right’ is private within this context
+         Node * newRight = add(current->right, key, value);
+                               ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:34:18: error: ‘BstMap<int, int>::Node* BstMap<int, int>::Node::right’ is private within this context
+         current->right = newRight;
+         ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 2 : Testing with BstMap<int,std::string>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘const V& BstMap<K, V>::lookup(const K&) const [with K = int; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:119:26:   required from here
+bstmap.h:43:20: error: ‘int BstMap<int, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       if (current->key == key) {
+           ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:44:25: error: ‘std::__cxx11::basic_string<char> BstMap<int, std::__cxx11::basic_string<char> >::Node::value’ is private within this context
+         return current->value;
+                ~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:46:31: error: ‘int BstMap<int, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       else if (key < current->key) {
+                      ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:47:28: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         current = current->left;
+                   ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:50:28: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         current = current->right;
+                   ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::clear(BstMap<K, V>::Node*) [with K = int; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:128:34:   required from ‘BstMap<K, V>::~BstMap() [with K = int; V = std::__cxx11::basic_string<char>]’
+89-tester.cpp:164:10:   required from here
+bstmap.h:123:19: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+       clear(node->left);
+             ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:124:19: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       clear(node->right);
+             ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:197:1:   required from here
+bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
+       return root;
+              ^~~~
+bstmap.h:67:22: error: ‘int BstMap<int, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       if (to_delete->key == key) {
+           ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:70:33: error: ‘int BstMap<int, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       else if (key < to_delete->key) {
+                      ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:71:32: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         to_delete = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:74:32: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         to_delete = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:66:14: error: unused variable ‘prev’ [-Werror=unused-variable]
+       Node * prev = to_delete;
+              ^~~~
+bstmap.h:78:20: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+     if (to_delete->left == NULL) {
+         ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:79:32: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       Node * temp = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:80:30: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:82:15: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:86:15: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:89:25: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+     else if (to_delete->right == NULL) {  // one left child case
+              ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:90:32: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+       Node * temp = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:91:30: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:93:15: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:97:15: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:102:18: error: ‘int BstMap<int, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       to_delete->key = kv.first();
+       ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:102:22: error: expression cannot be used as a function
+       to_delete->key = kv.first();
+bstmap.h:103:18: error: ‘std::__cxx11::basic_string<char> BstMap<int, std::__cxx11::basic_string<char> >::Node::value’ is private within this context
+       to_delete->value = kv.second();
+       ~~~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:103:24: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
+       to_delete->value = kv.second();
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::add(BstMap<K, V>::Node*, const K&, const V&) [with K = int; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:20:64:   required from ‘void BstMap<K, V>::add(const K&, const V&) [with K = int; V = std::__cxx11::basic_string<char>]’
+89-tester.cpp:197:1:   required from here
+bstmap.h:28:26: error: ‘int BstMap<int, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       if (key < current->key) {
+                 ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:29:39: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         Node * newLeft = add(current->left, key, value);
+                              ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:30:18: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         current->left = newLeft;
+         ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:33:40: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         Node * newRight = add(current->right, key, value);
+                               ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:34:18: error: ‘BstMap<int, std::__cxx11::basic_string<char> >::Node* BstMap<int, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         current->right = newRight;
+         ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘const V& BstMap<K, V>::lookup(const K&) const [with K = int; V = Tester]’:
+89-tester.cpp:119:26:   required from here
+bstmap.h:43:20: error: ‘int BstMap<int, Tester>::Node::key’ is private within this context
+       if (current->key == key) {
+           ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:44:25: error: ‘Tester BstMap<int, Tester>::Node::value’ is private within this context
+         return current->value;
+                ~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:46:31: error: ‘int BstMap<int, Tester>::Node::key’ is private within this context
+       else if (key < current->key) {
+                      ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:47:28: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::left’ is private within this context
+         current = current->left;
+                   ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:50:28: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::right’ is private within this context
+         current = current->right;
+                   ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::clear(BstMap<K, V>::Node*) [with K = int; V = Tester]’:
+bstmap.h:128:34:   required from ‘BstMap<K, V>::~BstMap() [with K = int; V = Tester]’
+89-tester.cpp:164:10:   required from here
+bstmap.h:123:19: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::left’ is private within this context
+       clear(node->left);
+             ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:124:19: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::right’ is private within this context
+       clear(node->right);
+             ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = Tester]’:
+89-tester.cpp:197:1:   required from here
+bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
+       return root;
+              ^~~~
+bstmap.h:67:22: error: ‘int BstMap<int, Tester>::Node::key’ is private within this context
+       if (to_delete->key == key) {
+           ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:70:33: error: ‘int BstMap<int, Tester>::Node::key’ is private within this context
+       else if (key < to_delete->key) {
+                      ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:71:32: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::left’ is private within this context
+         to_delete = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:74:32: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::right’ is private within this context
+         to_delete = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:66:14: error: unused variable ‘prev’ [-Werror=unused-variable]
+       Node * prev = to_delete;
+              ^~~~
+bstmap.h:78:20: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::left’ is private within this context
+     if (to_delete->left == NULL) {
+         ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:79:32: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::right’ is private within this context
+       Node * temp = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:80:30: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:82:15: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:86:15: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:89:25: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::right’ is private within this context
+     else if (to_delete->right == NULL) {  // one left child case
+              ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:90:32: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::left’ is private within this context
+       Node * temp = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:91:30: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:93:15: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:97:15: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:102:18: error: ‘int BstMap<int, Tester>::Node::key’ is private within this context
+       to_delete->key = kv.first();
+       ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:102:22: error: expression cannot be used as a function
+       to_delete->key = kv.first();
+bstmap.h:103:18: error: ‘Tester BstMap<int, Tester>::Node::value’ is private within this context
+       to_delete->value = kv.second();
+       ~~~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:103:24: error: no match for call to ‘(Tester) ()’
+       to_delete->value = kv.second();
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::add(BstMap<K, V>::Node*, const K&, const V&) [with K = int; V = Tester]’:
+bstmap.h:20:64:   required from ‘void BstMap<K, V>::add(const K&, const V&) [with K = int; V = Tester]’
+89-tester.cpp:197:1:   required from here
+bstmap.h:28:26: error: ‘int BstMap<int, Tester>::Node::key’ is private within this context
+       if (key < current->key) {
+                 ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:29:39: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::left’ is private within this context
+         Node * newLeft = add(current->left, key, value);
+                              ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:30:18: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::left’ is private within this context
+         current->left = newLeft;
+         ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:33:40: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::right’ is private within this context
+         Node * newRight = add(current->right, key, value);
+                               ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:34:18: error: ‘BstMap<int, Tester>::Node* BstMap<int, Tester>::Node::right’ is private within this context
+         current->right = newRight;
+         ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 4 : Testing with BstMap<std::string,int>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘const V& BstMap<K, V>::lookup(const K&) const [with K = std::__cxx11::basic_string<char>; V = int]’:
+89-tester.cpp:119:26:   required from here
+bstmap.h:43:20: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, int>::Node::key’ is private within this context
+       if (current->key == key) {
+           ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:44:25: error: ‘int BstMap<std::__cxx11::basic_string<char>, int>::Node::value’ is private within this context
+         return current->value;
+                ~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:46:31: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, int>::Node::key’ is private within this context
+       else if (key < current->key) {
+                      ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:47:28: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::left’ is private within this context
+         current = current->left;
+                   ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:50:28: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::right’ is private within this context
+         current = current->right;
+                   ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::clear(BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = int]’:
+bstmap.h:128:34:   required from ‘BstMap<K, V>::~BstMap() [with K = std::__cxx11::basic_string<char>; V = int]’
+89-tester.cpp:164:10:   required from here
+bstmap.h:123:19: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::left’ is private within this context
+       clear(node->left);
+             ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:124:19: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::right’ is private within this context
+       clear(node->right);
+             ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = int]’:
+89-tester.cpp:197:1:   required from here
+bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
+       return root;
+              ^~~~
+bstmap.h:67:22: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, int>::Node::key’ is private within this context
+       if (to_delete->key == key) {
+           ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:70:33: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, int>::Node::key’ is private within this context
+       else if (key < to_delete->key) {
+                      ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:71:32: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::left’ is private within this context
+         to_delete = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:74:32: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::right’ is private within this context
+         to_delete = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:66:14: error: unused variable ‘prev’ [-Werror=unused-variable]
+       Node * prev = to_delete;
+              ^~~~
+bstmap.h:78:20: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::left’ is private within this context
+     if (to_delete->left == NULL) {
+         ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:79:32: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::right’ is private within this context
+       Node * temp = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:80:30: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:82:15: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:86:15: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:89:25: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::right’ is private within this context
+     else if (to_delete->right == NULL) {  // one left child case
+              ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:90:32: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::left’ is private within this context
+       Node * temp = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:91:30: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:93:15: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:97:15: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:102:18: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, int>::Node::key’ is private within this context
+       to_delete->key = kv.first();
+       ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:102:22: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
+       to_delete->key = kv.first();
+bstmap.h:103:18: error: ‘int BstMap<std::__cxx11::basic_string<char>, int>::Node::value’ is private within this context
+       to_delete->value = kv.second();
+       ~~~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:103:24: error: expression cannot be used as a function
+       to_delete->value = kv.second();
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::add(BstMap<K, V>::Node*, const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = int]’:
+bstmap.h:20:64:   required from ‘void BstMap<K, V>::add(const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = int]’
+89-tester.cpp:197:1:   required from here
+bstmap.h:28:26: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, int>::Node::key’ is private within this context
+       if (key < current->key) {
+                 ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:29:39: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::left’ is private within this context
+         Node * newLeft = add(current->left, key, value);
+                              ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:30:18: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::left’ is private within this context
+         current->left = newLeft;
+         ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:33:40: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::right’ is private within this context
+         Node * newRight = add(current->right, key, value);
+                               ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:34:18: error: ‘BstMap<std::__cxx11::basic_string<char>, int>::Node* BstMap<std::__cxx11::basic_string<char>, int>::Node::right’ is private within this context
+         current->right = newRight;
+         ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 5 : Testing with BstMap<std::string,std::string>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘const V& BstMap<K, V>::lookup(const K&) const [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:119:26:   required from here
+bstmap.h:43:20: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       if (current->key == key) {
+           ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:44:25: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::value’ is private within this context
+         return current->value;
+                ~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:46:31: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       else if (key < current->key) {
+                      ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:47:28: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         current = current->left;
+                   ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:50:28: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         current = current->right;
+                   ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::clear(BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:128:34:   required from ‘BstMap<K, V>::~BstMap() [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’
+89-tester.cpp:164:10:   required from here
+bstmap.h:123:19: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+       clear(node->left);
+             ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:124:19: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       clear(node->right);
+             ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:197:1:   required from here
+bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
+       return root;
+              ^~~~
+bstmap.h:67:22: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       if (to_delete->key == key) {
+           ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:70:33: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       else if (key < to_delete->key) {
+                      ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:71:32: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         to_delete = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:74:32: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         to_delete = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:66:14: error: unused variable ‘prev’ [-Werror=unused-variable]
+       Node * prev = to_delete;
+              ^~~~
+bstmap.h:78:20: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+     if (to_delete->left == NULL) {
+         ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:79:32: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       Node * temp = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:80:30: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:82:15: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:86:15: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:89:25: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+     else if (to_delete->right == NULL) {  // one left child case
+              ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:90:32: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+       Node * temp = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:91:30: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:93:15: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:97:15: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:102:18: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       to_delete->key = kv.first();
+       ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:102:22: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
+       to_delete->key = kv.first();
+bstmap.h:103:18: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::value’ is private within this context
+       to_delete->value = kv.second();
+       ~~~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:103:24: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
+       to_delete->value = kv.second();
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::add(BstMap<K, V>::Node*, const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:20:64:   required from ‘void BstMap<K, V>::add(const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’
+89-tester.cpp:197:1:   required from here
+bstmap.h:28:26: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       if (key < current->key) {
+                 ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:29:39: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         Node * newLeft = add(current->left, key, value);
+                              ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:30:18: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         current->left = newLeft;
+         ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:33:40: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         Node * newRight = add(current->right, key, value);
+                               ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:34:18: error: ‘BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node* BstMap<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         current->right = newRight;
+         ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘const V& BstMap<K, V>::lookup(const K&) const [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+89-tester.cpp:119:26:   required from here
+bstmap.h:43:20: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, Tester>::Node::key’ is private within this context
+       if (current->key == key) {
+           ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:44:25: error: ‘Tester BstMap<std::__cxx11::basic_string<char>, Tester>::Node::value’ is private within this context
+         return current->value;
+                ~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:46:31: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, Tester>::Node::key’ is private within this context
+       else if (key < current->key) {
+                      ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:47:28: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::left’ is private within this context
+         current = current->left;
+                   ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:50:28: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::right’ is private within this context
+         current = current->right;
+                   ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::clear(BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+bstmap.h:128:34:   required from ‘BstMap<K, V>::~BstMap() [with K = std::__cxx11::basic_string<char>; V = Tester]’
+89-tester.cpp:164:10:   required from here
+bstmap.h:123:19: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::left’ is private within this context
+       clear(node->left);
+             ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:124:19: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::right’ is private within this context
+       clear(node->right);
+             ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+89-tester.cpp:197:1:   required from here
+bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
+       return root;
+              ^~~~
+bstmap.h:67:22: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, Tester>::Node::key’ is private within this context
+       if (to_delete->key == key) {
+           ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:70:33: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, Tester>::Node::key’ is private within this context
+       else if (key < to_delete->key) {
+                      ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:71:32: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::left’ is private within this context
+         to_delete = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:74:32: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::right’ is private within this context
+         to_delete = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:66:14: error: unused variable ‘prev’ [-Werror=unused-variable]
+       Node * prev = to_delete;
+              ^~~~
+bstmap.h:78:20: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::left’ is private within this context
+     if (to_delete->left == NULL) {
+         ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:79:32: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::right’ is private within this context
+       Node * temp = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:80:30: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:82:15: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:86:15: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:89:25: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::right’ is private within this context
+     else if (to_delete->right == NULL) {  // one left child case
+              ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:90:32: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::left’ is private within this context
+       Node * temp = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:91:30: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:93:15: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:97:15: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:102:18: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, Tester>::Node::key’ is private within this context
+       to_delete->key = kv.first();
+       ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:102:22: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
+       to_delete->key = kv.first();
+bstmap.h:103:18: error: ‘Tester BstMap<std::__cxx11::basic_string<char>, Tester>::Node::value’ is private within this context
+       to_delete->value = kv.second();
+       ~~~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:103:24: error: no match for call to ‘(Tester) ()’
+       to_delete->value = kv.second();
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::add(BstMap<K, V>::Node*, const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+bstmap.h:20:64:   required from ‘void BstMap<K, V>::add(const K&, const V&) [with K = std::__cxx11::basic_string<char>; V = Tester]’
+89-tester.cpp:197:1:   required from here
+bstmap.h:28:26: error: ‘std::__cxx11::basic_string<char> BstMap<std::__cxx11::basic_string<char>, Tester>::Node::key’ is private within this context
+       if (key < current->key) {
+                 ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:29:39: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::left’ is private within this context
+         Node * newLeft = add(current->left, key, value);
+                              ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:30:18: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::left’ is private within this context
+         current->left = newLeft;
+         ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:33:40: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::right’ is private within this context
+         Node * newRight = add(current->right, key, value);
+                               ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:34:18: error: ‘BstMap<std::__cxx11::basic_string<char>, Tester>::Node* BstMap<std::__cxx11::basic_string<char>, Tester>::Node::right’ is private within this context
+         current->right = newRight;
+         ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 7 : Testing with BstMap<(a custom class we wrote),int>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘const V& BstMap<K, V>::lookup(const K&) const [with K = Tester; V = int]’:
+89-tester.cpp:119:26:   required from here
+bstmap.h:43:20: error: ‘Tester BstMap<Tester, int>::Node::key’ is private within this context
+       if (current->key == key) {
+           ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:44:25: error: ‘int BstMap<Tester, int>::Node::value’ is private within this context
+         return current->value;
+                ~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:46:31: error: ‘Tester BstMap<Tester, int>::Node::key’ is private within this context
+       else if (key < current->key) {
+                      ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:47:28: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::left’ is private within this context
+         current = current->left;
+                   ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:50:28: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::right’ is private within this context
+         current = current->right;
+                   ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::clear(BstMap<K, V>::Node*) [with K = Tester; V = int]’:
+bstmap.h:128:34:   required from ‘BstMap<K, V>::~BstMap() [with K = Tester; V = int]’
+89-tester.cpp:164:10:   required from here
+bstmap.h:123:19: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::left’ is private within this context
+       clear(node->left);
+             ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:124:19: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::right’ is private within this context
+       clear(node->right);
+             ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = int]’:
+89-tester.cpp:197:1:   required from here
+bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
+       return root;
+              ^~~~
+bstmap.h:67:22: error: ‘Tester BstMap<Tester, int>::Node::key’ is private within this context
+       if (to_delete->key == key) {
+           ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:70:33: error: ‘Tester BstMap<Tester, int>::Node::key’ is private within this context
+       else if (key < to_delete->key) {
+                      ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:71:32: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::left’ is private within this context
+         to_delete = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:74:32: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::right’ is private within this context
+         to_delete = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:66:14: error: unused variable ‘prev’ [-Werror=unused-variable]
+       Node * prev = to_delete;
+              ^~~~
+bstmap.h:78:20: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::left’ is private within this context
+     if (to_delete->left == NULL) {
+         ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:79:32: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::right’ is private within this context
+       Node * temp = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:80:30: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:82:15: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:86:15: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:89:25: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::right’ is private within this context
+     else if (to_delete->right == NULL) {  // one left child case
+              ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:90:32: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::left’ is private within this context
+       Node * temp = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:91:30: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:93:15: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:97:15: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:102:18: error: ‘Tester BstMap<Tester, int>::Node::key’ is private within this context
+       to_delete->key = kv.first();
+       ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:102:22: error: no match for call to ‘(Tester) ()’
+       to_delete->key = kv.first();
+bstmap.h:103:18: error: ‘int BstMap<Tester, int>::Node::value’ is private within this context
+       to_delete->value = kv.second();
+       ~~~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:103:24: error: expression cannot be used as a function
+       to_delete->value = kv.second();
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::add(BstMap<K, V>::Node*, const K&, const V&) [with K = Tester; V = int]’:
+bstmap.h:20:64:   required from ‘void BstMap<K, V>::add(const K&, const V&) [with K = Tester; V = int]’
+89-tester.cpp:197:1:   required from here
+bstmap.h:28:26: error: ‘Tester BstMap<Tester, int>::Node::key’ is private within this context
+       if (key < current->key) {
+                 ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:29:39: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::left’ is private within this context
+         Node * newLeft = add(current->left, key, value);
+                              ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:30:18: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::left’ is private within this context
+         current->left = newLeft;
+         ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:33:40: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::right’ is private within this context
+         Node * newRight = add(current->right, key, value);
+                               ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:34:18: error: ‘BstMap<Tester, int>::Node* BstMap<Tester, int>::Node::right’ is private within this context
+         current->right = newRight;
+         ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘const V& BstMap<K, V>::lookup(const K&) const [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:119:26:   required from here
+bstmap.h:43:20: error: ‘Tester BstMap<Tester, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       if (current->key == key) {
+           ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:44:25: error: ‘std::__cxx11::basic_string<char> BstMap<Tester, std::__cxx11::basic_string<char> >::Node::value’ is private within this context
+         return current->value;
+                ~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:46:31: error: ‘Tester BstMap<Tester, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       else if (key < current->key) {
+                      ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:47:28: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         current = current->left;
+                   ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:50:28: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         current = current->right;
+                   ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::clear(BstMap<K, V>::Node*) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:128:34:   required from ‘BstMap<K, V>::~BstMap() [with K = Tester; V = std::__cxx11::basic_string<char>]’
+89-tester.cpp:164:10:   required from here
+bstmap.h:123:19: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+       clear(node->left);
+             ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:124:19: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       clear(node->right);
+             ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+89-tester.cpp:197:1:   required from here
+bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
+       return root;
+              ^~~~
+bstmap.h:67:22: error: ‘Tester BstMap<Tester, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       if (to_delete->key == key) {
+           ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:70:33: error: ‘Tester BstMap<Tester, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       else if (key < to_delete->key) {
+                      ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:71:32: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         to_delete = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:74:32: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         to_delete = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:66:14: error: unused variable ‘prev’ [-Werror=unused-variable]
+       Node * prev = to_delete;
+              ^~~~
+bstmap.h:78:20: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+     if (to_delete->left == NULL) {
+         ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:79:32: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       Node * temp = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:80:30: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:82:15: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:86:15: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:89:25: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+     else if (to_delete->right == NULL) {  // one left child case
+              ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:90:32: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+       Node * temp = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:91:30: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:93:15: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:97:15: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:102:18: error: ‘Tester BstMap<Tester, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       to_delete->key = kv.first();
+       ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:102:22: error: no match for call to ‘(Tester) ()’
+       to_delete->key = kv.first();
+bstmap.h:103:18: error: ‘std::__cxx11::basic_string<char> BstMap<Tester, std::__cxx11::basic_string<char> >::Node::value’ is private within this context
+       to_delete->value = kv.second();
+       ~~~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:103:24: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
+       to_delete->value = kv.second();
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::add(BstMap<K, V>::Node*, const K&, const V&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:20:64:   required from ‘void BstMap<K, V>::add(const K&, const V&) [with K = Tester; V = std::__cxx11::basic_string<char>]’
+89-tester.cpp:197:1:   required from here
+bstmap.h:28:26: error: ‘Tester BstMap<Tester, std::__cxx11::basic_string<char> >::Node::key’ is private within this context
+       if (key < current->key) {
+                 ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:29:39: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         Node * newLeft = add(current->left, key, value);
+                              ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:30:18: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::left’ is private within this context
+         current->left = newLeft;
+         ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:33:40: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         Node * newRight = add(current->right, key, value);
+                               ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:34:18: error: ‘BstMap<Tester, std::__cxx11::basic_string<char> >::Node* BstMap<Tester, std::__cxx11::basic_string<char> >::Node::right’ is private within this context
+         current->right = newRight;
+         ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
+...compiling...
+In file included from 89-tester.cpp:1:0:
+bstmap.h: In instantiation of ‘const V& BstMap<K, V>::lookup(const K&) const [with K = Tester; V = Tester]’:
+89-tester.cpp:119:26:   required from here
+bstmap.h:43:20: error: ‘Tester BstMap<Tester, Tester>::Node::key’ is private within this context
+       if (current->key == key) {
+           ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:44:25: error: ‘Tester BstMap<Tester, Tester>::Node::value’ is private within this context
+         return current->value;
+                ~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:46:31: error: ‘Tester BstMap<Tester, Tester>::Node::key’ is private within this context
+       else if (key < current->key) {
+                      ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:47:28: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::left’ is private within this context
+         current = current->left;
+                   ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:50:28: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::right’ is private within this context
+         current = current->right;
+                   ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::clear(BstMap<K, V>::Node*) [with K = Tester; V = Tester]’:
+bstmap.h:128:34:   required from ‘BstMap<K, V>::~BstMap() [with K = Tester; V = Tester]’
+89-tester.cpp:164:10:   required from here
+bstmap.h:123:19: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::left’ is private within this context
+       clear(node->left);
+             ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:124:19: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::right’ is private within this context
+       clear(node->right);
+             ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = Tester]’:
+89-tester.cpp:197:1:   required from here
+bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
+       return root;
+              ^~~~
+bstmap.h:67:22: error: ‘Tester BstMap<Tester, Tester>::Node::key’ is private within this context
+       if (to_delete->key == key) {
+           ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:70:33: error: ‘Tester BstMap<Tester, Tester>::Node::key’ is private within this context
+       else if (key < to_delete->key) {
+                      ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:71:32: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::left’ is private within this context
+         to_delete = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:74:32: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::right’ is private within this context
+         to_delete = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:66:14: error: unused variable ‘prev’ [-Werror=unused-variable]
+       Node * prev = to_delete;
+              ^~~~
+bstmap.h:78:20: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::left’ is private within this context
+     if (to_delete->left == NULL) {
+         ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:79:32: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::right’ is private within this context
+       Node * temp = to_delete->right;
+                     ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:80:30: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:82:15: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:86:15: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:89:25: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::right’ is private within this context
+     else if (to_delete->right == NULL) {  // one left child case
+              ~~~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:90:32: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::left’ is private within this context
+       Node * temp = to_delete->left;
+                     ~~~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:91:30: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::right’ is private within this context
+       if (to_delete == prev->right) {
+                        ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:93:15: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::right’ is private within this context
+         prev->right = temp;
+         ~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:97:15: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::left’ is private within this context
+         prev->left = temp;
+         ~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:102:18: error: ‘Tester BstMap<Tester, Tester>::Node::key’ is private within this context
+       to_delete->key = kv.first();
+       ~~~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:102:22: error: no match for call to ‘(Tester) ()’
+       to_delete->key = kv.first();
+bstmap.h:103:18: error: ‘Tester BstMap<Tester, Tester>::Node::value’ is private within this context
+       to_delete->value = kv.second();
+       ~~~~~~~~~~~^~~~~
+bstmap.h:9:7: note: declared private here
+     V value;
+       ^~~~~
+bstmap.h:103:24: error: no match for call to ‘(Tester) ()’
+       to_delete->value = kv.second();
+bstmap.h: In instantiation of ‘BstMap<K, V>::Node* BstMap<K, V>::add(BstMap<K, V>::Node*, const K&, const V&) [with K = Tester; V = Tester]’:
+bstmap.h:20:64:   required from ‘void BstMap<K, V>::add(const K&, const V&) [with K = Tester; V = Tester]’
+89-tester.cpp:197:1:   required from here
+bstmap.h:28:26: error: ‘Tester BstMap<Tester, Tester>::Node::key’ is private within this context
+       if (key < current->key) {
+                 ~~~~~~~~~^~~
+bstmap.h:8:7: note: declared private here
+     K key;
+       ^~~
+bstmap.h:29:39: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::left’ is private within this context
+         Node * newLeft = add(current->left, key, value);
+                              ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:30:18: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::left’ is private within this context
+         current->left = newLeft;
+         ~~~~~~~~~^~~~
+bstmap.h:10:12: note: declared private here
+     Node * left;
+            ^~~~
+bstmap.h:33:40: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::right’ is private within this context
+         Node * newRight = add(current->right, key, value);
+                               ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+bstmap.h:34:18: error: ‘BstMap<Tester, Tester>::Node* BstMap<Tester, Tester>::Node::right’ is private within this context
+         current->right = newRight;
+         ~~~~~~~~~^~~~~
+bstmap.h:11:12: note: declared private here
+     Node * right;
+            ^~~~~
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+
+Overall Grade: F
