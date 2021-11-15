@@ -1,131 +1,116 @@
-Grading at 11/15/2021:21:57:14.899608
-For commit ID 46add30ed64271aab595641ea3f3f035053245da
-Grading at Mon Nov 15 16:57:13 EST 2021
+Grading at 11/15/2021:22:00:17.954994
+For commit ID c3ccb96cabeb91be6032be1568024b99d75b9bfa
+Grading at Mon Nov 15 17:00:16 EST 2021
 -----------------------------------------------
 testcase 1 : Testing with BstMap<int,int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = int]’:
+bstmap.h: In instantiation of ‘std::pair<_T1, _T2> BstMap<K, V>::helperRemove(BstMap<K, V>::Node*) [with K = int; V = int]’:
+bstmap.h:99:40:   required from ‘void BstMap<K, V>::remove(const K&) [with K = int; V = int]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
-       return root;
-              ^~~~
-bstmap.h:102:22: error: expression cannot be used as a function
-       to_delete->key = kv.first();
-bstmap.h:103:24: error: expression cannot be used as a function
-       to_delete->value = kv.second();
+bstmap.h:112:21: error: variable ‘ret’ set but not used [-Werror=unused-but-set-variable]
+     std::pair<K, V> ret = std::make_pair(current->key, current->value);
+                     ^~~
+bstmap.h:117:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 2 : Testing with BstMap<int,std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = std::__cxx11::basic_string<char>]’:
+bstmap.h: In instantiation of ‘std::pair<_T1, _T2> BstMap<K, V>::helperRemove(BstMap<K, V>::Node*) [with K = int; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:99:40:   required from ‘void BstMap<K, V>::remove(const K&) [with K = int; V = std::__cxx11::basic_string<char>]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
-       return root;
-              ^~~~
-bstmap.h:102:22: error: expression cannot be used as a function
-       to_delete->key = kv.first();
-bstmap.h:103:24: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
-       to_delete->value = kv.second();
+bstmap.h:117:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = int; V = Tester]’:
+bstmap.h: In instantiation of ‘std::pair<_T1, _T2> BstMap<K, V>::helperRemove(BstMap<K, V>::Node*) [with K = int; V = Tester]’:
+bstmap.h:99:40:   required from ‘void BstMap<K, V>::remove(const K&) [with K = int; V = Tester]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
-       return root;
-              ^~~~
-bstmap.h:102:22: error: expression cannot be used as a function
-       to_delete->key = kv.first();
-bstmap.h:103:24: error: no match for call to ‘(Tester) ()’
-       to_delete->value = kv.second();
+bstmap.h:117:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 4 : Testing with BstMap<std::string,int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = int]’:
+bstmap.h: In instantiation of ‘std::pair<_T1, _T2> BstMap<K, V>::helperRemove(BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = int]’:
+bstmap.h:99:40:   required from ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = int]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
-       return root;
-              ^~~~
-bstmap.h:102:22: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
-       to_delete->key = kv.first();
-bstmap.h:103:24: error: expression cannot be used as a function
-       to_delete->value = kv.second();
+bstmap.h:117:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 5 : Testing with BstMap<std::string,std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+bstmap.h: In instantiation of ‘std::pair<_T1, _T2> BstMap<K, V>::helperRemove(BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:99:40:   required from ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = std::__cxx11::basic_string<char>]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
-       return root;
-              ^~~~
-bstmap.h:102:22: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
-       to_delete->key = kv.first();
-bstmap.h:103:24: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
-       to_delete->value = kv.second();
+bstmap.h:117:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+bstmap.h: In instantiation of ‘std::pair<_T1, _T2> BstMap<K, V>::helperRemove(BstMap<K, V>::Node*) [with K = std::__cxx11::basic_string<char>; V = Tester]’:
+bstmap.h:99:40:   required from ‘void BstMap<K, V>::remove(const K&) [with K = std::__cxx11::basic_string<char>; V = Tester]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
-       return root;
-              ^~~~
-bstmap.h:102:22: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
-       to_delete->key = kv.first();
-bstmap.h:103:24: error: no match for call to ‘(Tester) ()’
-       to_delete->value = kv.second();
+bstmap.h:117:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 7 : Testing with BstMap<(a custom class we wrote),int>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = int]’:
+bstmap.h: In instantiation of ‘std::pair<_T1, _T2> BstMap<K, V>::helperRemove(BstMap<K, V>::Node*) [with K = Tester; V = int]’:
+bstmap.h:99:40:   required from ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = int]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
-       return root;
-              ^~~~
-bstmap.h:102:22: error: no match for call to ‘(Tester) ()’
-       to_delete->key = kv.first();
-bstmap.h:103:24: error: expression cannot be used as a function
-       to_delete->value = kv.second();
+bstmap.h:117:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+bstmap.h: In instantiation of ‘std::pair<_T1, _T2> BstMap<K, V>::helperRemove(BstMap<K, V>::Node*) [with K = Tester; V = std::__cxx11::basic_string<char>]’:
+bstmap.h:99:40:   required from ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = std::__cxx11::basic_string<char>]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
-       return root;
-              ^~~~
-bstmap.h:102:22: error: no match for call to ‘(Tester) ()’
-       to_delete->key = kv.first();
-bstmap.h:103:24: error: no match for call to ‘(std::__cxx11::basic_string<char>) ()’
-       to_delete->value = kv.second();
+bstmap.h:117:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 -----------------------------------------------
 testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
 ...compiling...
 In file included from 89-tester.cpp:1:0:
-bstmap.h: In instantiation of ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = Tester]’:
+bstmap.h: In instantiation of ‘std::pair<_T1, _T2> BstMap<K, V>::helperRemove(BstMap<K, V>::Node*) [with K = Tester; V = Tester]’:
+bstmap.h:99:40:   required from ‘void BstMap<K, V>::remove(const K&) [with K = Tester; V = Tester]’
 89-tester.cpp:197:1:   required from here
-bstmap.h:63:14: error: return-statement with a value, in function returning 'void' [-fpermissive]
-       return root;
-              ^~~~
-bstmap.h:102:22: error: no match for call to ‘(Tester) ()’
-       to_delete->key = kv.first();
-bstmap.h:103:24: error: no match for call to ‘(Tester) ()’
-       to_delete->value = kv.second();
+bstmap.h:117:3: error: no return statement in function returning non-void [-Werror=return-type]
+   }
+   ^
+cc1plus: all warnings being treated as errors
 The code did not compile.  This test failed.
 
 Overall Grade: F
