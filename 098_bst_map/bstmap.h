@@ -60,7 +60,7 @@ class BstMap : public Map<K, V> {
   virtual void remove(const K & key) {
     // go left once then all the way right
     Node * to_delete = root;
-    Node * prev = NULL;
+    Node * prev = root;
     // find thing to remove
     // keep track of parent or
 
@@ -79,14 +79,19 @@ class BstMap : public Map<K, V> {
     }
     // one right child case and no child case
     if (to_delete->left == NULL) {
-      Node * temp = to_delete->right;
-      if (to_delete == prev->right) {
-        delete to_delete;
-        prev->right = temp;
+      if ((to_delete == root) && (to_delete->right == NULL)) {
+        delete root;
       }
       else {
-        delete to_delete;
-        prev->left = temp;
+        Node * temp = to_delete->right;
+        if (to_delete == prev->right) {
+          delete to_delete;
+          prev->right = temp;
+        }
+        else {
+          delete to_delete;
+          prev->left = temp;
+        }
       }
     }
     else if (to_delete->right == NULL) {  // one left child case
