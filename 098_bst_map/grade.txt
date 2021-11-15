@@ -1,764 +1,407 @@
-Grading at 11/15/2021:23:21:47.717627
-For commit ID 52a9f5d67517193ae84f67065d4ed09c347378e1
-Grading at Mon Nov 15 18:21:37 EST 2021
+Grading at 11/15/2021:23:27:04.498614
+For commit ID 32a0108695e46f395d9476beaed25e7835801f18
+Grading at Mon Nov 15 18:26:54 EST 2021
 -----------------------------------------------
 testcase 1 : Testing with BstMap<int,int>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==48671== Memcheck, a memory error detector
-==48671== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==48671== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==48671== Command: ./test.1
-==48671== Parent PID: 48670
-==48671== 
-==48671== Invalid read of size 4
-==48671==    at 0x10AB8C: BstMap<int, int>::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.1)
-==48671==    by 0x1099C2: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.1)
-==48671==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==48671== 
-==48671== 
-==48671== Process terminating with default action of signal 11 (SIGSEGV)
-==48671==  Access not within mapped region at address 0x0
-==48671==    at 0x10AB8C: BstMap<int, int>::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.1)
-==48671==    by 0x1099C2: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.1)
-==48671==  If you believe this happened as a result of a stack
-==48671==  overflow in your program's main thread (unlikely but
-==48671==  possible), you can try to increase the size of the
-==48671==  main thread stack using the --main-stacksize= flag.
-==48671==  The main thread stack size used in this run was 8388608.
-==48671== 
-==48671== HEAP SUMMARY:
-==48671==     in use at exit: 200 bytes in 9 blocks
-==48671==   total heap usage: 77 allocs, 68 frees, 81,704 bytes allocated
-==48671== 
-==48671== LEAK SUMMARY:
-==48671==    definitely lost: 0 bytes in 0 blocks
-==48671==    indirectly lost: 0 bytes in 0 blocks
-==48671==      possibly lost: 0 bytes in 0 blocks
-==48671==    still reachable: 200 bytes in 9 blocks
-==48671==         suppressed: 0 bytes in 0 blocks
-==48671== Reachable blocks (those to which a pointer was found) are not shown.
-==48671== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==48671== 
-==48671== For counts of detected and suppressed errors, rerun with: -v
-==48671== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==52088== Memcheck, a memory error detector
+==52088== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==52088== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==52088== Command: ./test.1
+==52088== Parent PID: 52087
+==52088== 
+==52088== Invalid read of size 8
+==52088==    at 0x10AA57: BstMap<int, int>::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.1)
+==52088==    by 0x109902: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.1)
+==52088==  Address 0x10 is not stack'd, malloc'd or (recently) free'd
+==52088== 
+==52088== 
+==52088== Process terminating with default action of signal 11 (SIGSEGV)
+==52088==  Access not within mapped region at address 0x10
+==52088==    at 0x10AA57: BstMap<int, int>::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.1)
+==52088==    by 0x109902: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.1)
+==52088==  If you believe this happened as a result of a stack
+==52088==  overflow in your program's main thread (unlikely but
+==52088==  possible), you can try to increase the size of the
+==52088==  main thread stack using the --main-stacksize= flag.
+==52088==  The main thread stack size used in this run was 8388608.
+==52088== 
+==52088== HEAP SUMMARY:
+==52088==     in use at exit: 200 bytes in 9 blocks
+==52088==   total heap usage: 77 allocs, 68 frees, 81,704 bytes allocated
+==52088== 
+==52088== LEAK SUMMARY:
+==52088==    definitely lost: 0 bytes in 0 blocks
+==52088==    indirectly lost: 0 bytes in 0 blocks
+==52088==      possibly lost: 0 bytes in 0 blocks
+==52088==    still reachable: 200 bytes in 9 blocks
+==52088==         suppressed: 0 bytes in 0 blocks
+==52088== Reachable blocks (those to which a pointer was found) are not shown.
+==52088== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==52088== 
+==52088== For counts of detected and suppressed errors, rerun with: -v
+==52088== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 2 : Testing with BstMap<int,std::string>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==48704== Memcheck, a memory error detector
-==48704== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==48704== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==48704== Command: ./test.2
-==48704== Parent PID: 48703
-==48704== 
-==48704== Invalid read of size 4
-==48704==    at 0x10AF6A: BstMap<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.2)
-==48704==    by 0x109A6E: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.2)
-==48704==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==48704== 
-==48704== 
-==48704== Process terminating with default action of signal 11 (SIGSEGV)
-==48704==  Access not within mapped region at address 0x0
-==48704==    at 0x10AF6A: BstMap<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.2)
-==48704==    by 0x109A6E: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.2)
-==48704==  If you believe this happened as a result of a stack
-==48704==  overflow in your program's main thread (unlikely but
-==48704==  possible), you can try to increase the size of the
-==48704==  main thread stack using the --main-stacksize= flag.
-==48704==  The main thread stack size used in this run was 8388608.
-==48704== 
-==48704== HEAP SUMMARY:
-==48704==     in use at exit: 519 bytes in 14 blocks
-==48704==   total heap usage: 157 allocs, 143 frees, 84,104 bytes allocated
-==48704== 
-==48704== LEAK SUMMARY:
-==48704==    definitely lost: 0 bytes in 0 blocks
-==48704==    indirectly lost: 0 bytes in 0 blocks
-==48704==      possibly lost: 0 bytes in 0 blocks
-==48704==    still reachable: 519 bytes in 14 blocks
-==48704==         suppressed: 0 bytes in 0 blocks
-==48704== Reachable blocks (those to which a pointer was found) are not shown.
-==48704== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==48704== 
-==48704== For counts of detected and suppressed errors, rerun with: -v
-==48704== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==52117== Memcheck, a memory error detector
+==52117== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==52117== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==52117== Command: ./test.2
+==52117== Parent PID: 52116
+==52117== 
+==52117== Invalid read of size 8
+==52117==    at 0x10AE35: BstMap<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.2)
+==52117==    by 0x1099AE: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.2)
+==52117==  Address 0x30 is not stack'd, malloc'd or (recently) free'd
+==52117== 
+==52117== 
+==52117== Process terminating with default action of signal 11 (SIGSEGV)
+==52117==  Access not within mapped region at address 0x30
+==52117==    at 0x10AE35: BstMap<int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.2)
+==52117==    by 0x1099AE: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.2)
+==52117==  If you believe this happened as a result of a stack
+==52117==  overflow in your program's main thread (unlikely but
+==52117==  possible), you can try to increase the size of the
+==52117==  main thread stack using the --main-stacksize= flag.
+==52117==  The main thread stack size used in this run was 8388608.
+==52117== 
+==52117== HEAP SUMMARY:
+==52117==     in use at exit: 519 bytes in 14 blocks
+==52117==   total heap usage: 157 allocs, 143 frees, 84,104 bytes allocated
+==52117== 
+==52117== LEAK SUMMARY:
+==52117==    definitely lost: 0 bytes in 0 blocks
+==52117==    indirectly lost: 0 bytes in 0 blocks
+==52117==      possibly lost: 0 bytes in 0 blocks
+==52117==    still reachable: 519 bytes in 14 blocks
+==52117==         suppressed: 0 bytes in 0 blocks
+==52117== Reachable blocks (those to which a pointer was found) are not shown.
+==52117== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==52117== 
+==52117== For counts of detected and suppressed errors, rerun with: -v
+==52117== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 3 : Testing with BstMap<int,(a custom class we wrote)>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==48750== Memcheck, a memory error detector
-==48750== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==48750== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==48750== Command: ./test.3
-==48750== Parent PID: 48749
-==48750== 
-==48750== Invalid read of size 4
-==48750==    at 0x10B002: BstMap<int, Tester>::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.3)
-==48750==    by 0x109A6E: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.3)
-==48750==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==48750== 
-==48750== 
-==48750== Process terminating with default action of signal 11 (SIGSEGV)
-==48750==  Access not within mapped region at address 0x0
-==48750==    at 0x10B002: BstMap<int, Tester>::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.3)
-==48750==    by 0x109A6E: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.3)
-==48750==  If you believe this happened as a result of a stack
-==48750==  overflow in your program's main thread (unlikely but
-==48750==  possible), you can try to increase the size of the
-==48750==  main thread stack using the --main-stacksize= flag.
-==48750==  The main thread stack size used in this run was 8388608.
-==48750== 
-==48750== HEAP SUMMARY:
-==48750==     in use at exit: 575 bytes in 14 blocks
-==48750==   total heap usage: 177 allocs, 163 frees, 84,704 bytes allocated
-==48750== 
-==48750== LEAK SUMMARY:
-==48750==    definitely lost: 0 bytes in 0 blocks
-==48750==    indirectly lost: 0 bytes in 0 blocks
-==48750==      possibly lost: 0 bytes in 0 blocks
-==48750==    still reachable: 575 bytes in 14 blocks
-==48750==         suppressed: 0 bytes in 0 blocks
-==48750== Reachable blocks (those to which a pointer was found) are not shown.
-==48750== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==48750== 
-==48750== For counts of detected and suppressed errors, rerun with: -v
-==48750== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==52139== Memcheck, a memory error detector
+==52139== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==52139== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==52139== Command: ./test.3
+==52139== Parent PID: 52138
+==52139== 
+==52139== Invalid read of size 8
+==52139==    at 0x10AECD: BstMap<int, Tester>::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.3)
+==52139==    by 0x1099AE: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.3)
+==52139==  Address 0x38 is not stack'd, malloc'd or (recently) free'd
+==52139== 
+==52139== 
+==52139== Process terminating with default action of signal 11 (SIGSEGV)
+==52139==  Access not within mapped region at address 0x38
+==52139==    at 0x10AECD: BstMap<int, Tester>::remove(int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.3)
+==52139==    by 0x1099AE: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.3)
+==52139==  If you believe this happened as a result of a stack
+==52139==  overflow in your program's main thread (unlikely but
+==52139==  possible), you can try to increase the size of the
+==52139==  main thread stack using the --main-stacksize= flag.
+==52139==  The main thread stack size used in this run was 8388608.
+==52139== 
+==52139== HEAP SUMMARY:
+==52139==     in use at exit: 575 bytes in 14 blocks
+==52139==   total heap usage: 177 allocs, 163 frees, 84,704 bytes allocated
+==52139== 
+==52139== LEAK SUMMARY:
+==52139==    definitely lost: 0 bytes in 0 blocks
+==52139==    indirectly lost: 0 bytes in 0 blocks
+==52139==      possibly lost: 0 bytes in 0 blocks
+==52139==    still reachable: 575 bytes in 14 blocks
+==52139==         suppressed: 0 bytes in 0 blocks
+==52139== Reachable blocks (those to which a pointer was found) are not shown.
+==52139== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==52139== 
+==52139== For counts of detected and suppressed errors, rerun with: -v
+==52139== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 4 : Testing with BstMap<std::string,int>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==48765== Memcheck, a memory error detector
-==48765== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==48765== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==48765== Command: ./test.4
-==48765== Parent PID: 48764
-==48765== 
-==48765== Invalid read of size 8
-==48765==    at 0x10B69D: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6C6: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B45E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B351: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Address 0x5b7e378 is 40 bytes inside a block of size 56 free'd
-==48765==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10B5FE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B2CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Block was alloc'd at
-==48765==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10AEC2: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109A3A: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765== 
-==48765== Invalid read of size 8
-==48765==    at 0x10B6B4: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6C6: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B45E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B351: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Address 0x5b7e380 is 48 bytes inside a block of size 56 free'd
-==48765==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10B5FE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B2CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Block was alloc'd at
-==48765==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10AEC2: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109A3A: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765== 
-==48765== Invalid read of size 8
-==48765==    at 0x4F634B0: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48765==    by 0x10B6EB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6C6: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B45E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B351: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Address 0x5b7e358 is 8 bytes inside a block of size 56 free'd
-==48765==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10B5FE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B2CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Block was alloc'd at
-==48765==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10AEC2: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109A3A: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765== 
-==48765== Invalid read of size 8
-==48765==    at 0x4F634B4: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48765==    by 0x10B6EB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6C6: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B45E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B351: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Address 0x5b7e350 is 0 bytes inside a block of size 56 free'd
-==48765==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10B5FE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B2CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Block was alloc'd at
-==48765==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10AEC2: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109A3A: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765== 
-==48765== Invalid read of size 1
-==48765==    at 0x4C371F8: mempcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x5468A03: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1258)
-==48765==    by 0x545C9E6: fwrite (iofwrite.c:39)
-==48765==    by 0x4F4FB83: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48765==    by 0x10B6EB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6C6: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B45E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B351: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Address 0x5b7e36b is 27 bytes inside a block of size 56 free'd
-==48765==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10B5FE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B2CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Block was alloc'd at
-==48765==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10AEC2: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109A3A: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765== 
-==48765== Invalid read of size 1
-==48765==    at 0x4C3720A: mempcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x5468A03: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1258)
-==48765==    by 0x545C9E6: fwrite (iofwrite.c:39)
-==48765==    by 0x4F4FB83: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48765==    by 0x10B6EB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6C6: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B6AF: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B45E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B351: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Address 0x5b7e369 is 25 bytes inside a block of size 56 free'd
-==48765==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10B5FE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x10B2CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Block was alloc'd at
-==48765==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48765==    by 0x10AEC2: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109A3A: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765== 
-==48765== Invalid read of size 8
-==48765==    at 0x4F634B0: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48765==    by 0x10B129: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
-==48765== 
-==48765== 
-==48765== Process terminating with default action of signal 11 (SIGSEGV)
-==48765==  Access not within mapped region at address 0x8
-==48765==    at 0x4F634B0: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48765==    by 0x10B129: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==    by 0x109C30: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.4)
-==48765==  If you believe this happened as a result of a stack
-==48765==  overflow in your program's main thread (unlikely but
-==48765==  possible), you can try to increase the size of the
-==48765==  main thread stack using the --main-stacksize= flag.
-==48765==  The main thread stack size used in this run was 8388608.
-==48765== 
-==48765== HEAP SUMMARY:
-==48765==     in use at exit: 424 bytes in 9 blocks
-==48765==   total heap usage: 77 allocs, 68 frees, 82,504 bytes allocated
-==48765== 
-==48765== LEAK SUMMARY:
-==48765==    definitely lost: 0 bytes in 0 blocks
-==48765==    indirectly lost: 0 bytes in 0 blocks
-==48765==      possibly lost: 0 bytes in 0 blocks
-==48765==    still reachable: 424 bytes in 9 blocks
-==48765==         suppressed: 0 bytes in 0 blocks
-==48765== Reachable blocks (those to which a pointer was found) are not shown.
-==48765== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==48765== 
-==48765== For counts of detected and suppressed errors, rerun with: -v
-==48765== ERROR SUMMARY: 33 errors from 7 contexts (suppressed: 0 from 0)
+==52165== Memcheck, a memory error detector
+==52165== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==52165== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==52165== Command: ./test.4
+==52165== Parent PID: 52164
+==52165== 
+==52165== Invalid read of size 8
+==52165==    at 0x10AFD2: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.4)
+==52165==    by 0x109B70: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.4)
+==52165==  Address 0x28 is not stack'd, malloc'd or (recently) free'd
+==52165== 
+==52165== 
+==52165== Process terminating with default action of signal 11 (SIGSEGV)
+==52165==  Access not within mapped region at address 0x28
+==52165==    at 0x10AFD2: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.4)
+==52165==    by 0x109B70: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.4)
+==52165==  If you believe this happened as a result of a stack
+==52165==  overflow in your program's main thread (unlikely but
+==52165==  possible), you can try to increase the size of the
+==52165==  main thread stack using the --main-stacksize= flag.
+==52165==  The main thread stack size used in this run was 8388608.
+==52165== 
+==52165== HEAP SUMMARY:
+==52165==     in use at exit: 312 bytes in 7 blocks
+==52165==   total heap usage: 77 allocs, 70 frees, 82,504 bytes allocated
+==52165== 
+==52165== 56 bytes in 1 blocks are definitely lost in loss record 5 of 6
+==52165==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==52165==    by 0x10AE02: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.4)
+==52165==    by 0x10997A: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.4)
+==52165== 
+==52165== LEAK SUMMARY:
+==52165==    definitely lost: 56 bytes in 1 blocks
+==52165==    indirectly lost: 0 bytes in 0 blocks
+==52165==      possibly lost: 0 bytes in 0 blocks
+==52165==    still reachable: 256 bytes in 6 blocks
+==52165==         suppressed: 0 bytes in 0 blocks
+==52165== Reachable blocks (those to which a pointer was found) are not shown.
+==52165== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==52165== 
+==52165== For counts of detected and suppressed errors, rerun with: -v
+==52165== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 5 : Testing with BstMap<std::string,std::string>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==48787== Memcheck, a memory error detector
-==48787== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==48787== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==48787== Command: ./test.5
-==48787== Parent PID: 48786
-==48787== 
-==48787== Invalid read of size 8
-==48787==    at 0x10B9FD: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA26: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B76E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B633: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Address 0x5b7ee20 is 64 bytes inside a block of size 80 free'd
-==48787==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B939: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B597: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Block was alloc'd at
-==48787==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B0E0: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787== 
-==48787== Invalid read of size 8
-==48787==    at 0x10BA14: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA26: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B76E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B633: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Address 0x5b7ee28 is 72 bytes inside a block of size 80 free'd
-==48787==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B939: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B597: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Block was alloc'd at
-==48787==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B0E0: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787== 
-==48787== Invalid read of size 8
-==48787==    at 0x4F634B0: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48787==    by 0x10BA4B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA26: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B76E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B633: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Address 0x5b7ede8 is 8 bytes inside a block of size 80 free'd
-==48787==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B939: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B597: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Block was alloc'd at
-==48787==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B0E0: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787== 
-==48787== Invalid read of size 8
-==48787==    at 0x4F634B4: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48787==    by 0x10BA4B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA26: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B76E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B633: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Address 0x5b7ede0 is 0 bytes inside a block of size 80 free'd
-==48787==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B939: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B597: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Block was alloc'd at
-==48787==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B0E0: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787== 
-==48787== Invalid read of size 1
-==48787==    at 0x4C371F8: mempcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x5468A03: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1258)
-==48787==    by 0x545C9E6: fwrite (iofwrite.c:39)
-==48787==    by 0x4F4FB83: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48787==    by 0x10BA4B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA26: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B76E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B633: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Address 0x5b7edfb is 27 bytes inside a block of size 80 free'd
-==48787==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B939: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B597: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Block was alloc'd at
-==48787==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B0E0: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787== 
-==48787== Invalid read of size 1
-==48787==    at 0x4C3720A: mempcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x5468A03: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1258)
-==48787==    by 0x545C9E6: fwrite (iofwrite.c:39)
-==48787==    by 0x4F4FB83: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48787==    by 0x10BA4B: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA26: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10BA0F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B76E: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B633: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Address 0x5b7edf9 is 25 bytes inside a block of size 80 free'd
-==48787==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B939: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x10B597: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Block was alloc'd at
-==48787==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48787==    by 0x10B0E0: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787== 
-==48787== Invalid read of size 8
-==48787==    at 0x4F634B0: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48787==    by 0x10B3F2: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
-==48787== 
-==48787== 
-==48787== Process terminating with default action of signal 11 (SIGSEGV)
-==48787==  Access not within mapped region at address 0x8
-==48787==    at 0x4F634B0: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48787==    by 0x10B3F2: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.5)
-==48787==  If you believe this happened as a result of a stack
-==48787==  overflow in your program's main thread (unlikely but
-==48787==  possible), you can try to increase the size of the
-==48787==  main thread stack using the --main-stacksize= flag.
-==48787==  The main thread stack size used in this run was 8388608.
-==48787== 
-==48787== HEAP SUMMARY:
-==48787==     in use at exit: 711 bytes in 14 blocks
-==48787==   total heap usage: 163 allocs, 149 frees, 84,842 bytes allocated
-==48787== 
-==48787== LEAK SUMMARY:
-==48787==    definitely lost: 0 bytes in 0 blocks
-==48787==    indirectly lost: 0 bytes in 0 blocks
-==48787==      possibly lost: 0 bytes in 0 blocks
-==48787==    still reachable: 711 bytes in 14 blocks
-==48787==         suppressed: 0 bytes in 0 blocks
-==48787== Reachable blocks (those to which a pointer was found) are not shown.
-==48787== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==48787== 
-==48787== For counts of detected and suppressed errors, rerun with: -v
-==48787== ERROR SUMMARY: 33 errors from 7 contexts (suppressed: 0 from 0)
+==52176== Memcheck, a memory error detector
+==52176== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==52176== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==52176== Command: ./test.5
+==52176== Parent PID: 52175
+==52176== 
+==52176== Invalid read of size 8
+==52176==    at 0x10B295: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.5)
+==52176==    by 0x109B8D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.5)
+==52176==  Address 0x40 is not stack'd, malloc'd or (recently) free'd
+==52176== 
+==52176== 
+==52176== Process terminating with default action of signal 11 (SIGSEGV)
+==52176==  Access not within mapped region at address 0x40
+==52176==    at 0x10B295: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.5)
+==52176==    by 0x109B8D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.5)
+==52176==  If you believe this happened as a result of a stack
+==52176==  overflow in your program's main thread (unlikely but
+==52176==  possible), you can try to increase the size of the
+==52176==  main thread stack using the --main-stacksize= flag.
+==52176==  The main thread stack size used in this run was 8388608.
+==52176== 
+==52176== HEAP SUMMARY:
+==52176==     in use at exit: 575 bytes in 12 blocks
+==52176==   total heap usage: 169 allocs, 157 frees, 84,980 bytes allocated
+==52176== 
+==52176== 111 (80 direct, 31 indirect) bytes in 1 blocks are definitely lost in loss record 8 of 9
+==52176==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==52176==    by 0x10B020: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.5)
+==52176==    by 0x109976: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.5)
+==52176== 
+==52176== LEAK SUMMARY:
+==52176==    definitely lost: 80 bytes in 1 blocks
+==52176==    indirectly lost: 31 bytes in 1 blocks
+==52176==      possibly lost: 0 bytes in 0 blocks
+==52176==    still reachable: 464 bytes in 10 blocks
+==52176==         suppressed: 0 bytes in 0 blocks
+==52176== Reachable blocks (those to which a pointer was found) are not shown.
+==52176== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==52176== 
+==52176== For counts of detected and suppressed errors, rerun with: -v
+==52176== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 6 : Testing with BstMap<std::string,(a custom class we wrote)>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==48811== Memcheck, a memory error detector
-==48811== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==48811== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==48811== Command: ./test.6
-==48811== Parent PID: 48810
-==48811== 
-==48811== Invalid read of size 8
-==48811==    at 0x10BA95: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BABE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B806: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B6CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Address 0x5b7f258 is 72 bytes inside a block of size 88 free'd
-==48811==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B9D1: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B62F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Block was alloc'd at
-==48811==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B13A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811== 
-==48811== Invalid read of size 8
-==48811==    at 0x10BAAC: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BABE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B806: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B6CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Address 0x5b7f260 is 80 bytes inside a block of size 88 free'd
-==48811==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B9D1: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B62F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Block was alloc'd at
-==48811==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B13A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811== 
-==48811== Invalid read of size 8
-==48811==    at 0x4F634B0: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48811==    by 0x10BAE3: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BABE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B806: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B6CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Address 0x5b7f218 is 8 bytes inside a block of size 88 free'd
-==48811==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B9D1: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B62F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Block was alloc'd at
-==48811==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B13A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811== 
-==48811== Invalid read of size 8
-==48811==    at 0x4F634B4: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48811==    by 0x10BAE3: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BABE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B806: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B6CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Address 0x5b7f210 is 0 bytes inside a block of size 88 free'd
-==48811==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B9D1: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B62F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Block was alloc'd at
-==48811==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B13A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811== 
-==48811== Invalid read of size 1
-==48811==    at 0x4C371F8: mempcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x5468A03: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1258)
-==48811==    by 0x545C9E6: fwrite (iofwrite.c:39)
-==48811==    by 0x4F4FB83: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48811==    by 0x10BAE3: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BABE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B806: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B6CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Address 0x5b7f22b is 27 bytes inside a block of size 88 free'd
-==48811==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B9D1: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B62F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Block was alloc'd at
-==48811==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B13A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811== 
-==48811== Invalid read of size 1
-==48811==    at 0x4C3720A: mempcpy (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x5468A03: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1258)
-==48811==    by 0x545C9E6: fwrite (iofwrite.c:39)
-==48811==    by 0x4F4FB83: std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48811==    by 0x10BAE3: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BABE: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10BAA7: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::traverse(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B806: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::go() (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B6CB: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Address 0x5b7f229 is 25 bytes inside a block of size 88 free'd
-==48811==    at 0x4C3123B: operator delete(void*) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B9D1: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::helperRemove(BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::Node*) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x10B62F: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Block was alloc'd at
-==48811==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
-==48811==    by 0x10B13A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109A36: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811== 
-==48811== Invalid read of size 8
-==48811==    at 0x4F634B0: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48811==    by 0x10B48A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  Address 0x8 is not stack'd, malloc'd or (recently) free'd
-==48811== 
-==48811== 
-==48811== Process terminating with default action of signal 11 (SIGSEGV)
-==48811==  Access not within mapped region at address 0x8
-==48811==    at 0x4F634B0: std::basic_ostream<char, std::char_traits<char> >& std::operator<< <char, std::char_traits<char>, std::allocator<char> >(std::basic_ostream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.25)
-==48811==    by 0x10B48A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==    by 0x109C4D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.6)
-==48811==  If you believe this happened as a result of a stack
-==48811==  overflow in your program's main thread (unlikely but
-==48811==  possible), you can try to increase the size of the
-==48811==  main thread stack using the --main-stacksize= flag.
-==48811==  The main thread stack size used in this run was 8388608.
-==48811== 
-==48811== HEAP SUMMARY:
-==48811==     in use at exit: 767 bytes in 14 blocks
-==48811==   total heap usage: 183 allocs, 169 frees, 85,442 bytes allocated
-==48811== 
-==48811== LEAK SUMMARY:
-==48811==    definitely lost: 0 bytes in 0 blocks
-==48811==    indirectly lost: 0 bytes in 0 blocks
-==48811==      possibly lost: 0 bytes in 0 blocks
-==48811==    still reachable: 767 bytes in 14 blocks
-==48811==         suppressed: 0 bytes in 0 blocks
-==48811== Reachable blocks (those to which a pointer was found) are not shown.
-==48811== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==48811== 
-==48811== For counts of detected and suppressed errors, rerun with: -v
-==48811== ERROR SUMMARY: 33 errors from 7 contexts (suppressed: 0 from 0)
+==52187== Memcheck, a memory error detector
+==52187== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==52187== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==52187== Command: ./test.6
+==52187== Parent PID: 52186
+==52187== 
+==52187== Invalid read of size 8
+==52187==    at 0x10B32D: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.6)
+==52187==    by 0x109B8D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.6)
+==52187==  Address 0x48 is not stack'd, malloc'd or (recently) free'd
+==52187== 
+==52187== 
+==52187== Process terminating with default action of signal 11 (SIGSEGV)
+==52187==  Access not within mapped region at address 0x48
+==52187==    at 0x10B32D: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.6)
+==52187==    by 0x109B8D: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.6)
+==52187==  If you believe this happened as a result of a stack
+==52187==  overflow in your program's main thread (unlikely but
+==52187==  possible), you can try to increase the size of the
+==52187==  main thread stack using the --main-stacksize= flag.
+==52187==  The main thread stack size used in this run was 8388608.
+==52187== 
+==52187== HEAP SUMMARY:
+==52187==     in use at exit: 615 bytes in 12 blocks
+==52187==   total heap usage: 189 allocs, 177 frees, 85,580 bytes allocated
+==52187== 
+==52187== 119 (88 direct, 31 indirect) bytes in 1 blocks are definitely lost in loss record 8 of 9
+==52187==    at 0x4C3017F: operator new(unsigned long) (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==52187==    by 0x10B07A: BstMap<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Tester>::add(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.6)
+==52187==    by 0x109976: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.6)
+==52187== 
+==52187== LEAK SUMMARY:
+==52187==    definitely lost: 88 bytes in 1 blocks
+==52187==    indirectly lost: 31 bytes in 1 blocks
+==52187==      possibly lost: 0 bytes in 0 blocks
+==52187==    still reachable: 496 bytes in 10 blocks
+==52187==         suppressed: 0 bytes in 0 blocks
+==52187== Reachable blocks (those to which a pointer was found) are not shown.
+==52187== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==52187== 
+==52187== For counts of detected and suppressed errors, rerun with: -v
+==52187== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 7 : Testing with BstMap<(a custom class we wrote),int>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==48860== Memcheck, a memory error detector
-==48860== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==48860== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==48860== Command: ./test.7
-==48860== Parent PID: 48859
-==48860== 
-==48860== Invalid read of size 4
-==48860==    at 0x10A754: Tester::getKey() const (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.7)
-==48860==    by 0x109705: operator<<(std::ostream&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.7)
-==48860==    by 0x10B177: BstMap<Tester, int>::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.7)
-==48860==    by 0x109BA0: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.7)
-==48860==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==48860== 
-==48860== 
-==48860== Process terminating with default action of signal 11 (SIGSEGV)
-==48860==  Access not within mapped region at address 0x0
-==48860==    at 0x10A754: Tester::getKey() const (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.7)
-==48860==    by 0x109705: operator<<(std::ostream&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.7)
-==48860==    by 0x10B177: BstMap<Tester, int>::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.7)
-==48860==    by 0x109BA0: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.7)
-==48860==  If you believe this happened as a result of a stack
-==48860==  overflow in your program's main thread (unlikely but
-==48860==  possible), you can try to increase the size of the
-==48860==  main thread stack using the --main-stacksize= flag.
-==48860==  The main thread stack size used in this run was 8388608.
-==48860== 
-==48860== HEAP SUMMARY:
-==48860==     in use at exit: 480 bytes in 9 blocks
-==48860==   total heap usage: 77 allocs, 68 frees, 82,704 bytes allocated
-==48860== 
-==48860== LEAK SUMMARY:
-==48860==    definitely lost: 0 bytes in 0 blocks
-==48860==    indirectly lost: 0 bytes in 0 blocks
-==48860==      possibly lost: 0 bytes in 0 blocks
-==48860==    still reachable: 480 bytes in 9 blocks
-==48860==         suppressed: 0 bytes in 0 blocks
-==48860== Reachable blocks (those to which a pointer was found) are not shown.
-==48860== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==48860== 
-==48860== For counts of detected and suppressed errors, rerun with: -v
-==48860== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==52217== Memcheck, a memory error detector
+==52217== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==52217== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==52217== Command: ./test.7
+==52217== Parent PID: 52216
+==52217== 
+==52217== Invalid read of size 8
+==52217==    at 0x10B039: BstMap<Tester, int>::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.7)
+==52217==    by 0x109AE0: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.7)
+==52217==  Address 0x38 is not stack'd, malloc'd or (recently) free'd
+==52217== 
+==52217== 
+==52217== Process terminating with default action of signal 11 (SIGSEGV)
+==52217==  Access not within mapped region at address 0x38
+==52217==    at 0x10B039: BstMap<Tester, int>::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.7)
+==52217==    by 0x109AE0: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.7)
+==52217==  If you believe this happened as a result of a stack
+==52217==  overflow in your program's main thread (unlikely but
+==52217==  possible), you can try to increase the size of the
+==52217==  main thread stack using the --main-stacksize= flag.
+==52217==  The main thread stack size used in this run was 8388608.
+==52217== 
+==52217== HEAP SUMMARY:
+==52217==     in use at exit: 480 bytes in 9 blocks
+==52217==   total heap usage: 77 allocs, 68 frees, 82,704 bytes allocated
+==52217== 
+==52217== LEAK SUMMARY:
+==52217==    definitely lost: 0 bytes in 0 blocks
+==52217==    indirectly lost: 0 bytes in 0 blocks
+==52217==      possibly lost: 0 bytes in 0 blocks
+==52217==    still reachable: 480 bytes in 9 blocks
+==52217==         suppressed: 0 bytes in 0 blocks
+==52217== Reachable blocks (those to which a pointer was found) are not shown.
+==52217== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==52217== 
+==52217== For counts of detected and suppressed errors, rerun with: -v
+==52217== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 8 : Testing with BstMap<(a custom class we wrote),std::string>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==48881== Memcheck, a memory error detector
-==48881== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==48881== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==48881== Command: ./test.8
-==48881== Parent PID: 48880
-==48881== 
-==48881== Invalid read of size 4
-==48881==    at 0x10A8E4: Tester::getKey() const (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.8)
-==48881==    by 0x109705: operator<<(std::ostream&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.8)
-==48881==    by 0x10B440: BstMap<Tester, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.8)
-==48881==    by 0x109BBD: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.8)
-==48881==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==48881== 
-==48881== 
-==48881== Process terminating with default action of signal 11 (SIGSEGV)
-==48881==  Access not within mapped region at address 0x0
-==48881==    at 0x10A8E4: Tester::getKey() const (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.8)
-==48881==    by 0x109705: operator<<(std::ostream&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.8)
-==48881==    by 0x10B440: BstMap<Tester, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.8)
-==48881==    by 0x109BBD: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.8)
-==48881==  If you believe this happened as a result of a stack
-==48881==  overflow in your program's main thread (unlikely but
-==48881==  possible), you can try to increase the size of the
-==48881==  main thread stack using the --main-stacksize= flag.
-==48881==  The main thread stack size used in this run was 8388608.
-==48881== 
-==48881== HEAP SUMMARY:
-==48881==     in use at exit: 743 bytes in 14 blocks
-==48881==   total heap usage: 157 allocs, 143 frees, 84,904 bytes allocated
-==48881== 
-==48881== LEAK SUMMARY:
-==48881==    definitely lost: 0 bytes in 0 blocks
-==48881==    indirectly lost: 0 bytes in 0 blocks
-==48881==      possibly lost: 0 bytes in 0 blocks
-==48881==    still reachable: 743 bytes in 14 blocks
-==48881==         suppressed: 0 bytes in 0 blocks
-==48881== Reachable blocks (those to which a pointer was found) are not shown.
-==48881== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==48881== 
-==48881== For counts of detected and suppressed errors, rerun with: -v
-==48881== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==52245== Memcheck, a memory error detector
+==52245== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==52245== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==52245== Command: ./test.8
+==52245== Parent PID: 52244
+==52245== 
+==52245== Invalid read of size 8
+==52245==    at 0x10B2FC: BstMap<Tester, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.8)
+==52245==    by 0x109AFD: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.8)
+==52245==  Address 0x50 is not stack'd, malloc'd or (recently) free'd
+==52245== 
+==52245== 
+==52245== Process terminating with default action of signal 11 (SIGSEGV)
+==52245==  Access not within mapped region at address 0x50
+==52245==    at 0x10B2FC: BstMap<Tester, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.8)
+==52245==    by 0x109AFD: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.8)
+==52245==  If you believe this happened as a result of a stack
+==52245==  overflow in your program's main thread (unlikely but
+==52245==  possible), you can try to increase the size of the
+==52245==  main thread stack using the --main-stacksize= flag.
+==52245==  The main thread stack size used in this run was 8388608.
+==52245== 
+==52245== HEAP SUMMARY:
+==52245==     in use at exit: 743 bytes in 14 blocks
+==52245==   total heap usage: 157 allocs, 143 frees, 84,904 bytes allocated
+==52245== 
+==52245== LEAK SUMMARY:
+==52245==    definitely lost: 0 bytes in 0 blocks
+==52245==    indirectly lost: 0 bytes in 0 blocks
+==52245==      possibly lost: 0 bytes in 0 blocks
+==52245==    still reachable: 743 bytes in 14 blocks
+==52245==         suppressed: 0 bytes in 0 blocks
+==52245== Reachable blocks (those to which a pointer was found) are not shown.
+==52245== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==52245== 
+==52245== For counts of detected and suppressed errors, rerun with: -v
+==52245== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 -----------------------------------------------
 testcase 9 : Testing with BstMap<(a custom class we wrote),(a custom class we wrote)>
 ...compiling...
 The code compiled.
   - Valgrind reported errors
 Valgrind reported errors (test failed).
-==48903== Memcheck, a memory error detector
-==48903== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==48903== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
-==48903== Command: ./test.9
-==48903== Parent PID: 48902
-==48903== 
-==48903== Invalid read of size 4
-==48903==    at 0x10A8F6: Tester::getKey() const (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.9)
-==48903==    by 0x109705: operator<<(std::ostream&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.9)
-==48903==    by 0x10B4AA: BstMap<Tester, Tester>::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.9)
-==48903==    by 0x109BCF: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.9)
-==48903==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==48903== 
-==48903== 
-==48903== Process terminating with default action of signal 11 (SIGSEGV)
-==48903==  Access not within mapped region at address 0x0
-==48903==    at 0x10A8F6: Tester::getKey() const (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.9)
-==48903==    by 0x109705: operator<<(std::ostream&, Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.9)
-==48903==    by 0x10B4AA: BstMap<Tester, Tester>::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.9)
-==48903==    by 0x109BCF: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.EFtUuG/test.9)
-==48903==  If you believe this happened as a result of a stack
-==48903==  overflow in your program's main thread (unlikely but
-==48903==  possible), you can try to increase the size of the
-==48903==  main thread stack using the --main-stacksize= flag.
-==48903==  The main thread stack size used in this run was 8388608.
-==48903== 
-==48903== HEAP SUMMARY:
-==48903==     in use at exit: 799 bytes in 14 blocks
-==48903==   total heap usage: 177 allocs, 163 frees, 85,504 bytes allocated
-==48903== 
-==48903== LEAK SUMMARY:
-==48903==    definitely lost: 0 bytes in 0 blocks
-==48903==    indirectly lost: 0 bytes in 0 blocks
-==48903==      possibly lost: 0 bytes in 0 blocks
-==48903==    still reachable: 799 bytes in 14 blocks
-==48903==         suppressed: 0 bytes in 0 blocks
-==48903== Reachable blocks (those to which a pointer was found) are not shown.
-==48903== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==48903== 
-==48903== For counts of detected and suppressed errors, rerun with: -v
-==48903== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==52262== Memcheck, a memory error detector
+==52262== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==52262== Using Valgrind-3.13.0 and LibVEX; rerun with -h for copyright info
+==52262== Command: ./test.9
+==52262== Parent PID: 52261
+==52262== 
+==52262== Invalid read of size 8
+==52262==    at 0x10B374: BstMap<Tester, Tester>::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.9)
+==52262==    by 0x109B0F: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.9)
+==52262==  Address 0x58 is not stack'd, malloc'd or (recently) free'd
+==52262== 
+==52262== 
+==52262== Process terminating with default action of signal 11 (SIGSEGV)
+==52262==  Access not within mapped region at address 0x58
+==52262==    at 0x10B374: BstMap<Tester, Tester>::remove(Tester const&) (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.9)
+==52262==    by 0x109B0F: main (in /home/ece551db/graderbase/work/ilj3.098_bst_map.ghSriM/test.9)
+==52262==  If you believe this happened as a result of a stack
+==52262==  overflow in your program's main thread (unlikely but
+==52262==  possible), you can try to increase the size of the
+==52262==  main thread stack using the --main-stacksize= flag.
+==52262==  The main thread stack size used in this run was 8388608.
+==52262== 
+==52262== HEAP SUMMARY:
+==52262==     in use at exit: 799 bytes in 14 blocks
+==52262==   total heap usage: 177 allocs, 163 frees, 85,504 bytes allocated
+==52262== 
+==52262== LEAK SUMMARY:
+==52262==    definitely lost: 0 bytes in 0 blocks
+==52262==    indirectly lost: 0 bytes in 0 blocks
+==52262==      possibly lost: 0 bytes in 0 blocks
+==52262==    still reachable: 799 bytes in 14 blocks
+==52262==         suppressed: 0 bytes in 0 blocks
+==52262== Reachable blocks (those to which a pointer was found) are not shown.
+==52262== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==52262== 
+==52262== For counts of detected and suppressed errors, rerun with: -v
+==52262== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
 
 Overall Grade: F
