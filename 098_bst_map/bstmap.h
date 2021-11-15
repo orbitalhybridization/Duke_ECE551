@@ -1,3 +1,4 @@
+#include <iostream>
 #include <stdexcept>
 
 #include "map.h"
@@ -11,32 +12,13 @@ class BstMap : public Map<K, V> {
     Node * left;
     Node * right;
 
-    Node() : key(0), value(0), left(NULL), right(NULL){};
+    explicit Node() : key(0), value(0), left(NULL), right(NULL){};
     Node(K key_, V value_) : key(key_), value(value_), left(NULL), right(NULL){};
   };
   Node * root;
 
  public:
-  virtual void add(const K & key, const V & value) { root = add(root, key, value); }
-
-  Node * add(Node * current, const K & key, const V & value) {  // helper function
-    if (current == NULL) {
-      Node * ans = new Node(key, value);
-      return ans;
-    }
-    else {
-      if (key < current->key) {
-        Node * newLeft = add(current->left, key, value);
-        current->left = newLeft;
-      }
-      else {
-        Node * newRight = add(current->right, key, value);
-        current->right = newRight;
-      }
-      return current;
-    }
-  }
-
+  BstMap() : root(NULL){};
   virtual const V & lookup(const K & key) const throw(std::invalid_argument) {
     Node * current = root;
     while (current != NULL) {
@@ -52,8 +34,31 @@ class BstMap : public Map<K, V> {
     }
     throw std::invalid_argument("not right");
   }
-
+  virtual void add(const K & key, const V & value) {
+    Node * current = root;
+    Node * prev = NULL;
+    if (root == NULL) {
+      root = new Node(key, value);
+      return;
+    }
+    while (current != NULL) {  // get to the end
+      prev = current;
+      if (key < current->key) {
+        current = current->left;
+      }
+      else {
+        current = current->right;
+      }
+    }
+    if (key < prev->key) {
+      prev->left = new Node(key, value);
+    }
+    else {
+      prev->right = new Node(key, value);
+    }
+  }
   virtual void remove(const K & key) {
+    go();
     // go left once then all the way right
     Node * to_delete = root;
     Node * prev = NULL;
@@ -61,19 +66,25 @@ class BstMap : public Map<K, V> {
     // keep track of parent or
 
     while (to_delete != NULL) {
-      prev = to_delete;
       if (to_delete->key == key) {
+        std::cout << "Found key to delete: " << key << std::endl;
         break;
       }
       else if (key < to_delete->key) {
+        std::cout << "Going left\n";
+        prev = to_delete;
         to_delete = to_delete->left;
       }
       else {
+        std::cout << "Going right\n";
+        prev = to_delete;
         to_delete = to_delete->right;
       }
     }
     // one right child case and no child case
+    std::cout << "Previous is: " << prev->key << std::endl;
     if (to_delete->left == NULL) {
+      std::cout << "Node to delete has one right child or no children" << std::endl;
       Node * temp = to_delete->right;
       if (to_delete == prev->right) {
         delete to_delete;
@@ -85,6 +96,8 @@ class BstMap : public Map<K, V> {
       }
     }
     else if (to_delete->right == NULL) {  // one left child case
+      std::cout << "Node to delete has one left child" << std::endl;
+
       Node * temp = to_delete->left;
       if (to_delete == prev->right) {
         delete to_delete;
@@ -96,31 +109,52 @@ class BstMap : public Map<K, V> {
       }
     }
     else {  // two-child case
+      std::cout << "Node to delete has two children" << std::endl;
       std::pair<K, V> kv = helperRemove(to_delete);
       to_delete->key = kv.first;
       to_delete->value = kv.second;
+      std::cout << "New key: " << to_delete->key << ", New Value: " << to_delete->value
+                << std::endl;
+      go();
     }
   }
 
   std::pair<K, V> helperRemove(Node * node) {
     Node * current = node->left;  // left one then right a bunch
-    Node * prev = NULL;
+    Node * prev_ = node;
     while (current->right != NULL) {
-      prev = current;
+      std::cout << "Has right" << std::endl;
+      prev_ = current;
       current = current->right;
     }
     std::pair<K, V> ret = std::make_pair(current->key, current->value);
     if (current->left != NULL) {
-      current->left = prev->left;
+      std::cout << "Setting " << current->left->key << "right of " << prev_->key
+                << std::endl;
+      prev_->right = current->left;
     }
+    else {
+      prev_->left = NULL;
+    }
+    std::cout << "Deleting " << current->key << std::endl;
     delete current;
     return ret;
+  }
+
+  void go() { traverse(root); }
+  void traverse(Node * node) {
+    if (node != NULL) {
+      traverse(node->left);
+      traverse(node->right);
+      std::cout << "Encountered: " << node->key << std::endl;
+    }
   }
 
   void clear(Node * node) {  // do a postorder traversal
     if (node != NULL) {
       clear(node->left);
       clear(node->right);
+      //std::cout << "Deleteing: " << node->key << std::endl;
       delete node;
     }
   }
