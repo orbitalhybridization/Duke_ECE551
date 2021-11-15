@@ -5,12 +5,12 @@ template<typename K, typename V>
 class BstMap : public Map<K, V> {
  private:
   class Node {
+   public:
     K key;
     V value;
     Node * left;
     Node * right;
 
-   public:
     Node() : key(0), value(0), left(NULL), right(NULL){};
     Node(K key_, V value_) : key(key_), value(value_), left(NULL), right(NULL){};
   };
@@ -63,7 +63,7 @@ class BstMap : public Map<K, V> {
       return root;
     }
     while (to_delete != NULL) {
-      Node * prev = to_delete;
+      prev = to_delete;
       if (to_delete->key == key) {
         break;
       }
