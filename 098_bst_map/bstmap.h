@@ -59,9 +59,7 @@ class BstMap : public Map<K, V> {
     Node * prev = NULL;
     // find thing to remove
     // keep track of parent or
-    if (root == NULL) {
-      return root;
-    }
+
     while (to_delete != NULL) {
       prev = to_delete;
       if (to_delete->key == key) {
