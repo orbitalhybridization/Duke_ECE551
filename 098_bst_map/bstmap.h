@@ -19,6 +19,22 @@ class BstMap : public Map<K, V> {
 
  public:
   BstMap() : root(NULL){};
+
+  BstMap(const BstMap & rhs) { setEqual(*this, rhs.root); }
+
+  BstMap & operator=(const BstMap & rhs) {
+    this->clear;
+    setEqual(*this, rhs.root);
+    return *this;
+  }
+
+  void setEqual(BstMap & new_tree, Node * node) {
+    if (node != NULL) {
+      new_tree.add(node->key, node->value);
+      setEqual(new_tree, node->left);
+      setEqual(new_tree, node->right);
+    }
+  }
   virtual const V & lookup(const K & key) const throw(std::invalid_argument) {
     Node * current = root;
     while (current != NULL) {
@@ -79,19 +95,14 @@ class BstMap : public Map<K, V> {
     }
     // one right child case and no child case
     if (to_delete->left == NULL) {
-      if ((to_delete == root) && (to_delete->right == NULL)) {
-        delete root;
+      Node * temp = to_delete->right;
+      if (to_delete == prev->right) {
+        delete to_delete;
+        prev->right = temp;
       }
       else {
-        Node * temp = to_delete->right;
-        if (to_delete == prev->right) {
-          delete to_delete;
-          prev->right = temp;
-        }
-        else {
-          delete to_delete;
-          prev->left = temp;
-        }
+        delete to_delete;
+        prev->left = temp;
       }
     }
     else if (to_delete->right == NULL) {  // one left child case
