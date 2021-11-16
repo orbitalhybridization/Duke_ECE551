@@ -20,17 +20,17 @@ class BstMap : public Map<K, V> {
  public:
   BstMap() : root(NULL){};
 
-  BstMap(const BstMap & rhs) { setEqual(*this, rhs.root); }
+  BstMap(const BstMap & rhs) { setEqual(this, rhs.root); }
 
   BstMap & operator=(const BstMap & rhs) {
     this->clear(this->root);
-    setEqual(*this, rhs.root);
+    setEqual(this, rhs.root);
     return *this;
   }
 
-  void setEqual(BstMap & new_tree, Node * node) {
+  void setEqual(BstMap * new_tree, Node * node) {
     if (node != NULL) {
-      new_tree.add(node->key, node->value);
+      new_tree->add(node->key, node->value);
       setEqual(new_tree, node->left);
       setEqual(new_tree, node->right);
     }
