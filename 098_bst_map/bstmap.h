@@ -23,7 +23,7 @@ class BstMap : public Map<K, V> {
   BstMap(const BstMap & rhs) { setEqual(*this, rhs.root); }
 
   BstMap & operator=(const BstMap & rhs) {
-    this->clear;
+    this->clear(this->root);
     setEqual(*this, rhs.root);
     return *this;
   }
