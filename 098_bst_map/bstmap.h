@@ -20,7 +20,7 @@ class BstMap : public Map<K, V> {
  public:
   BstMap() : root(NULL){};
 
-  BstMap(const BstMap & rhs) { setEqual(this, rhs.root); }
+  BstMap(const BstMap & rhs) : root(NULL) { setEqual(this, rhs.root); }
 
   BstMap & operator=(const BstMap & rhs) {
     this->clear(this->root);
@@ -48,7 +48,7 @@ class BstMap : public Map<K, V> {
         current = current->right;
       }
     }
-    throw std::invalid_argument("not right");
+    throw std::invalid_argument("requested value not found");
   }
   virtual void add(const K & key, const V & value) {
     Node * current = root;
