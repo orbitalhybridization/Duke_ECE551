@@ -229,7 +229,7 @@ class Story {
       //while (validateStrInt(page_number_s.str().c_str())) {
       // build filename
       page_number_s << page_number_i;
-      page_filename = directory_name + "page" + page_number_s.str() + ".txt";
+      page_filename = directory_name + "/page" + page_number_s.str() + ".txt";
 
       Page new_page = Page(page_filename.c_str());  // create page from filename
 

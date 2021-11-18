@@ -12,6 +12,5 @@ int main(int argc, char ** argv) {
   page.openFile();
   page.parsePage();
   std::cout << page << std::endl;  // print page
-  std::cout << "OOGABOOGA" << std::endl;
   return EXIT_SUCCESS;
 }
