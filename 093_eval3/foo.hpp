@@ -345,8 +345,6 @@ class Story {
         std::cout << pages[page_int] << std::endl;
       }
     }
-
-    exit(EXIT_SUCCESS);
   }
 
   std::vector<int>::iterator findElementInIntVector(int num, std::vector<int> & vec) {
