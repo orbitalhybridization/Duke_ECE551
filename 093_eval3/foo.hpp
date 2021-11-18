@@ -274,17 +274,17 @@ class Story {
 
     for (size_t i = 0; i < pages.size(); i++) {  // loop through all pages
 
-      Page curr_page = pages[i];
-      if (curr_page.isWin()) {  // check for win/loss
+      pages[i];
+      if (pages[i].isWin()) {  // check for win/loss
         win = true;
       }
-      else if (curr_page.isLose()) {
+      else if (pages[i].isLose()) {
         lose = true;
       }
 
       // loop through choices and make sure they reference valid pages
-      for (size_t j = 0; j < curr_page.getChoices().size(); j++) {
-        Choice curr_choice = curr_page.getChoices()[j];
+      for (size_t j = 0; j < pages[i].getChoices().size(); j++) {
+        Choice curr_choice = pages[i].getChoices()[j];
         if (curr_choice.getPageNum() > int(pages.size())) {
           std::cerr << "Choice references invalid page " << curr_choice.getPageNum()
                     << std::endl;
@@ -355,6 +355,91 @@ class Story {
     }
     return vec.end();
   }
+  Story & operator=(const Story & rhs) {
+    directory_name = rhs.directory_name;
+    // containers for building filename
+    // std::string page_number_s;
+    int page_number_i = 1;
+    std::string page_filename;
+    std::stringstream page_number_s;  // page number in string forme
+    // read pages
+    // we can read pages as long as they're valid ints
+    while (page_number_i <= INT_MAX) {
+      //while (validateStrInt(page_number_s.str().c_str())) {
+      // build filename
+      page_number_s << page_number_i;
+      page_filename = directory_name + "/page" + page_number_s.str() + ".txt";
+
+      Page new_page = Page(page_filename.c_str());  // create page from filename
+
+      // check if we can open
+      bool open_success = new_page.openFile();
+
+      if ((!open_success) && (page_number_i == 1)) {  // check if there's a page 1
+        std::cout << page_filename << std::endl;
+        std::cerr << "Page 1 doesn't exist!" << std::endl;
+        exit(EXIT_FAILURE);
+      }
+
+      if (!open_success) {  // if we haven't a consecutive page then we're done with the story
+        break;
+      }
+
+      // otherwise increment page number and add page to list
+      new_page.parsePage();  // fill members/fields
+      page_number_i++;
+      page_number_s.str("");  // empty container
+      pages.push_back(new_page);
+    }
+    if (page_number_i == INT_MAX) {
+      std::cout << "Reached all readable story pages. This is a long ass story!"
+                << std::endl;
+    }
+    validatePages();
+  }
+
+  Story(Story & rhs) : directory_name(rhs.directory_name) {
+    // containers for building filename
+    // std::string page_number_s;
+    int page_number_i = 1;
+    std::string page_filename;
+    std::stringstream page_number_s;  // page number in string forme
+    // read pages
+    // we can read pages as long as they're valid ints
+    while (page_number_i <= INT_MAX) {
+      //while (validateStrInt(page_number_s.str().c_str())) {
+      // build filename
+      page_number_s << page_number_i;
+      page_filename = directory_name + "/page" + page_number_s.str() + ".txt";
+
+      Page new_page = Page(page_filename.c_str());  // create page from filename
+
+      // check if we can open
+      bool open_success = new_page.openFile();
+
+      if ((!open_success) && (page_number_i == 1)) {  // check if there's a page 1
+        std::cout << page_filename << std::endl;
+        std::cerr << "Page 1 doesn't exist!" << std::endl;
+        exit(EXIT_FAILURE);
+      }
+
+      if (!open_success) {  // if we haven't a consecutive page then we're done with the story
+        break;
+      }
+
+      // otherwise increment page number and add page to list
+      new_page.parsePage();  // fill members/fields
+      page_number_i++;
+      page_number_s.str("");  // empty container
+      pages.push_back(new_page);
+    }
+    if (page_number_i == INT_MAX) {
+      std::cout << "Reached all readable story pages. This is a long ass story!"
+                << std::endl;
+    }
+    validatePages();
+
+  }  // copy ctor
 
   ~Story(){};
 };

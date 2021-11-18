@@ -8,7 +8,7 @@ int main(int argc, char ** argv) {
     exit(EXIT_FAILURE);
   }
 
-  Story story = Story(argv[1]);
+  Story story(argv[1]);
   story.read();
 
   return EXIT_SUCCESS;
