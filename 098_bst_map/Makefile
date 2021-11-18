@@ -1,7 +1,7 @@
-bstmap:  bstmap.h map.h main.cpp
-	g++ -o bstmap -ggdb3 -Wall -Werror -pedantic -std=gnu++98 main.cpp
+CPPFLAGS=-Wall -Werror -std=gnu++98 -pedantic -ggdb3
 
-.PHONY: clean
+bstmap: main.cpp bstmap.h map.h
+	g++ main.cpp $(CPPFLAGS) -o bstmap
 
 clean:
-	rm *~ *.o
+	rm -f bstmap \#* *~ *.o
