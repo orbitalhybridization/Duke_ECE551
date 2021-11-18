@@ -8,7 +8,10 @@ int main(int argc, char ** argv) {
     exit(EXIT_FAILURE);
   }
 
-  std::cout << Page(argv[1]) << std::endl;  // print page
+  Page page = Page(argv[1]);
+  page.openFile();
+  page.parsePage();
+  std::cout << page << std::endl;  // print page
 
   return EXIT_SUCCESS;
 }
