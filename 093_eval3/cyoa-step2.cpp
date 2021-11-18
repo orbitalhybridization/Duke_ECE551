@@ -8,7 +8,8 @@ int main(int argc, char ** argv) {
     exit(EXIT_FAILURE);
   }
 
-  std::cout << Story(argv[1]) << std::endl;  // print page
+  Story story = Story(argv[1]);
+  story.read();
 
   return EXIT_SUCCESS;
 }
