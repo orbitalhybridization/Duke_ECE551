@@ -396,6 +396,7 @@ class Story {
                 << std::endl;
     }
     validatePages();
+    return *this;
   }
 
   Story(Story & rhs) : directory_name(rhs.directory_name) {
@@ -440,6 +441,28 @@ class Story {
     validatePages();
 
   }  // copy ctor
+
+  void bfs() {
+    // run breadth first search on pages
+    std::vector<int> depths;
+    for (size_t i = 1; i < pages.size(); i++) {
+      // do bfs for all pages
+      bfs_helper(&pages[0], &pages[i]);
+    }
+    return;
+  }
+
+  int bfs_helper(
+      const Page * start) {  // here I used the bfs example from the book 25.3.3
+    // helper function that does the recursive calls
+    if (start == destination) {
+      return 0;
+    }
+    else {
+      for (node_
+      return 1 + bfs_helper(start->next_node, destination);
+    }
+  }
 
   ~Story(){};
 };

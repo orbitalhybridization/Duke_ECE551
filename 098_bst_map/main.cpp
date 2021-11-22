@@ -19,6 +19,8 @@ int main(int argc, char ** argv) {
   bst.add(8, 1);
   bst.remove(17);
   bst.remove(-11);
+  // test equals
+  BstMap<int, int> bts = bst;
   std::cout << "Done" << std::endl;
   return 0;
 }

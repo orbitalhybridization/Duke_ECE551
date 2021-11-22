@@ -24,6 +24,7 @@ class BstMap : public Map<K, V> {
 
   BstMap & operator=(const BstMap & rhs) {
     this->clear(this->root);
+    this->root = NULL;
     setEqual(this, rhs.root);
     return *this;
   }
