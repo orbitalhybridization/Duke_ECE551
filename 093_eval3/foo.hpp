@@ -1,9 +1,13 @@
+#include <string.h>
+
 #include <cerrno>
 #include <climits>
 #include <cmath>
 #include <fstream>
 #include <iostream>
 #include <limits>
+#include <queue>
+#include <set>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -128,16 +132,17 @@ class Page {
   std::string text;             // story text of page
   std::vector<Choice> choices;  // choices from first section
   std::pair<bool, char> EOS;    // end of story (win/lose condition)
+  std::vector<int> num;
 
  public:
   Page() :
-      filename(""),
+      filename(strdup("")),
       file(NULL),
       text(""),
       EOS(std::make_pair(false, '\0')) {}  // default ctor
 
   Page(const char * fname) :
-      filename(fname),
+      filename(strdup(fname)),
       text(""),
       EOS(std::make_pair(false, '\0')) {  // constructor
   }
@@ -171,7 +176,7 @@ class Page {
   }
 
   Page(const Page & rhs) :
-      filename(rhs.filename),
+      filename(strdup(rhs.filename)),
       file(rhs.filename),
       text(rhs.text),
       choices(rhs.choices),
@@ -185,6 +190,7 @@ class Page {
   std::vector<Choice> getChoices() { return choices; }
   // get private field, choices
 
+  std::vector<Choice> getChoices() const { return choices; }
   bool openFile() {
     // attempt to open file
     file.open(filename);
@@ -203,11 +209,26 @@ class Page {
     file.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
   }
 
+  bool operator==(const Page & rhs) const {
+    //define == operator
+    if (strcmp(rhs.filename, filename) == 0) {
+      return true;
+    }
+    return false;
+  }
+
   bool isEOS() { return EOS.first; }
 
   bool isWin() { return EOS.second == 'W'; }
 
   bool isLose() { return EOS.second == 'L'; }
+
+  void setNum(int n) { num.push_back(n); }
+
+  int getNum() const {
+    std::cout << num.size() << std::endl;
+    return *num.data();
+  }
 };
 
 class Story {
@@ -237,7 +258,6 @@ class Story {
       bool open_success = new_page.openFile();
 
       if ((!open_success) && (page_number_i == 1)) {  // check if there's a page 1
-        std::cout << page_filename << std::endl;
         std::cerr << "Page 1 doesn't exist!" << std::endl;
         exit(EXIT_FAILURE);
       }
@@ -248,6 +268,7 @@ class Story {
 
       // otherwise increment page number and add page to list
       new_page.parsePage();  // fill members/fields
+      new_page.setNum(page_number_i);
       page_number_i++;
       page_number_s.str("");  // empty container
       pages.push_back(new_page);
@@ -376,7 +397,6 @@ class Story {
       bool open_success = new_page.openFile();
 
       if ((!open_success) && (page_number_i == 1)) {  // check if there's a page 1
-        std::cout << page_filename << std::endl;
         std::cerr << "Page 1 doesn't exist!" << std::endl;
         exit(EXIT_FAILURE);
       }
@@ -387,6 +407,7 @@ class Story {
 
       // otherwise increment page number and add page to list
       new_page.parsePage();  // fill members/fields
+      new_page.setNum(page_number_i);
       page_number_i++;
       page_number_s.str("");  // empty container
       pages.push_back(new_page);
@@ -442,26 +463,53 @@ class Story {
 
   }  // copy ctor
 
-  void bfs() {
+  void displayPageDepths() {
     // run breadth first search on pages
     std::vector<int> depths;
-    for (size_t i = 1; i < pages.size(); i++) {
+    for (size_t i = 0; i < pages.size(); i++) {
       // do bfs for all pages
-      bfs_helper(&pages[0], &pages[i]);
+      std::cout << "Page " << i + 1;
+      int depth = pageDepthsHelper(&pages[0], &pages[i]);
+      if (depth >= 0) {  // print normally if page is reachable
+        std::cout << ":" << depth << std::endl;
+      }
+      else {
+        std::cout << " is not reachable" << std::endl;
+      }
     }
     return;
   }
 
-  int bfs_helper(
-      const Page * start) {  // here I used the bfs example from the book 25.3.3
+  int pageDepthsHelper(const Page * start, const Page * end) {
     // helper function that does the recursive calls
-    if (start == destination) {
-      return 0;
+    // here I used the bfs example from the book 25.3.3
+    std::vector<const Page *> startingPath;
+    startingPath.push_back(start);  // create initial path with just start node
+    std::queue<std::vector<const Page *> > paths;  // queue for paths
+    std::set<const Page *> visited;
+    paths.push(startingPath);
+    while (!paths.empty()) {
+      std::vector<const Page *> currentPath = paths.front();
+      //      std::cout << currentPath.size() << std::endl;
+      paths.pop();
+      const Page * currentPage = *(currentPath.end() - 1);
+      if (currentPage->getNum() == end->getNum()) {
+        return currentPath.size() - 1;
+      }
+      if (visited.find(currentPage) == visited.end()) {  // if not in visited
+        visited.insert(visited.end(), currentPage);
+      }
+      std::vector<Choice> choices = currentPage->getChoices();
+      for (size_t i = 0; i < choices.size(); i++) {  // add paths with other nodes
+        Choice choice = choices[i];
+        Page page_to_add = pages[choice.getPageNum() - 1];
+        std::vector<const Page *> newPath = currentPath;
+        //        currentPath.push_back(&page_to_add);
+        newPath.push_back(&page_to_add);
+        paths.push(newPath);
+      }
     }
-    else {
-      for (node_
-      return 1 + bfs_helper(start->next_node, destination);
-    }
+    return -1;  // case, no valid path
   }
 
   ~Story(){};
