@@ -21,6 +21,10 @@ int main(int argc, char ** argv) {
   bst.remove(-11);
   // test equals
   BstMap<int, int> bts = bst;
+  bts.remove(1);
+  bts.add(1, 1);
+  BstMap<int, int> bt(bts);
+  bt.remove(8);
   std::cout << "Done" << std::endl;
   return 0;
 }

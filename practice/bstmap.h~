@@ -14,10 +14,6 @@ class BstMap : public Map<K, V> {
 
     explicit Node() : key(0), value(0), left(NULL), right(NULL){};
     Node(K key_, V value_) : key(key_), value(value_), left(NULL), right(NULL){};
-    ~Node() {
-      delete left;
-      delete right;
-    }
   };
   Node * root;
 
