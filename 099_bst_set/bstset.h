@@ -13,9 +13,9 @@ class BstSet : public Set<T> {
     data.push_back(key);
   }
 
-  virtual bool contains(const T & key) {
+  virtual bool contains(const T & key) const {
     // check me
-    typename std::vector<T>::iterator it = std::find(data.begin(), data.end(), key);
+    typename std::vector<T>::const_iterator it = std::find(data.begin(), data.end(), key);
     if (it == data.end()) {
       return true;
     }
@@ -32,9 +32,10 @@ class BstSet : public Set<T> {
 
   virtual ~BstSet<T>() {}
 
-  BstSet & operator=(const BstSet & rhs) {
+  virtual BstSet & operator=(const BstSet & rhs) {
     if (this != &rhs) {
-      for (typename std::vector<T>::iterator it = rhs.data.begin(); it != rhs.data.end();
+      for (typename std::vector<T>::const_iterator it = rhs.data.begin();
+           it != rhs.data.end();
            it++) {
         data.push_back(*it);
       }
@@ -43,7 +44,8 @@ class BstSet : public Set<T> {
   }
 
   BstSet(const BstSet & rhs) {
-    for (typename std::vector<T>::iterator it = rhs.data.begin(); it != rhs.data.end();
+    for (typename std::vector<T>::const_iterator it = rhs.data.begin();
+         it != rhs.data.end();
          it++) {
       data.push_back(*it);
     }
