@@ -26,7 +26,7 @@ class BstMap : public Map<K, V> {
 
   BstMap & operator=(BstMap & rhs) {
     // assignment
-    if (*this != rhs) {
+    if (this != &rhs) {
       clear(root);          // empty all nodes
       makeEqual(rhs.root);  // do a preorder traversal to reconstruct
     }
@@ -54,21 +54,25 @@ class BstMap : public Map<K, V> {
       makeEqual(node->right);
     }
   }
-  /*
-  Node * add_helper(Node * current, K addKey, V addValue) {
+
+  Node * add_helper(Node * current, const K & addKey, const V & addValue) {
     if (current == NULL) {
       Node * ans = new Node(addKey, addValue);
       return ans;
     }
     else {
       if (addKey < current->key) {
-        Node * newLeft = add_helper(current->right, addKey, addValue);
+        Node * newLeft = add_helper(current->left, addKey, addValue);
         current->left = newLeft;
       }
 
-      else {
-        Node * newRight = add_helper(current->left, addKey, addValue);
+      else if (addKey > current->key) {
+        Node * newRight = add_helper(current->right, addKey, addValue);
         current->right = newRight;
+      }
+
+      else {
+        current->value = addValue;  // update val
       }
 
       return current;
@@ -77,11 +81,9 @@ class BstMap : public Map<K, V> {
 
   virtual void add(const K & key, const V & value) {
     root = add_helper(root, key, value);
-    show();
-    std::cout << "end show" << std::endl;
   }
-  */
 
+  /*
   virtual void add(const K & key, const V & value) {
     Node ** curr = &root;
     while (*curr != NULL) {
@@ -94,6 +96,7 @@ class BstMap : public Map<K, V> {
     }
     *curr = new Node(key, value);
   }
+  */
 
   virtual const V & lookup(const K & key) const throw(std::invalid_argument) {
     Node * current = root;
@@ -118,7 +121,6 @@ class BstMap : public Map<K, V> {
     if (root == NULL) {
       return;
     }
-    std::cout << "Child key " << child->key << std::endl;
     while (child->key != key) {
       // find the key that we want to remove
       if (key < child->key) {
@@ -130,12 +132,16 @@ class BstMap : public Map<K, V> {
         child = child->right;
       }
     }
+
     if (child == parent->left) {
       parent->left = remove_helper(child);
     }
-
-    else {
+    else if (child == parent->right) {
       parent->right = remove_helper(child);
+    }
+
+    else {  // parent == child
+      parent = remove_helper(child);
     }
     // now that we've found the one to remove,
     // we want to abort the child
@@ -144,28 +150,36 @@ class BstMap : public Map<K, V> {
   Node * remove_helper(Node * node) {
     if (node->left == NULL) {
       Node * temp = node->right;
-      std::cout << "Deleteing " << node->key << std::endl;
+      std::cout << "Deleting " << node->key << std::endl;
       delete node;
       return temp;
     }
     else if (node->right == NULL) {
       // has a left child
       Node * temp = node->left;
-      std::cout << "Deleteing " << node->key << std::endl;
+      std::cout << "Deleting " << node->key << std::endl;
       delete node;
       return temp;
     }
     else {  // has two children
       // go left one
       Node * temp = node->left;
+      Node * temp_parent = node;
       // go right as much as possible
       while (temp->right != NULL) {
+        temp_parent = temp;
         temp = temp->right;
       }
       // return
       node->key = temp->key;
       node->value = temp->value;
-      std::cout << "Deleteing " << temp->key << std::endl;
+      std::cout << "Deleting " << temp->key << std::endl;
+      if (temp == temp_parent->left) {
+        temp_parent->left = temp->left;
+      }
+      else {
+        temp_parent->right = temp->left;
+      }
       delete temp;
       return node;
     }

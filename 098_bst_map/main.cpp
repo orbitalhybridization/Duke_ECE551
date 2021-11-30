@@ -19,10 +19,17 @@ int main(int argc, char ** argv) {
   bst.add(8, 1);
   bst.show();
   bst.remove(17);
+  //  bst.show();
   bst.remove(-11);
+  //  bst.show();
   // test equals
-  BstMap<int, int> bts = bst;
+  BstMap<int, int> bts;
+  bst.show();
+  std::cout << "\n";
+  bts = bst;
+  bts.show();
   bts.remove(1);
+  bts.show();
   bts.add(1, 1);
   BstMap<int, int> bt(bts);
   bt.remove(8);
