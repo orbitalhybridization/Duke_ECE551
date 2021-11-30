@@ -32,7 +32,22 @@ class BstSet : public Set<T> {
 
   virtual ~BstSet<T>() {}
 
-  BstSet & operator=(const BstSet & rhs) {}
+  BstSet & operator=(const BstSet & rhs) {
+    if (this != &rhs) {
+      for (typename std::vector<T>::iterator it = rhs.data.begin(); it != rhs.data.end();
+           it++) {
+        data.push_back(*it);
+      }
+    }
+    return *this;
+  }
+
+  BstSet(const BstSet & rhs) {
+    for (typename std::vector<T>::iterator it = rhs.data.begin(); it != rhs.data.end();
+         it++) {
+      data.push_back(*it);
+    }
+  }
 
   BstSet() {}
 };
