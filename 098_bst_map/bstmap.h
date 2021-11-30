@@ -120,7 +120,10 @@ class BstMap : public Map<K, V> {
     if (root == NULL) {
       return;
     }
-    while (child->key != key) {
+    while (child != NULL) {
+      if (child->key == key) {
+        break;  // no key found
+      }
       // find the key that we want to remove
       if (key < child->key) {
         parent = child;
@@ -130,10 +133,10 @@ class BstMap : public Map<K, V> {
         parent = child;
         child = child->right;
       }
+    }
 
-      if (child == NULL) {
-        return;  // no key found
-      }
+    if (child == NULL) {
+      return;
     }
 
     if (child == parent->left) {
@@ -189,7 +192,6 @@ class BstMap : public Map<K, V> {
       std::cout << "Deleting " << temp->key << std::endl;
 
       delete temp;
-
       return node;
     }
   }
