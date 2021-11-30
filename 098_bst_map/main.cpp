@@ -17,6 +17,7 @@ int main(int argc, char ** argv) {
   bst.add(5, 1);
   bst.add(9, 1);
   bst.add(8, 1);
+  bst.show();
   bst.remove(17);
   bst.remove(-11);
   // test equals

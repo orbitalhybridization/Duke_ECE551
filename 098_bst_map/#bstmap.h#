@@ -54,6 +54,7 @@ class BstMap : public Map<K, V> {
       makeEqual(node->right);
     }
   }
+  
   /*
   Node * add_helper(Node * current, K addKey, V addValue) {
     if (current == NULL) {
