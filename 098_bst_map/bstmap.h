@@ -131,6 +131,10 @@ class BstMap : public Map<K, V> {
         parent = child;
         child = child->right;
       }
+
+      if (child == NULL) {
+        return;  // no key found
+      }
     }
 
     if (child == parent->left) {
