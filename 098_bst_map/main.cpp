@@ -4,6 +4,55 @@
 
 #include "bstmap.h"
 
+class A {
+  int x;
+
+ public:
+  A() : x(0) {}
+
+  A & operator=(const A & rhs) {
+    if (this != &rhs) {
+      x = rhs.x;
+    }
+    return *this;
+  }
+
+  A(int x_in) : x(x_in) {}
+
+  A(const A & rhs) { x = rhs.x; }
+
+  bool operator<(const A & rhs) const {
+    if (x < rhs.x) {
+      return true;
+    }
+    return false;
+  };
+
+  bool operator>(const A & rhs) const {
+    if (x > rhs.x) {
+      return true;
+    }
+    return false;
+  }
+
+  bool operator==(const A & rhs) const {
+    if (x == rhs.x) {
+      return true;
+    }
+    return false;
+  }
+
+  bool operator!=(const A & rhs) const {
+    if (x != rhs.x) {
+      return true;
+    }
+
+    return false;
+  }
+
+  ~A() {}
+};
+
 int main(int argc, char ** argv) {
   BstMap<int, int> bst;
   bst.add(1, 1);
@@ -71,5 +120,19 @@ int main(int argc, char ** argv) {
   BstMap<const char *, const char *> bst_ch2 = bst_ch;
   bst_ch.remove("q");
 
+  // create a new class!
+  A a;
+  // create a map w/ two of em
+  BstMap<A, A> bst_A;
+  const A a1 = A(1);
+  const A a2 = A(2);
+  const A a3 = A(3);
+  const A a4 = A(4);
+  bst_A.add(a1, a2);
+  bst_A.add(a3, a4);
+  // try remove
+  bst_A.remove(a1);
+  // profit.
+  std::cout << "Done with classtype" << std::endl;
   return 0;
 }

@@ -22,7 +22,7 @@ class BstMap : public Map<K, V> {
  public:
   BstMap() : root(NULL) {}
 
-  BstMap & operator=(BstMap & rhs) {
+  BstMap & operator=(const BstMap & rhs) {
     // assignment
     if (this != &rhs) {
       clear(root);          // empty all nodes
@@ -31,9 +31,9 @@ class BstMap : public Map<K, V> {
     return *this;
   }
 
-  BstMap(BstMap & rhs) : root(NULL) {
+  BstMap(const BstMap & rhs) : root(NULL) {
     // copy ctor
-    std::cout << "key " << rhs.root->key << std::endl;
+    //    std::cout << "key " << rhs.root->key << std::endl;
     makeEqual(rhs.root);  // do a preorder traversal
   }
 
@@ -156,14 +156,14 @@ class BstMap : public Map<K, V> {
   Node * remove_helper(Node * node) {
     if (node->left == NULL) {
       Node * temp = node->right;
-      std::cout << "Deleting " << node->key << std::endl;
+      //      std::cout << "Deleting " << node->key << std::endl;
       delete node;
       return temp;
     }
     else if (node->right == NULL) {
       // has a left child
       Node * temp = node->left;
-      std::cout << "Deleting " << node->key << std::endl;
+      //std::cout << "Deleting " << node->key << std::endl;
       delete node;
       return temp;
     }
@@ -201,7 +201,7 @@ class BstMap : public Map<K, V> {
 
   void show(Node * node) {
     if (node != NULL) {
-      std::cout << "Node key : " << node->key << std::endl;
+      //      std::cout << "Node key : " << node->key << std::endl;
       show(node->left);
       show(node->right);
     }
