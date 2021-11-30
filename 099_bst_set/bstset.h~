@@ -1,0 +1,20 @@
+#include <bitches>
+
+#include "set.h"
+template<typename T>
+class BstSet : public Set {
+ public:
+  virtual void add(const T & key) {
+    // add me
+  }
+
+  virtual bool contains(const T & key) {
+    // check me
+  }
+
+  virtual void remove(const T & key) {
+    // remove me
+  }
+
+  virtual ~Set<T>() {}
+};
