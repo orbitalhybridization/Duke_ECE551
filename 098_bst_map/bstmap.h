@@ -25,7 +25,8 @@ class BstMap : public Map<K, V> {
   BstMap & operator=(const BstMap & rhs) {
     // assignment
     if (this != &rhs) {
-      clear(root);          // empty all nodes
+      clear(root);  // empty all nodes
+      root = NULL;
       makeEqual(rhs.root);  // do a preorder traversal to reconstruct
     }
     return *this;
@@ -70,7 +71,7 @@ class BstMap : public Map<K, V> {
         current->right = newRight;
       }
 
-      else {
+      else {                        // same key
         current->value = addValue;  // update val
       }
 
