@@ -111,7 +111,6 @@ int main(int argc, char ** argv) {
   BstMap<std::string, std::string> bt_(btstr);
   bt_.remove("tt");
   bt_.remove("not in list");
-  std::cout << "Done with strs" << std::endl;
 
   BstMap<const char *, const char *> bst_ch;
   bst_ch.add("q", "");
@@ -119,6 +118,7 @@ int main(int argc, char ** argv) {
 
   BstMap<const char *, const char *> bst_ch2 = bst_ch;
   bst_ch.remove("q");
+  std::cout << "Done with strs" << std::endl;
 
   // create a new class!
   A a;
