@@ -177,22 +177,21 @@ class BstMap : public Map<K, V> {
         temp = temp->right;
       }
       // return
-      node->key = temp->key;
-      node->value = temp->value;
+      //      node->key = temp->key;
+      //node->value = temp->value;
       if (temp == temp_parent->left) {
-        std::cout << "set parent left " << temp->key << std::endl;
-
         temp_parent->left = temp->left;
       }
       else {
-        std::cout << "set parent right " << temp->key << std::endl;
-
         temp_parent->right = temp->left;
       }
-      std::cout << "Deleting " << temp->key << std::endl;
+      Node * new_node = new Node(temp->key, temp->value);
+      new_node->left = node->left;
+      new_node->right = node->right;
 
       delete temp;
-      return node;
+      delete node;
+      return new_node;
     }
   }
 
