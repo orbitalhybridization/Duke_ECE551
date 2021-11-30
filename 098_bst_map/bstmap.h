@@ -13,8 +13,6 @@ class BstMap : public Map<K, V> {
     Node * left;
     Node * right;
 
-    Node() : key(0), value(0), left(NULL), right(NULL) {}
-
     Node(K in_key, V in_val) : key(in_key), value(in_val), left(NULL), right(NULL) {}
 
     ~Node() {}
@@ -116,7 +114,7 @@ class BstMap : public Map<K, V> {
   }
 
   virtual void remove(const K & key) {
-    // try to use a pointer to a pointer
+    // keep track of parent
     Node * parent = root;
     Node * child = root;
     if (root == NULL) {

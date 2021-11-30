@@ -64,5 +64,12 @@ int main(int argc, char ** argv) {
   bt_.remove("not in list");
   std::cout << "Done with strs" << std::endl;
 
+  BstMap<const char *, const char *> bst_ch;
+  bst_ch.add("q", "");
+  bst_ch.add("t", "");
+
+  BstMap<const char *, const char *> bst_ch2 = bst_ch;
+  bst_ch.remove("q");
+
   return 0;
 }
