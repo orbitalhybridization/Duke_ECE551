@@ -1,0 +1,95 @@
+Grading at 11/30/2021:21:27:10.858103
+For commit ID b9963477d36c6c475c56f0333fc75b8ac079eac9
+Grading at Tue Nov 30 16:27:10 EST 2021
+-----------------------------------------------
+testcase 1 : Testing with BstSet<int>
+...compiling...
+90-tester.cpp: In function ‘int main()’:
+90-tester.cpp:70:33: error: invalid new-expression of abstract class type ‘BstSet<int>’
+   BSTSetTy * bmt = new BSTSetTy();
+                                 ^
+In file included from 90-tester.cpp:1:0:
+bstset.h:8:7: note:   because the following virtual functions are pure within ‘BstSet<int>’:
+ class BstSet : public Set<T> {
+       ^~~~~~
+In file included from bstset.h:5:0,
+                 from 90-tester.cpp:1:
+set.h:9:16: note: 	bool Set<T>::contains(const T&) const [with T = int]
+   virtual bool contains(const T& key) const = 0;
+                ^~~~~~~~
+90-tester.cpp:92:36: error: invalid new-expression of abstract class type ‘BstSet<int>’
+   BSTSetTy * m2 = new BSTSetTy(*bmt);
+                                    ^
+90-tester.cpp:151:26: error: invalid new-expression of abstract class type ‘BstSet<int>’
+   m = bmt = new BSTSetTy();
+                          ^
+In file included from 90-tester.cpp:1:0:
+bstset.h: In instantiation of ‘BstSet<T>& BstSet<T>::operator=(const BstSet<T>&) [with T = int]’:
+90-tester.cpp:122:10:   required from here
+bstset.h:35:43: error: no return statement in function returning non-void [-Werror=return-type]
+   BstSet & operator=(const BstSet & rhs) {}
+                                           ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 2 : Testing with BstSet<std::string>
+...compiling...
+90-tester.cpp: In function ‘int main()’:
+90-tester.cpp:70:33: error: invalid new-expression of abstract class type ‘BstSet<std::__cxx11::basic_string<char> >’
+   BSTSetTy * bmt = new BSTSetTy();
+                                 ^
+In file included from 90-tester.cpp:1:0:
+bstset.h:8:7: note:   because the following virtual functions are pure within ‘BstSet<std::__cxx11::basic_string<char> >’:
+ class BstSet : public Set<T> {
+       ^~~~~~
+In file included from bstset.h:5:0,
+                 from 90-tester.cpp:1:
+set.h:9:16: note: 	bool Set<T>::contains(const T&) const [with T = std::__cxx11::basic_string<char>]
+   virtual bool contains(const T& key) const = 0;
+                ^~~~~~~~
+90-tester.cpp:92:36: error: invalid new-expression of abstract class type ‘BstSet<std::__cxx11::basic_string<char> >’
+   BSTSetTy * m2 = new BSTSetTy(*bmt);
+                                    ^
+90-tester.cpp:151:26: error: invalid new-expression of abstract class type ‘BstSet<std::__cxx11::basic_string<char> >’
+   m = bmt = new BSTSetTy();
+                          ^
+In file included from 90-tester.cpp:1:0:
+bstset.h: In instantiation of ‘BstSet<T>& BstSet<T>::operator=(const BstSet<T>&) [with T = std::__cxx11::basic_string<char>]’:
+90-tester.cpp:122:10:   required from here
+bstset.h:35:43: error: no return statement in function returning non-void [-Werror=return-type]
+   BstSet & operator=(const BstSet & rhs) {}
+                                           ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+-----------------------------------------------
+testcase 3 : Testing with BstSet<(a custom class we wrote)>
+...compiling...
+90-tester.cpp: In function ‘int main()’:
+90-tester.cpp:70:33: error: invalid new-expression of abstract class type ‘BstSet<Tester>’
+   BSTSetTy * bmt = new BSTSetTy();
+                                 ^
+In file included from 90-tester.cpp:1:0:
+bstset.h:8:7: note:   because the following virtual functions are pure within ‘BstSet<Tester>’:
+ class BstSet : public Set<T> {
+       ^~~~~~
+In file included from bstset.h:5:0,
+                 from 90-tester.cpp:1:
+set.h:9:16: note: 	bool Set<T>::contains(const T&) const [with T = Tester]
+   virtual bool contains(const T& key) const = 0;
+                ^~~~~~~~
+90-tester.cpp:92:36: error: invalid new-expression of abstract class type ‘BstSet<Tester>’
+   BSTSetTy * m2 = new BSTSetTy(*bmt);
+                                    ^
+90-tester.cpp:151:26: error: invalid new-expression of abstract class type ‘BstSet<Tester>’
+   m = bmt = new BSTSetTy();
+                          ^
+In file included from 90-tester.cpp:1:0:
+bstset.h: In instantiation of ‘BstSet<T>& BstSet<T>::operator=(const BstSet<T>&) [with T = Tester]’:
+90-tester.cpp:122:10:   required from here
+bstset.h:35:43: error: no return statement in function returning non-void [-Werror=return-type]
+   BstSet & operator=(const BstSet & rhs) {}
+                                           ^
+cc1plus: all warnings being treated as errors
+The code did not compile.  This test failed.
+
+Overall Grade: F
