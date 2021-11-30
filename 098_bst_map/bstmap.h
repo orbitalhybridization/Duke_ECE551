@@ -33,8 +33,9 @@ class BstMap : public Map<K, V> {
     return *this;
   }
 
-  BstMap(BstMap & rhs) {
+  BstMap(BstMap & rhs) : root(NULL) {
     // copy ctor
+    std::cout << "key " << rhs.root->key << std::endl;
     makeEqual(rhs.root);  // do a preorder traversal
   }
 
@@ -144,8 +145,8 @@ class BstMap : public Map<K, V> {
       parent->right = remove_helper(child);
     }
 
-    else {  // parent == child
-      parent = remove_helper(child);
+    else {  // root
+      root = remove_helper(child);
     }
     // now that we've found the one to remove,
     // we want to abort the child
@@ -177,14 +178,20 @@ class BstMap : public Map<K, V> {
       // return
       node->key = temp->key;
       node->value = temp->value;
-      std::cout << "Deleting " << temp->key << std::endl;
       if (temp == temp_parent->left) {
+        std::cout << "set parent left " << temp->key << std::endl;
+
         temp_parent->left = temp->left;
       }
       else {
+        std::cout << "set parent right " << temp->key << std::endl;
+
         temp_parent->right = temp->left;
       }
+      std::cout << "Deleting " << temp->key << std::endl;
+
       delete temp;
+
       return node;
     }
   }
