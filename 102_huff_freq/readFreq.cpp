@@ -23,7 +23,7 @@ void printSym(std::ostream & s, unsigned sym) {
   }
 }
 uint64_t * readFrequencies(const char * fname) {
-  uint64_t * arr = new uint64_t[257];
+  uint64_t * arr = new uint64_t[257]();
   std::ifstream f(fname);
   while (f.peek() != -1) {  // go until EoF
     int c = f.get();
