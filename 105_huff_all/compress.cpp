@@ -44,8 +44,10 @@ void writeCompressedOutput(const char * inFile,
     }
   }
   //dont forget to lookup 256 for the EOF marker, and write it out.
-  std::map<unsigned, BitString>::const_iterator it = theMap.find(999);
-  bfw.writeBitString(it->second);
+  std::map<unsigned, BitString>::const_iterator it = theMap.find(256);
+  if (it != theMap.end()) {
+    bfw.writeBitString(it->second);
+  }
 
   //BitFileWriter will close the output file in its destructor
   //but you probably need to close your input file.
