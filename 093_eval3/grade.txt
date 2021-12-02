@@ -1,10 +1,10 @@
-Grading at 11/18/2021:03:39:23.399009
-For commit ID 5522f1faa0ba3eb016e32684b8d9f86506babafe
-Grading at Wed Nov 17 22:39:08 EST 2021
+Grading at 12/02/2021:01:38:48.698803
+For commit ID db8019f1673e69ae4f569f71c5086bb2f781c0a6
+Grading at Wed Dec  1 20:38:31 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
-rm -f *~ cyoa-step1 cyoa-step2
+rm -f *~ cyoa-step3
 g++     cyoa-step1.cpp   -o cyoa-step1
 Compiled for step 1
 +-----------------------------------------------------------------------+
@@ -40,8 +40,8 @@ Your file matched the expected output
 Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
-rm -f *~ cyoa-step1 cyoa-step2
-g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -o cyoa-step2 cyoa-step2.cpp
+rm -f *~ cyoa-step3
+g++     cyoa-step2.cpp   -o cyoa-step2
 Compiled for step 2
 Input to story is
 1
@@ -50,14 +50,14 @@ Input to story is
 
 +-----------------------------------------------------------------------+
 Test case 11 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
-Your file matched the expected output
+Valgrind reported memory errors
 Input to story is
 3
 2
 
 +-----------------------------------------------------------------------+
 Test case 12 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
-Your file matched the expected output
+Valgrind reported memory errors
 Input to story is
 1
 2
@@ -66,22 +66,84 @@ Input to story is
 
 +-----------------------------------------------------------------------+
 Test case 13 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-Your file matched the expected output
+Valgrind reported memory errors
 Input to story is
 3
 
 +-----------------------------------------------------------------------+
 Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-Your file matched the expected output
-Step 2: PASSED Pre-Grader Test Cases
+Valgrind reported memory errors
+Step 2: Failed test cases as above
 
 Compiling cyoa-step3
-rm -f *~ cyoa-step1 cyoa-step2
-The code did not compile!
-Did not compile for step 3
+rm -f *~ cyoa-step3
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -o cyoa-step3 cyoa-step3.cpp
++-----------------------------------------------------------------------+
+Test case 15 (success): cyoa-step3 /usr/local/ece551/cyoa/story1
+1,14c1,14
+< Page1:0
+< Page2:1
+< Page3:1
+< Page4:1
+< Page5:2
+< Page6:2
+< Page7:2
+< Page8:2
+< Page9:2
+< Page10:3
+< Page11:2
+< Page12:2
+< Page13:3
+< Page14:3
+---
+> Page 1:0
+> Page 2:1
+> Page 3:1
+> Page 4:1
+> Page 5:2
+> Page 6:2
+> Page 7:2
+> Page 8:2
+> Page 9:2
+> Page 10:3
+> Page 11:2
+> Page 12:2
+> Page 13:3
+> Page 14:3
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case 16 (success): cyoa-step3 /usr/local/ece551/cyoa/story2
+1,12c1,12
+< Page1:0
+< Page2:1
+< Page3:1
+< Page4:1
+< Page5:2
+< Page6:2
+< Page7:3
+< Page8:3
+< Page9:5
+< Page10:4
+< Page11:4
+< Page12:4
+---
+> Page 1:0
+> Page 2:1
+> Page 3:1
+> Page 4:1
+> Page 5:2
+> Page 6:2
+> Page 7:3
+> Page 8:3
+> Page 9:5
+> Page 10:4
+> Page 11:4
+> Page 12:4
+Your file did not match the expected output
+Step 3: Failed test cases as above
 
 Compiling cyoa-step4
-rm -f *~ cyoa-step1 cyoa-step2
+rm -f *~ cyoa-step3
 The code did not compile!
 Did not compile for step 4
 Running your test cases
