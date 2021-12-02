@@ -132,19 +132,30 @@ class Page {
   std::string text;             // story text of page
   std::vector<Choice> choices;  // choices from first section
   std::pair<bool, char> EOS;    // end of story (win/lose condition)
-  std::vector<int> num;
+  int page_num;
 
  public:
   Page() :
-      filename(strdup("")),
+      //      filename(strdup("")),
+      filename(""),
       file(NULL),
       text(""),
-      EOS(std::make_pair(false, '\0')) {}  // default ctor
+      EOS(std::make_pair(false, '\0')),
+      page_num(0) {}  // default ctor
 
   Page(const char * fname) :
-      filename(strdup(fname)),
+      //filename(strdup(fname)),
+      filename(fname),
       text(""),
       EOS(std::make_pair(false, '\0')) {  // constructor
+  }
+
+  Page(const char * fname, int num) :
+      //filename(strdup(fname)),
+      filename(fname),
+      text(""),
+      EOS(std::make_pair(false, '\0')),
+      page_num(num) {  // constructor
   }
 
   void parsePage() {
@@ -176,11 +187,13 @@ class Page {
   }
 
   Page(const Page & rhs) :
-      filename(strdup(rhs.filename)),
+      //      filename(strdup(rhs.filename)),
+      filename(rhs.filename),
       file(rhs.filename),
       text(rhs.text),
       choices(rhs.choices),
-      EOS(rhs.EOS) {}  // copy ctor
+      EOS(rhs.EOS),
+      page_num(rhs.page_num) {}  // copy ctor
 
   virtual ~Page() {  // destructor
   }
@@ -223,12 +236,9 @@ class Page {
 
   bool isLose() { return EOS.second == 'L'; }
 
-  void setNum(int n) { num.push_back(n); }
+  void setNum(int n) { page_num = n; }
 
-  int getNum() const {
-    std::cout << num.size() << std::endl;
-    return *num.data();
-  }
+  int getNum() const { return page_num; }
 };
 
 class Story {
@@ -252,7 +262,8 @@ class Story {
       page_number_s << page_number_i;
       page_filename = directory_name + "/page" + page_number_s.str() + ".txt";
 
-      Page new_page = Page(page_filename.c_str());  // create page from filename
+      Page new_page =
+          Page(page_filename.c_str(), page_number_i);  // create page from filename
 
       // check if we can open
       bool open_success = new_page.openFile();
@@ -268,7 +279,7 @@ class Story {
 
       // otherwise increment page number and add page to list
       new_page.parsePage();  // fill members/fields
-      new_page.setNum(page_number_i);
+      //new_page.setNum(page_number_i);
       page_number_i++;
       page_number_s.str("");  // empty container
       pages.push_back(new_page);
@@ -391,7 +402,8 @@ class Story {
       page_number_s << page_number_i;
       page_filename = directory_name + "/page" + page_number_s.str() + ".txt";
 
-      Page new_page = Page(page_filename.c_str());  // create page from filename
+      Page new_page =
+          Page(page_filename.c_str(), page_number_i);  // create page from filename
 
       // check if we can open
       bool open_success = new_page.openFile();
@@ -407,7 +419,7 @@ class Story {
 
       // otherwise increment page number and add page to list
       new_page.parsePage();  // fill members/fields
-      new_page.setNum(page_number_i);
+      //      new_page.setNum(page_number_i);
       page_number_i++;
       page_number_s.str("");  // empty container
       pages.push_back(new_page);
@@ -434,13 +446,13 @@ class Story {
       page_number_s << page_number_i;
       page_filename = directory_name + "/page" + page_number_s.str() + ".txt";
 
-      Page new_page = Page(page_filename.c_str());  // create page from filename
+      Page new_page =
+          Page(page_filename.c_str(), page_number_i);  // create page from filename
 
       // check if we can open
       bool open_success = new_page.openFile();
 
       if ((!open_success) && (page_number_i == 1)) {  // check if there's a page 1
-        std::cout << page_filename << std::endl;
         std::cerr << "Page 1 doesn't exist!" << std::endl;
         exit(EXIT_FAILURE);
       }
@@ -468,8 +480,8 @@ class Story {
     std::vector<int> depths;
     for (size_t i = 0; i < pages.size(); i++) {
       // do bfs for all pages
-      std::cout << "Page " << i + 1;
       int depth = pageDepthsHelper(&pages[0], &pages[i]);
+      std::cout << "Page" << i + 1;
       if (depth >= 0) {  // print normally if page is reachable
         std::cout << ":" << depth << std::endl;
       }
@@ -493,19 +505,21 @@ class Story {
       //      std::cout << currentPath.size() << std::endl;
       paths.pop();
       const Page * currentPage = *(currentPath.end() - 1);
-      if (currentPage->getNum() == end->getNum()) {
+      if (currentPage->getNum() ==
+          end->getNum()) {  // if we're at desired, then we're done
         return currentPath.size() - 1;
       }
       if (visited.find(currentPage) == visited.end()) {  // if not in visited
-        visited.insert(visited.end(), currentPage);
+        visited.insert(visited.end(), currentPage);      // add to end
       }
       std::vector<Choice> choices = currentPage->getChoices();
       for (size_t i = 0; i < choices.size(); i++) {  // add paths with other nodes
-        Choice choice = choices[i];
-        Page page_to_add = pages[choice.getPageNum() - 1];
+                                                     //        Choice choice = choices[i];
+        //Page * page_to_add = &pages[choice.getPageNum() - 1];
         std::vector<const Page *> newPath = currentPath;
         //        currentPath.push_back(&page_to_add);
-        newPath.push_back(&page_to_add);
+        //newPath.push_back(&page_to_add);
+        newPath.push_back(&pages[choices[i].getPageNum() - 1]);
         paths.push(newPath);
       }
     }
