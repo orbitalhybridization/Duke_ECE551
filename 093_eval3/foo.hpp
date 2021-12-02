@@ -481,7 +481,7 @@ class Story {
     for (size_t i = 0; i < pages.size(); i++) {
       // do bfs for all pages
       int depth = pageDepthsHelper(&pages[0], &pages[i]);
-      std::cout << "Page" << i + 1;
+      std::cout << "Page " << i + 1;
       if (depth >= 0) {  // print normally if page is reachable
         std::cout << ":" << depth << std::endl;
       }
