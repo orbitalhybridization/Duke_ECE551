@@ -1,6 +1,7 @@
 #include <cstdlib>
+#include <iostream>
 
-#include "foo.hpp"
+#include "cyoa.h"
 
 int main(int argc, char ** argv) {
   if (argc != 2) {

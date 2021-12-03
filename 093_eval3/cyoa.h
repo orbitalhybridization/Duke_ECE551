@@ -79,6 +79,7 @@ class Story {
 
   std::string directory_name;
 
+ public:
   Story();  // default ctor
 
   Story(std::string directory);  // ctor with directory
