@@ -1,6 +1,6 @@
-Grading at 12/03/2021:17:48:58.524425
-For commit ID 3e8c3417dc1fc9ea10e55cf069bddda76867e898
-Grading at Fri Dec  3 12:48:38 EST 2021
+Grading at 12/03/2021:18:58:54.010226
+For commit ID 0d2623676759a2a1e63d44089778aaac14d58e5d
+Grading at Fri Dec  3 13:58:31 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -41,7 +41,7 @@ Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
 rm -f *~ cyoa-step4
-make: 'cyoa-step2' is up to date.
+g++     cyoa-step2.cpp   -o cyoa-step2
 Compiled for step 2
 Input to story is
 1
@@ -50,14 +50,14 @@ Input to story is
 
 +-----------------------------------------------------------------------+
 Test case 11 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
-Your file matched the expected output
+Valgrind reported memory errors
 Input to story is
 3
 2
 
 +-----------------------------------------------------------------------+
 Test case 12 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
-Your file matched the expected output
+Valgrind reported memory errors
 Input to story is
 1
 2
@@ -66,25 +66,25 @@ Input to story is
 
 +-----------------------------------------------------------------------+
 Test case 13 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-Your file matched the expected output
+Valgrind reported memory errors
 Input to story is
 3
 
 +-----------------------------------------------------------------------+
 Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-Your file matched the expected output
-Step 2: PASSED Pre-Grader Test Cases
+Valgrind reported memory errors
+Step 2: Failed test cases as above
 
 Compiling cyoa-step3
 rm -f *~ cyoa-step4
-make: 'cyoa-step3' is up to date.
+g++     cyoa-step3.cpp   -o cyoa-step3
 +-----------------------------------------------------------------------+
 Test case 15 (success): cyoa-step3 /usr/local/ece551/cyoa/story1
-Your file matched the expected output
+Valgrind reported memory errors
 +-----------------------------------------------------------------------+
 Test case 16 (success): cyoa-step3 /usr/local/ece551/cyoa/story2
-Your file matched the expected output
-Step 3: PASSED Pre-Grader Test Cases
+Valgrind reported memory errors
+Step 3: Failed test cases as above
 
 Compiling cyoa-step4
 rm -f *~ cyoa-step4
