@@ -74,13 +74,23 @@ class Choice {
                               line.size() - 1);  // set description (does this have \0)?
   }
 
-  ~Choice(){};  // destructor
+  virtual ~Choice(){};  // destructor
 
   Choice(const Choice & rhs) :
       page_num(rhs.page_num),
       description(rhs.description) {}  // copy ctor
 
+  Choice & operator=(const Choice & rhs) {  // assignment
+    if (this != &rhs) {
+      page_num = rhs.page_num;
+      description = rhs.description;
+    }
+
+    return *this;
+  }
+
   int getPageNum() { return page_num; }
+
   friend std::ostream & operator<<(
       std::ostream & s,
       const Choice & rhs);  // overload << operator for Choice
@@ -186,8 +196,19 @@ class Page {
       EOS(rhs.EOS),
       page_num(rhs.page_num) {}  // copy ctor
 
-  virtual ~Page() {  // destructor
+  Page & operator=(const Page & rhs) {  // assignment
+    if (this != &rhs) {
+      filename = rhs.filename;
+      text = rhs.text;
+      choices = rhs.choices;
+      EOS = rhs.EOS;
+      page_num = rhs.page_num;
+    }
+    return *this;
   }
+
+  virtual ~Page() {}  // destructor
+
   std::string getText() { return text; }
   // get private field, text
 
@@ -417,14 +438,12 @@ class Story {
 
   Story(Story & rhs) : directory_name(rhs.directory_name) {
     // containers for building filename
-    // std::string page_number_s;
     int page_number_i = 1;
     std::string page_filename;
     std::stringstream page_number_s;  // page number in string forme
     // read pages
     // we can read pages as long as they're valid ints
     while (page_number_i <= INT_MAX) {
-      //while (validateStrInt(page_number_s.str().c_str())) {
       // build filename
       page_number_s << page_number_i;
       page_filename = directory_name + "/page" + page_number_s.str() + ".txt";
@@ -613,7 +632,7 @@ class Story {
     return -1;  // case, no valid path
   }
 
-  ~Story(){};
+  virtual ~Story(){};
 };
 
 std::ostream & operator<<(std::ostream & s,
