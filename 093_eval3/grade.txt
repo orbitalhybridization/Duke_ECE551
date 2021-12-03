@@ -1,10 +1,10 @@
-Grading at 12/02/2021:01:49:31.674786
-For commit ID 055a3225c26d7d92578856f0add117e3447dd3b3
-Grading at Wed Dec  1 20:49:14 EST 2021
+Grading at 12/03/2021:07:13:55.316449
+For commit ID 4b8434e09e7add082dfd6f873e88124672b1ec4a
+Grading at Fri Dec  3 02:13:35 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
-rm -f *~ cyoa-step3
+rm -f *~ cyoa-step4
 g++     cyoa-step1.cpp   -o cyoa-step1
 Compiled for step 1
 +-----------------------------------------------------------------------+
@@ -40,7 +40,7 @@ Your file matched the expected output
 Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
-rm -f *~ cyoa-step3
+rm -f *~ cyoa-step4
 make: 'cyoa-step2' is up to date.
 Compiled for step 2
 Input to story is
@@ -76,8 +76,8 @@ Your file matched the expected output
 Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
-rm -f *~ cyoa-step3
-g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -o cyoa-step3 cyoa-step3.cpp
+rm -f *~ cyoa-step4
+make: 'cyoa-step3' is up to date.
 +-----------------------------------------------------------------------+
 Test case 15 (success): cyoa-step3 /usr/local/ece551/cyoa/story1
 Your file matched the expected output
@@ -87,9 +87,17 @@ Your file matched the expected output
 Step 3: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step4
-rm -f *~ cyoa-step3
-The code did not compile!
-Did not compile for step 4
+rm -f *~ cyoa-step4
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -o cyoa-step4 cyoa-step4.cpp
++-----------------------------------------------------------------------+
+Test case 17 (success): cyoa-step4 /usr/local/ece551/cyoa/story1
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case 18 (success): cyoa-step4 /usr/local/ece551/cyoa/story2
+0a1
+> 1(1),2(2),6(1),7(1),12(1),9(win)
+Your file did not match the expected output
+Step 4: Failed test cases as above
 Running your test cases
 Cannot proceed without testcases.txt
 
