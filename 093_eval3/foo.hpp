@@ -18,23 +18,19 @@ int validateStrInt(const char * page) {
   // based off of code from (man strtol(3))
   // return number, or exit failure
   // (reused from eval 2)
+  // this is useful because strtol has error checking
   char * endptr;
   long as_long = strtol(page, &endptr, 10);
   int return_int;
 
   // if we don't have a number at all
   if (endptr == page) {
-    //return 0;
-    //std::cerr << "Page number given not a number." << std::endl;
-    //exit(EXIT_FAILURE);
     return 0;
   }
 
   // error checking specifically for valid int
   if ((as_long <= 0) || (as_long >= INT_MAX)) {
     return 0;
-    //std::cerr << "Requested nunber " << as_long << " not a valid integer." << std::endl;
-    //exit(EXIT_FAILURE);
   }
 
   // error checking from man strtol(3)
@@ -43,8 +39,6 @@ int validateStrInt(const char * page) {
   if ((errno == ERANGE && (as_long == LONG_MAX || as_long == LONG_MIN)) ||
       (errno != 0 && as_long == 0)) {
     return 0;
-    //    std::cerr << "Requested nunber " << as_long << " not a valid integer." << std::endl;
-    //exit(EXIT_FAILURE);
   }
 
   // otherwise we have a valid int, so return it as an int!
@@ -137,7 +131,6 @@ class Page {
 
  public:
   Page() :
-      //      filename(strdup("")),
       filename(""),
       file(NULL),
       text(""),
@@ -145,18 +138,16 @@ class Page {
       page_num(0) {}  // default ctor
 
   Page(const char * fname) :
-      //filename(strdup(fname)),
       filename(fname),
       text(""),
       EOS(std::make_pair(false, '\0')) {  // constructor
   }
 
   Page(const char * fname, int num) :
-      //filename(strdup(fname)),
       filename(fname),
       text(""),
       EOS(std::make_pair(false, '\0')),
-      page_num(num) {  // constructor
+      page_num(num) {  // constructor with number
   }
 
   void parsePage() {
@@ -188,7 +179,6 @@ class Page {
   }
 
   Page(const Page & rhs) :
-      //      filename(strdup(rhs.filename)),
       filename(rhs.filename),
       file(rhs.filename),
       text(rhs.text),
@@ -225,7 +215,7 @@ class Page {
 
   bool operator==(const Page & rhs) const {
     //define == operator
-    if (strcmp(rhs.filename, filename) == 0) {
+    if (page_num == rhs.page_num) {
       return true;
     }
     return false;
@@ -251,14 +241,12 @@ class Story {
   Story();
   Story(std::string directory) : directory_name(directory) {
     // containers for building filename
-    // std::string page_number_s;
     int page_number_i = 1;
     std::string page_filename;
     std::stringstream page_number_s;  // page number in string forme
     // read pages
     // we can read pages as long as they're valid ints
     while (page_number_i <= INT_MAX) {
-      //while (validateStrInt(page_number_s.str().c_str())) {
       // build filename
       page_number_s << page_number_i;
       page_filename = directory_name + "/page" + page_number_s.str() + ".txt";
@@ -280,14 +268,12 @@ class Story {
 
       // otherwise increment page number and add page to list
       new_page.parsePage();  // fill members/fields
-      //new_page.setNum(page_number_i);
       page_number_i++;
       page_number_s.str("");  // empty container
       pages.push_back(new_page);
     }
     if (page_number_i == INT_MAX) {
-      std::cout << "Reached all readable story pages. This is a long ass story!"
-                << std::endl;
+      std::cout << "Reached all readable story pages." << std::endl;
     }
     validatePages();
   }
@@ -391,14 +377,12 @@ class Story {
   Story & operator=(const Story & rhs) {
     directory_name = rhs.directory_name;
     // containers for building filename
-    // std::string page_number_s;
     int page_number_i = 1;
     std::string page_filename;
     std::stringstream page_number_s;  // page number in string forme
     // read pages
     // we can read pages as long as they're valid ints
     while (page_number_i <= INT_MAX) {
-      //while (validateStrInt(page_number_s.str().c_str())) {
       // build filename
       page_number_s << page_number_i;
       page_filename = directory_name + "/page" + page_number_s.str() + ".txt";
@@ -420,14 +404,12 @@ class Story {
 
       // otherwise increment page number and add page to list
       new_page.parsePage();  // fill members/fields
-      //      new_page.setNum(page_number_i);
       page_number_i++;
       page_number_s.str("");  // empty container
       pages.push_back(new_page);
     }
     if (page_number_i == INT_MAX) {
-      std::cout << "Reached all readable story pages. This is a long ass story!"
-                << std::endl;
+      std::cout << "Reached all readable story pages." << std::endl;
     }
     validatePages();
     return *this;
@@ -613,11 +595,9 @@ class Story {
     paths.push(startingPath);
     while (!paths.empty()) {
       std::vector<const Page *> currentPath = paths.front();
-      //      std::cout << currentPath.size() << std::endl;
       paths.pop();
       const Page * currentPage = *(currentPath.end() - 1);
-      if (currentPage->getNum() ==
-          end->getNum()) {  // if we're at desired, then we're done
+      if (*currentPage == *end) {  // if we're at desired, then we're done
         return currentPath.size() - 1;
       }
       if (visited.find(currentPage) == visited.end()) {  // if not in visited
@@ -625,11 +605,7 @@ class Story {
       }
       std::vector<Choice> choices = currentPage->getChoices();
       for (size_t i = 0; i < choices.size(); i++) {  // add paths with other nodes
-        //        Choice choice = choices[i];
-        //Page * page_to_add = &pages[choice.getPageNum() - 1];
         std::vector<const Page *> newPath = currentPath;
-        //        currentPath.push_back(&page_to_add);
-        //newPath.push_back(&page_to_add);
         newPath.push_back(&pages[choices[i].getPageNum() - 1]);
         paths.push(newPath);
       }
