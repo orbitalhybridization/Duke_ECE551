@@ -9,6 +9,7 @@
 #include <queue>
 #include <set>
 #include <sstream>
+#include <stack>
 #include <string>
 #include <vector>
 
@@ -230,11 +231,11 @@ class Page {
     return false;
   }
 
-  bool isEOS() { return EOS.first; }
+  bool isEOS() const { return EOS.first; }
 
-  bool isWin() { return EOS.second == 'W'; }
+  bool isWin() const { return EOS.second == 'W'; }
 
-  bool isLose() { return EOS.second == 'L'; }
+  bool isLose() const { return EOS.second == 'L'; }
 
   void setNum(int n) { page_num = n; }
 
@@ -468,12 +469,106 @@ class Story {
       pages.push_back(new_page);
     }
     if (page_number_i == INT_MAX) {
-      std::cout << "Reached all readable story pages. This is a long ass story!"
-                << std::endl;
+      std::cout << "Reached all readable story pages!" << std::endl;
     }
+
     validatePages();
 
   }  // copy ctor
+
+  void displayPaths() {
+    // here I used the dfs example from the book 25.3.3
+    // build the multiple paths
+    std::vector<Choice> choices_from_start = pages[0].getChoices();
+    bool unwinnable = true;  // story unwinnable unless proven otherwise
+    for (size_t i = 0; i < choices_from_start.size(); i++) {
+      std::vector<std::pair<int, int> > path = displayPathsHelper(
+          std::make_pair(0, i));  // make a pair for each choice from start
+
+      for (size_t j = 0; j < path.size(); j++) {  // print path if viable
+        if (path[j].first == -1) {                // if not viable path, skip printing
+          continue;
+        }
+        else {
+          unwinnable = false;
+          std::cout << path[j].first + 1 << "(";
+
+          if (path[j].second == -1) {  // win case
+            std::cout << "win"
+                      << ")" << std::endl;
+          }
+
+          else {  // regular case
+            std::cout << path[j].second + 1 << "),";
+          }
+        }
+      }
+    }
+    // if no viable paths from start, story is unwinnable
+    if (unwinnable) {
+      std::cout << "This story is unwinnable!" << std::endl;
+    }
+  }
+
+  std::vector<std::pair<int, int> > displayPathsHelper(std::pair<int, int> start) {
+    // helper function that does the queue calls
+    // here I used the bfs example from the book 25.3.3
+    std::vector<std::pair<int, int> > startingPath;
+    startingPath.push_back(start);  // create initial path with just start node
+    std::stack<std::vector<std::pair<int, int> > > paths;  // stack for paths
+    std::set<std::pair<int, int> > visited;
+    paths.push(startingPath);
+    while (!paths.empty()) {
+      std::vector<std::pair<int, int> > currentPath = paths.top();
+      paths.pop();
+      std::pair<int, int> currentPage = *(currentPath.end() - 1);
+
+      if (pages[currentPage.first]
+              .isWin()) {  // if we're at a winning page, then we're done
+        return currentPath;
+      }
+
+      if (visited.find(currentPage) == visited.end()) {  // if not in visited
+        visited.insert(visited.end(), currentPage);      // add to end
+      }
+
+      std::vector<Choice> choices = pages[currentPage.first].getChoices();
+
+      // get the page this is leading to
+      int next_page_num = choices[currentPage.second].getPageNum() - 1;
+
+      //      std::cout << "Current page " << currentPage.first + 1 << "." << std::endl;
+      //      std::cout << "Choice number is " << currentPage.second + 1 << "." << std::endl;
+
+      std::vector<Choice> next_page_choices = pages[next_page_num].getChoices();
+      //      std::cout << "So next page " << next_page_num + 1 << "." << std::endl;
+
+      if (pages[next_page_num]
+              .isWin()) {  // if we're at a win, just add it to current path
+        std::vector<std::pair<int, int> > newPath = currentPath;
+        newPath.push_back(std::make_pair(next_page_num, -1));
+        paths.push(newPath);
+      }
+
+      else {  // otherwise add all possible choices
+        for (size_t i = 0; i < next_page_choices.size();
+             i++) {  // add paths with other nodes
+
+          std::vector<std::pair<int, int> > newPath = currentPath;
+          //        newPath.push_back(std::make_pair(choices[i].getPageNum() - 1, i));
+          //          std::cout << "Adding choice " << i + 1 << " of page " << next_page_num + 1
+          //        << " which is page " << next_page_choices[i].getPageNum()
+          //        << std::endl;
+          newPath.push_back(std::make_pair(next_page_num, i));
+          paths.push(newPath);
+        }
+      }
+    }
+    std::pair<int, int> no_path = std::make_pair(-1, -1);  // no valid path
+    std::vector<std::pair<int, int> > no_path_vec;
+    no_path_vec.push_back(no_path);
+    return no_path_vec;
+  }
 
   void displayPageDepths() {
     // run breadth first search on pages
@@ -493,7 +588,7 @@ class Story {
   }
 
   int pageDepthsHelper(const Page * start, const Page * end) {
-    // helper function that does the recursive calls
+    // helper function that does the queue calls
     // here I used the bfs example from the book 25.3.3
     std::vector<const Page *> startingPath;
     startingPath.push_back(start);  // create initial path with just start node
@@ -514,7 +609,7 @@ class Story {
       }
       std::vector<Choice> choices = currentPage->getChoices();
       for (size_t i = 0; i < choices.size(); i++) {  // add paths with other nodes
-                                                     //        Choice choice = choices[i];
+        //        Choice choice = choices[i];
         //Page * page_to_add = &pages[choice.getPageNum() - 1];
         std::vector<const Page *> newPath = currentPath;
         //        currentPath.push_back(&page_to_add);
