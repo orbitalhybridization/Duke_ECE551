@@ -1,10 +1,10 @@
-Grading at 12/03/2021:19:37:20.713907
-For commit ID 5c1577d1995bfb5eff8306aa2752708f8c3e824f
-Grading at Fri Dec  3 14:37:00 EST 2021
+Grading at 12/03/2021:20:51:32.616658
+For commit ID 9ffc6bfe14a3f6e9b5a0b0a5cae02c8102cff2c1
+Grading at Fri Dec  3 15:51:12 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
-rm -f *~ cyoa-step2
+rm -f *~ cyoa-step4
 make: 'cyoa-step1' is up to date.
 Compiled for step 1
 +-----------------------------------------------------------------------+
@@ -40,8 +40,8 @@ Your file matched the expected output
 Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
-rm -f *~ cyoa-step2
-g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -o cyoa-step2 cyoa-step2.cpp
+rm -f *~ cyoa-step4
+make: 'cyoa-step2' is up to date.
 Compiled for step 2
 Input to story is
 1
@@ -76,19 +76,19 @@ Your file matched the expected output
 Step 2: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step3
-rm -f *~ cyoa-step2
-g++     cyoa-step3.cpp   -o cyoa-step3
+rm -f *~ cyoa-step4
+make: 'cyoa-step3' is up to date.
 +-----------------------------------------------------------------------+
 Test case 15 (success): cyoa-step3 /usr/local/ece551/cyoa/story1
-Valgrind reported memory errors
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 16 (success): cyoa-step3 /usr/local/ece551/cyoa/story2
-Valgrind reported memory errors
-Step 3: Failed test cases as above
+Your file matched the expected output
+Step 3: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step4
-rm -f *~ cyoa-step2
-make: 'cyoa-step4' is up to date.
+rm -f *~ cyoa-step4
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -o cyoa-step4 cyoa.cpp cyoa-step4.cpp
 +-----------------------------------------------------------------------+
 Test case 17 (success): cyoa-step4 /usr/local/ece551/cyoa/story1
 Your file matched the expected output
