@@ -1,6 +1,6 @@
-Grading at 12/03/2021:20:51:32.616658
-For commit ID 9ffc6bfe14a3f6e9b5a0b0a5cae02c8102cff2c1
-Grading at Fri Dec  3 15:51:12 EST 2021
+Grading at 12/03/2021:21:27:50.582990
+For commit ID 87690d862ced153d5d2a75f67b4f285296060daf
+Grading at Fri Dec  3 16:27:35 EST 2021
 Checking Step 1 test cases required for extra credit
 
 Compiling cyoa-step1
@@ -41,62 +41,41 @@ Step 1: PASSED Pre-Grader Test Cases
 
 Compiling cyoa-step2
 rm -f *~ cyoa-step4
-make: 'cyoa-step2' is up to date.
-Compiled for step 2
-Input to story is
-1
-1
-1
-
-+-----------------------------------------------------------------------+
-Test case 11 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
-Your file matched the expected output
-Input to story is
-3
-2
-
-+-----------------------------------------------------------------------+
-Test case 12 (success): cyoa-step2 /usr/local/ece551/cyoa/story1 < pregrader_input.txt
-Your file matched the expected output
-Input to story is
-1
-2
-2
-1
-
-+-----------------------------------------------------------------------+
-Test case 13 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-Your file matched the expected output
-Input to story is
-3
-
-+-----------------------------------------------------------------------+
-Test case 14 (success): cyoa-step2 /usr/local/ece551/cyoa/story2 < pregrader_input.txt
-Your file matched the expected output
-Step 2: PASSED Pre-Grader Test Cases
+g++     cyoa-step2.cpp   -o cyoa-step2
+<builtin>: recipe for target 'cyoa-step2' failed
+The code did not compile!
+Did not compile for step 2
 
 Compiling cyoa-step3
 rm -f *~ cyoa-step4
-make: 'cyoa-step3' is up to date.
-+-----------------------------------------------------------------------+
-Test case 15 (success): cyoa-step3 /usr/local/ece551/cyoa/story1
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case 16 (success): cyoa-step3 /usr/local/ece551/cyoa/story2
-Your file matched the expected output
-Step 3: PASSED Pre-Grader Test Cases
+g++     cyoa-step3.cpp   -o cyoa-step3
+<builtin>: recipe for target 'cyoa-step3' failed
+The code did not compile!
+Did not compile for step 3
 
 Compiling cyoa-step4
 rm -f *~ cyoa-step4
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -o cyoa-step4 cyoa.cpp cyoa-step4.cpp
 +-----------------------------------------------------------------------+
-Test case 17 (success): cyoa-step4 /usr/local/ece551/cyoa/story1
+Test case 11 (success): cyoa-step4 /usr/local/ece551/cyoa/story1
 Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case 18 (success): cyoa-step4 /usr/local/ece551/cyoa/story2
+Test case 12 (success): cyoa-step4 /usr/local/ece551/cyoa/story2
 Your file matched the expected output
 Step 4: PASSED Pre-Grader Test Cases
 Running your test cases
-Cannot proceed without testcases.txt
+
+Compiling cyoa-step1
+rm -f *~ cyoa-step4
+make: 'cyoa-step1' is up to date.
++-----------------------------------------------------------------------+
+Test case 1 (error): cyoa-step1 invalid.txt
+Your program successfully indicated a failure case
+
+Compiling cyoa-step2
+rm -f *~ cyoa-step4
+g++     cyoa-step2.cpp   -o cyoa-step2
+<builtin>: recipe for target 'cyoa-step2' failed
+The code did not compile!
 
 Overall Grade: NO GRADE YET
