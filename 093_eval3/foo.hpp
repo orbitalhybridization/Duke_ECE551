@@ -481,25 +481,31 @@ class Story {
     // build the multiple paths
     std::vector<Choice> choices_from_start = pages[0].getChoices();
     bool unwinnable = true;  // story unwinnable unless proven otherwise
-    for (size_t i = 0; i < choices_from_start.size(); i++) {
-      std::vector<std::pair<int, int> > path = displayPathsHelper(
+
+    for (size_t i = 0; i < choices_from_start.size();
+         i++) {  // iterate through choices from start
+      std::vector<std::vector<std::pair<int, int> > > paths = displayPathsHelper(
           std::make_pair(0, i));  // make a pair for each choice from start
 
-      for (size_t j = 0; j < path.size(); j++) {  // print path if viable
-        if (path[j].first == -1) {                // if not viable path, skip printing
-          continue;
-        }
-        else {
-          unwinnable = false;
-          std::cout << path[j].first + 1 << "(";
+      for (size_t k = 0; k < paths.size(); k++) {
+        std::vector<std::pair<int, int> > path = paths[k];
 
-          if (path[j].second == -1) {  // win case
-            std::cout << "win"
-                      << ")" << std::endl;
+        for (size_t j = 0; j < path.size(); j++) {  // print path if viable
+          if (path[j].first == -1) {                // if not viable path, skip printing
+            continue;
           }
+          else {
+            unwinnable = false;
+            std::cout << path[j].first + 1 << "(";
 
-          else {  // regular case
-            std::cout << path[j].second + 1 << "),";
+            if (path[j].second == -1) {  // win case
+              std::cout << "win"
+                        << ")" << std::endl;
+            }
+
+            else {  // regular case
+              std::cout << path[j].second + 1 << "),";
+            }
           }
         }
       }
@@ -510,22 +516,28 @@ class Story {
     }
   }
 
-  std::vector<std::pair<int, int> > displayPathsHelper(std::pair<int, int> start) {
+  std::vector<std::vector<std::pair<int, int> > > displayPathsHelper(
+      std::pair<int, int> start) {
     // helper function that does the queue calls
     // here I used the bfs example from the book 25.3.3
+
+    // vector for winning paths since there can be multiple paths per divergence from start
+    std::vector<std::vector<std::pair<int, int> > > winning_paths;
+
     std::vector<std::pair<int, int> > startingPath;
     startingPath.push_back(start);  // create initial path with just start node
     std::stack<std::vector<std::pair<int, int> > > paths;  // stack for paths
     std::set<std::pair<int, int> > visited;
     paths.push(startingPath);
+
     while (!paths.empty()) {
       std::vector<std::pair<int, int> > currentPath = paths.top();
       paths.pop();
       std::pair<int, int> currentPage = *(currentPath.end() - 1);
 
-      if (pages[currentPage.first]
-              .isWin()) {  // if we're at a winning page, then we're done
-        return currentPath;
+      if (pages[currentPage.first].isWin()) {  // if we're at a winning page, then add
+        winning_paths.push_back(currentPath);
+        continue;  // continue because we dont need to process
       }
 
       if (visited.find(currentPage) == visited.end()) {  // if not in visited
@@ -555,19 +567,27 @@ class Story {
              i++) {  // add paths with other nodes
 
           std::vector<std::pair<int, int> > newPath = currentPath;
-          //        newPath.push_back(std::make_pair(choices[i].getPageNum() - 1, i));
-          //          std::cout << "Adding choice " << i + 1 << " of page " << next_page_num + 1
-          //        << " which is page " << next_page_choices[i].getPageNum()
+          //  std::cout << "Adding choice " << i + 1 << " of page " << next_page_num + 1
+          //                    << " which is page " << next_page_choices[i].getPageNum()
           //        << std::endl;
           newPath.push_back(std::make_pair(next_page_num, i));
           paths.push(newPath);
         }
       }
     }
-    std::pair<int, int> no_path = std::make_pair(-1, -1);  // no valid path
-    std::vector<std::pair<int, int> > no_path_vec;
-    no_path_vec.push_back(no_path);
-    return no_path_vec;
+    // end while loop
+    if (winning_paths.empty()) {  // case: no winning paths
+      std::vector<std::pair<int, int> > no_path;
+      no_path.push_back(std::make_pair(-1, -1));  // no valid path
+
+      std::vector<std::vector<std::pair<int, int> > > no_path_vec;
+
+      no_path_vec.push_back(no_path);
+      return no_path_vec;
+    }
+    else {
+      return winning_paths;
+    }
   }
 
   void displayPageDepths() {
