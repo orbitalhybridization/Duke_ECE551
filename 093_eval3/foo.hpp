@@ -477,7 +477,9 @@ class Story {
   }  // copy ctor
 
   void displayPaths() {
+    // run depth first search from page 1's choices
     // here I used the dfs example from the book 25.3.3
+
     // build the multiple paths
     std::vector<Choice> choices_from_start = pages[0].getChoices();
     bool unwinnable = true;  // story unwinnable unless proven otherwise
@@ -549,11 +551,7 @@ class Story {
       // get the page this is leading to
       int next_page_num = choices[currentPage.second].getPageNum() - 1;
 
-      //      std::cout << "Current page " << currentPage.first + 1 << "." << std::endl;
-      //      std::cout << "Choice number is " << currentPage.second + 1 << "." << std::endl;
-
       std::vector<Choice> next_page_choices = pages[next_page_num].getChoices();
-      //      std::cout << "So next page " << next_page_num + 1 << "." << std::endl;
 
       if (pages[next_page_num]
               .isWin()) {  // if we're at a win, just add it to current path
@@ -567,15 +565,13 @@ class Story {
              i++) {  // add paths with other nodes
 
           std::vector<std::pair<int, int> > newPath = currentPath;
-          //  std::cout << "Adding choice " << i + 1 << " of page " << next_page_num + 1
-          //                    << " which is page " << next_page_choices[i].getPageNum()
-          //        << std::endl;
+
           newPath.push_back(std::make_pair(next_page_num, i));
           paths.push(newPath);
         }
       }
-    }
-    // end while loop
+    }  // end while loop
+
     if (winning_paths.empty()) {  // case: no winning paths
       std::vector<std::pair<int, int> > no_path;
       no_path.push_back(std::make_pair(-1, -1));  // no valid path
@@ -585,7 +581,7 @@ class Story {
       no_path_vec.push_back(no_path);
       return no_path_vec;
     }
-    else {
+    else {  // case: winning paths exist!
       return winning_paths;
     }
   }
