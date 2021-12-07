@@ -1,81 +1,238 @@
-Grading at 12/03/2021:21:27:50.582990
+Grading at 12/07/2021:04:36:42.383811
 For commit ID 87690d862ced153d5d2a75f67b4f285296060daf
-Grading at Fri Dec  3 16:27:35 EST 2021
-Checking Step 1 test cases required for extra credit
+Grading at Mon Dec  6 23:35:55 EST 2021
 
-Compiling cyoa-step1
+=========================================================================
+Step 1
+
+Checking that cyoa-step1 compiles
 rm -f *~ cyoa-step4
 make: 'cyoa-step1' is up to date.
-Compiled for step 1
 +-----------------------------------------------------------------------+
-Test case 1 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page1.txt
-Your file matched the expected output
+Test case 1
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
 +-----------------------------------------------------------------------+
-Test case 2 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page2.txt
-Your file matched the expected output
+Test case 2
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
 +-----------------------------------------------------------------------+
-Test case 3 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page3.txt
-Your file matched the expected output
+Test case 3
+Your program successfully indicated a failure case
+                                                         [1/1]
 +-----------------------------------------------------------------------+
-Test case 4 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page4.txt
-Your file matched the expected output
+Test case 4
+Your program did not indicate a failure case
+                                                         [0/2]
 +-----------------------------------------------------------------------+
-Test case 5 (success): cyoa-step1 /usr/local/ece551/cyoa/story1/page5.txt
-Your file matched the expected output
+Test case 5
+Your program successfully indicated a failure case
+                                                         [2/2]
 +-----------------------------------------------------------------------+
-Test case 6 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page1.txt
-Your file matched the expected output
+Test case 6
+Your program did not indicate a failure case
+                                                         [0/2]
 +-----------------------------------------------------------------------+
-Test case 7 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page2.txt
-Your file matched the expected output
+Test case 7
+Your program did not indicate a failure case
+                                                         [0/2]
 +-----------------------------------------------------------------------+
-Test case 8 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page3.txt
+Test case 8
 Your file matched the expected output
+                                                         [2/2]
 +-----------------------------------------------------------------------+
-Test case 9 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page4.txt
+Test case 9
 Your file matched the expected output
+                                                         [2/2]
 +-----------------------------------------------------------------------+
-Test case 10 (success): cyoa-step1 /usr/local/ece551/cyoa/story2/page5.txt
+Test case 10
 Your file matched the expected output
-Step 1: PASSED Pre-Grader Test Cases
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 11
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 12
+Your file matched the expected output
+                                                         [2/2]
 
-Compiling cyoa-step2
+Step 1 total                                             [14.0/20]
+
+=========================================================================
+Step 2
+
+Checking that cyoa-step2 compiles
 rm -f *~ cyoa-step4
-g++     cyoa-step2.cpp   -o cyoa-step2
-<builtin>: recipe for target 'cyoa-step2' failed
-The code did not compile!
-Did not compile for step 2
+make: 'cyoa-step2' is up to date.
++-----------------------------------------------------------------------+
+Test case 13
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 14
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 15
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 16
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+Test case 17
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+Test case 18
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+Test case 19
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+Test case 20
+Your program successfully indicated a failure case
+                                                         [1/1]
++-----------------------------------------------------------------------+
+Test case 21
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 22
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 23
+Valgrind reported memory errors
+Line_54_did_not_match
+Line_56_did_not_match
+Your file did not match the expected output
+                                                         [0/2]
++-----------------------------------------------------------------------+
+Test case 24
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 25
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 26
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 27
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 28
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 29
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 30
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 31
+Your file matched the expected output
+                                                         [2/2]
 
-Compiling cyoa-step3
+Step 2 total                                             [28.0/30]
+
+=========================================================================
+Step 3
+
+Checking that cyoa-step3 compiles
 rm -f *~ cyoa-step4
 g++     cyoa-step3.cpp   -o cyoa-step3
 <builtin>: recipe for target 'cyoa-step3' failed
 The code did not compile!
-Did not compile for step 3
 
-Compiling cyoa-step4
+Step 3 total                                             [0/20]
+
+=========================================================================
+Step 4
+
+Checking that cyoa-step4 compiles
 rm -f *~ cyoa-step4
 g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -o cyoa-step4 cyoa.cpp cyoa-step4.cpp
 +-----------------------------------------------------------------------+
-Test case 11 (success): cyoa-step4 /usr/local/ece551/cyoa/story1
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case 12 (success): cyoa-step4 /usr/local/ece551/cyoa/story2
-Your file matched the expected output
-Step 4: PASSED Pre-Grader Test Cases
-Running your test cases
-
-Compiling cyoa-step1
-rm -f *~ cyoa-step4
-make: 'cyoa-step1' is up to date.
-+-----------------------------------------------------------------------+
-Test case 1 (error): cyoa-step1 invalid.txt
+Test case 32
 Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 33
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 34
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 35
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 36
+Your program did not indicate a failure case
+  But it did print to stderr
+                                                         [.25/0.5]
++-----------------------------------------------------------------------+
+Test case 37
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 38
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 39
+Your file matched the expected output
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 40
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 41
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 42
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 43
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 44
+Valgrind reported memory errors
+Your file did not match the expected output
+                                                         [0/2]
 
-Compiling cyoa-step2
-rm -f *~ cyoa-step4
-g++     cyoa-step2.cpp   -o cyoa-step2
-<builtin>: recipe for target 'cyoa-step2' failed
-The code did not compile!
+Step 4 total                                             [17.75/20]
 
-Overall Grade: NO GRADE YET
+=========================================================================
+Code quality
+
+Abstration:    
+OOP:           
+Naming:        
+Formatting:    
+Documentation: 
+Comments from your grader:
+
+Quality total                                            [#N/A/10]
+
+=========================================================================
+
+Overall Grade: 0
