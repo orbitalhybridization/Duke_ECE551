@@ -1,6 +1,6 @@
-Grading at 12/07/2021:04:36:42.383811
+Grading at 12/09/2021:16:07:45.797914
 For commit ID 87690d862ced153d5d2a75f67b4f285296060daf
-Grading at Mon Dec  6 23:35:55 EST 2021
+Grading at Thu Dec  9 11:06:44 EST 2021
 
 =========================================================================
 Step 1
@@ -152,18 +152,7 @@ Step 3
 
 Checking that cyoa-step3 compiles
 rm -f *~ cyoa-step4
-g++     cyoa-step3.cpp   -o cyoa-step3
-<builtin>: recipe for target 'cyoa-step3' failed
-The code did not compile!
-
-Step 3 total                                             [0/20]
-
-=========================================================================
-Step 4
-
-Checking that cyoa-step4 compiles
-rm -f *~ cyoa-step4
-g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -o cyoa-step4 cyoa.cpp cyoa-step4.cpp
+make: 'cyoa-step3' is up to date.
 +-----------------------------------------------------------------------+
 Test case 32
 Your program successfully indicated a failure case
@@ -200,21 +189,95 @@ Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case 40
 Your file matched the expected output
-                                                         [4/4]
+                                                         [2/2]
 +-----------------------------------------------------------------------+
 Test case 41
 Your file matched the expected output
-                                                         [4/4]
+                                                         [2/2]
 +-----------------------------------------------------------------------+
 Test case 42
 Your file matched the expected output
-                                                         [3/3]
+                                                         [2/2]
 +-----------------------------------------------------------------------+
 Test case 43
 Your file matched the expected output
-                                                         [3/3]
+                                                         [2/2]
 +-----------------------------------------------------------------------+
 Test case 44
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 45
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 46
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 47
+Your file matched the expected output
+                                                         [2/2]
+
+Step 3 total                                             [19.75/20]
+
+=========================================================================
+Step 4
+
+Checking that cyoa-step4 compiles
+rm -f *~ cyoa-step4
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -o cyoa-step4 cyoa.cpp cyoa-step4.cpp
++-----------------------------------------------------------------------+
+Test case 48
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 49
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 50
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 51
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 52
+Your program did not indicate a failure case
+  But it did print to stderr
+                                                         [.25/0.5]
++-----------------------------------------------------------------------+
+Test case 53
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 54
+Your program successfully indicated a failure case
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 55
+Your file matched the expected output
+                                                         [0.5/0.5]
++-----------------------------------------------------------------------+
+Test case 56
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 57
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 58
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 59
+Your file matched the expected output
+                                                         [3/3]
++-----------------------------------------------------------------------+
+Test case 60
 Valgrind reported memory errors
 Your file did not match the expected output
                                                          [0/2]
@@ -224,15 +287,24 @@ Step 4 total                                             [17.75/20]
 =========================================================================
 Code quality
 
-Abstration:    
-OOP:           
-Naming:        
-Formatting:    
-Documentation: 
+Abstration:    Excellent
+OOP:           Good
+Naming:        Excellent
+Formatting:    Excellent
+Documentation: Excellent
 Comments from your grader:
-
-Quality total                                            [#N/A/10]
+Great abstraction to make each main very readable. For OOP, the Page class is 
+great, but could be extended to choice pages vs end pages, since not every page 
+has choices. A Story that has a vector of Pages is great. Story's destructor 
+does not need to be virtual, since Story is not used polymorphically.  I would 
+separate the code for Page and Story into page.cpp and story.cpp, each with a 
+header file to make your souce code more navigable. Naming is excellent. 
+Formatting is standard. Documentation is great—you probably don't need so 
+many comments in the header file, but comments in cpp file are  mostly exactly 
+what is needed. Well done.
+Quality total                                            [9.7/10]
 
 =========================================================================
+Extra credit for early progress: 6
 
-Overall Grade: 0
+Overall Grade: 95
